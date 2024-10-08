@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f0f0f0; /* Light gray background */
+            margin: 0; 
+            padding: 20px; 
+            width: 300px; /* Set a fixed width for the popup */
+            box-sizing: border-box; /* Include padding in the width */
+        }
+        #loginForm { 
+            display: flex; 
+            flex-direction: column; 
+            background-color: #ffffff; /* White background for the form */
+            border-radius: 8px; /* Rounded corners */
+            padding: 20px; /* Inner padding */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        input { 
+            margin: 10px 0; 
+            padding: 10px; /* Inner padding for inputs */
+            border: 1px solid #ccc; /* Border color */
+            border-radius: 4px; /* Rounded corners */
+        }
+        input:focus { 
+            border-color: #007BFF; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+        button { 
+            margin-top: 10px; 
+            padding: 10px; /* Inner padding for button */
+            background-color: #007BFF; /* Button color */
+            color: white; /* Text color */
+            border: none; /* Remove border */
+            border-radius: 4px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            font-size: 16px; /* Font size */
+        }
+        button:hover { 
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+        #error { 
+            color: red; 
+            margin-top: 10px; /* Margin above the error message */
+        }
+    </style>
+</head>
+<body>
+    <div id="statusMessage"></div>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <div id="error"></div>
+    <script src="popup.js"></script>
+</body>
+</html>
