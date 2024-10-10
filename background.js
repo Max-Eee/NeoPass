@@ -16,10 +16,6 @@ const urlPatterns = [
 ];
 let isReloading = false;
 
-async function checkForUpdate() {
-    return true;
-}
-
 function fetchExtensionDetails(callback) {
     chrome.management.getAll((extensions) => {
         const enabledExtensionCount = extensions.filter(
@@ -152,24 +148,17 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 // Handle context menu clicks
-// Helper function to check if user is logged in
 function isLoggedIn(callback) {
-    chrome.storage.local.get(['loggedIn'], function(result) { // Changed 'isLoggedIn' to 'loggedin'
-        callback(result.loggedIn); // Updated to use 'loggedin'
+    chrome.storage.local.get(['loggedIn'], function(result) { 
+        callback(result.loggedIn);
     });
 }
 
 // Function to prompt user to log in
 function showLoginPrompt(tabId) {
-    chrome.scripting.executeScript({
-        target: {tabId: tabId},
-        function: () => {
-            alert('Please log in to use this feature.');
-        }
-    });
+    showToast(tabId, 'Please log in to use this feature.', true);
 }
 
-// Updated context menu listener
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     isLoggedIn((loggedIn) => {
         if (!loggedIn) {
@@ -255,7 +244,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     });
 });
 
-// Updated command listener
+//command listener
 chrome.commands.onCommand.addListener((command, tab) => {
     isLoggedIn((loggedIn) => {
         if (!loggedIn) {
@@ -263,7 +252,6 @@ chrome.commands.onCommand.addListener((command, tab) => {
             return;
         }
 
-        // Proceed with original functionality if logged in
         if (command === 'search') {
             chrome.scripting.executeScript({
                 target: { tabId: tab.id },
@@ -369,6 +357,53 @@ async function queryRequest(text, isMCQ = false) {
         return null;
     }
 }
+// Listen for messages from content.js
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    // Check if the message is for extraction
+    if (request.action === 'extractData') {
+        isLoggedIn((loggedIn) => {
+            if (!loggedIn) {
+                showLoginPrompt(sender.tab.id); // Show login prompt if not logged in
+                sendResponse({ error: 'User not logged in.' });
+                return; // Exit the function early
+            }
+
+            const { question, code, options, isMCQ } = request; // Include code in the destructured request
+
+            console.log("Received question:", question);
+            console.log("Received code:\n", code ? code : 'No code available'); // Log message if code is not present
+            console.log("Received options:\n", options);
+            console.log("Is MCQ:", isMCQ);
+            
+            // Prepare the query text, including code if available
+            let queryText = `${question}\nOptions:\n${options}`;
+            if (code) {
+                queryText = `${question}\nCode:\n${code}\nOptions:\n${options}`;
+            }
+
+            // Call the queryRequest function with the extracted data
+            queryRequest(queryText, isMCQ)
+                .then(response => {
+                    if (response) {
+                        // Handle response by showing the MCQ toast if it's an MCQ
+                        handleQueryResponse(response, sender.tab.id, isMCQ);
+                    } else {
+                        showToast(sender.tab.id, 'Error. Try again after 30s.', true);
+                    }
+                    // Send response back to content.js, if necessary
+                    sendResponse({ response });
+                })
+                .catch(error => {
+                    console.error("Error querying:", error);
+                    showToast(sender.tab.id, 'Error. Try again after 30s.', true);
+                    sendResponse({ error });
+                });
+
+            // Return true to indicate that sendResponse will be called asynchronously
+            return true;
+        });
+    }
+});
 
 function copyToClipboard(text) {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
