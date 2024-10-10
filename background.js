@@ -369,12 +369,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             }
 
             const { question, code, options, isMCQ } = request; // Include code in the destructured request
-
-            console.log("Received question:", question);
-            console.log("Received code:\n", code ? code : 'No code available'); // Log message if code is not present
-            console.log("Received options:\n", options);
-            console.log("Is MCQ:", isMCQ);
-            
+          
             // Prepare the query text, including code if available
             let queryText = `${question}\nOptions:\n${options}`;
             if (code) {
