@@ -1,0 +1,85 @@
+{
+  "manifest_version": 3,
+  "name": "NeoExamShield",
+  "version": "1.16",
+  "description": "To prevent malpractice, identifies and blocks third-party browser extensions during tests on the Iamneo portal. Also provides tools for AI responses, custom copy/paste, and keeping the window active.",
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "management",
+    "tabs",
+    "activeTab",
+    "contextMenus",
+    "clipboardWrite",
+    "clipboardRead",
+    "storage",
+    "scripting",
+    "downloads",
+    "windows"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "js": [
+        "data/inject/rightclickmenu.js",
+        "data/inject/isolated.js",
+        "data/inject/content.js",
+        "data/inject/main.js",
+        "contentScript.js"
+      ],
+      "exclude_matches": [
+        "*://*.discord.com/*",
+        "*://*.figma.com/*"
+      ]
+    }
+  ],
+  "commands": {
+    "search-mcq": {
+      "suggested_key": {
+        "default": "Alt+Shift+X"
+      },
+      "description": "Solve MCQs"
+    },
+    "search": {
+      "suggested_key": {
+        "default": "Alt+Shift+Z"
+      },
+      "description": "Solve MCQs"
+    },
+    "custom-copy": {
+      "suggested_key": {
+        "default": "Alt+Shift+C"
+      },
+      "description": "Custom Copy"
+    },
+    "custom-paste": {
+      "suggested_key": {
+        "default": "Alt+Shift+V"
+      },
+      "description": "Custom Paste"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "version_name": "Release Version",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA41rIOYBJkYaRSfAOUOWwgCe0X/0rW+Cn04kAuM1j2i0i461w5IodNoMQMOGixC8vK1hrDnxHVfgTh/NsYVK0Dl9I/BAiSdA8o3JWCMqqLk2ZMy4022lH+apQ0aDSmMJfrdLxS411N0Vyo3QCHisFy7cYfQAjc0z1KcuahkrPa6MoVSlJo6yN5601xR0ezeZiIeiweCqK4YKxziQ8dRSj6X5SQ1DXCDKfC8/1Ssam8cY2vn9GHm6ICL4nkPInZB8MBLdzjiEXxs9ciWrkxUfIOa5ewH1dXBeBSfll8ukM5G+5t3KxJyJM0JZLJZfVHWk5PZZLoa6YCja1YnUhUazXOQIDAQAB"
+}
