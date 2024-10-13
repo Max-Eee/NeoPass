@@ -7,7 +7,8 @@
 > **Exiting Fullscreen**: Please be aware that exiting fullscreen mode may cause the test to submit after certain attempts, instead **Alt + Tab**. Use this feature with caution! The developer is sorry for this limitation; "he tried." 😅
 
 > [!IMPORTANT]
-> **Get Your Credentials**: To obtain your credentials, send a screenshot of starring 🌟 this repository via email: [praveenchn2004@gmail.com](mailto:praveenchn2004@gmail.com).
+> **Get Your Credentials**: To obtain your credentials, send a screenshot of starring 🌟 this repository via email: [praveenchn2004@gmail.com](mailto:praveenchn2004@gmail.com). 
+> Also a follow would be nice 😄. Just Sayin.
 > This is manual process so it might take days to get your credentials mailed to you.
 > **Note:** Your credentials maybe reworked at point of time.
 
