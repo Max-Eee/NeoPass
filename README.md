@@ -15,7 +15,7 @@ Welcome to **NeoPass**! This Chrome extension is designed specifically for stude
 
 ## ❤️ Special Thanks 
 
-This project is heavily inspired by Sreecharan. Huge credits to him for his contributions! You can check out his repository [here](https://github.com/sr2echa). For more advanced features, including GPT-4 capabilities and chatbot functionality, consider getting the paid version from his website: [Thotta](https://thotta.vercel.app).
+This project is heavily inspired from Sreecharan. Huge credits to him for his contributions! You can check out his repository [here](https://github.com/sr2echa). For more advanced features, including GPT-4 capabilities and chatbot functionality, consider getting the paid version from his website: [Thotta](https://thotta.vercel.app).
 
 ## ✨ Features
 
