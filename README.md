@@ -34,7 +34,7 @@ This project is heavily inspired by Sreecharan. Huge credits to him for his cont
 
 ## 🛠️ Usage
 
-Once installed, the extension will automatically activate when you enter the **Iamneo portal**. You can easily utilize its features by using the following shortcuts:
+Once installed, **Login with your credentials** and the extension will be activate once you **refresh** . You can easily utilize its features by using the following shortcuts:
 
 ## ⌨️ Shortcuts
 
