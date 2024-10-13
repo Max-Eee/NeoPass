@@ -37,7 +37,7 @@ Once installed, the extension will automatically activate when you enter the **I
 
 ## ⌨️ Shortcuts
 
-- **Alt + Shift + Z**: Search answers 🔍
+- **Alt + Shift + Z**: Search answers Note: Answers are saved in the clipboard so you can use **Alt + Shift + V** 🔍
 - **Alt + Shift + X**: Search MCQs 📑
 - **Alt + Shift + N**: Search Iam Neo MCQs 📘
 - **Alt + Shift + V**: Paste answers quickly ✂️
