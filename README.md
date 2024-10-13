@@ -19,7 +19,7 @@ This project is heavily inspired by Sreecharan. Huge credits to him for his cont
 ## ✨ Features
 
 - **Seamless Stealth Search**: Perform AI-powered searches while taking your tests, helping you find answers without switching tabs! 🕵️‍♂️
-- **Tab Switching Bypass**: Our extension prevents unwanted tab switches, ensuring you stay focused on your exam. 🔒
+- **Tab Switching Bypass**: Our extension prevents unwanted tab switch restrictions. 🔒
 - **Custom Pasting Shortcuts**: Quickly paste answers with ease, reducing the time spent on manual entry. 📋
 - **AI Assistance**: Leverage AI to enhance your search capabilities for a better test-taking experience. 🤖
 
