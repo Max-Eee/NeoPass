@@ -49,4 +49,4 @@ We'd love to hear your thoughts! If you encounter any issues or have suggestions
 
 ## 🔜 Comming Soon...
 
-Search **NPTEL** Wildlife ecology answers offile
+Search **NPTEL** Wildlife ecology answers offline
