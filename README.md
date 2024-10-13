@@ -9,7 +9,7 @@
 > [!IMPORTANT]
 > **Get Your Credentials**: To obtain your credentials, send a screenshot of starring 🌟 this repository via email: [praveenchn2004@gmail.com](mailto:praveenchn2004@gmail.com).
 > This is manual process so it might take days to get your credentials mailed to you.
-> **Note:** Your credentials maybe reworked at point of time
+> **Note:** Your credentials maybe reworked at point of time.
 
 # 🚀 Launching **Free** NeoPass Extentsion
 
