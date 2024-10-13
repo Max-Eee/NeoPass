@@ -1,5 +1,6 @@
 > [!WARNING]
 > **Educational Purposes Only**: This extension is intended for educational purposes. Please use it responsibly and ethically.
+> I am not responsible for any actions taken, and I do not encourage or promote cheating in any way.
 > Be cautious when using the extension to maintain academic integrity
 
 > [!WARNING]
