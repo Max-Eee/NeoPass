@@ -11,7 +11,7 @@
 
 # 🚀 Launching **Free** NeoPass Extentsion
 
-Welcome to **NeoPass**! This Chrome extension is designed specifically for students taking tests on the **Iamneo portal** and other exam portals that limits your abilities. With powerful features to enhance your exam experience, you can now focus on your studies without worrying about browser distractions. 
+Welcome to **NeoPass**! This Chrome extension is designed specifically for students taking tests on the **Iamneo portal** and other exam portals that limits your abilities. With powerful features to enhance your exam experience, you can now focus on your studies which you want to study without worrying about exam distractions. 
 
 ## ❤️ Special Thanks 
 
