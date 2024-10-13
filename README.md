@@ -39,7 +39,7 @@ Once installed, **Login with your credentials** and the extension will be activa
 ## ⌨️ Shortcuts
 
 - **Alt + Shift + N**: Solve Iam Neo MCQs Quickly 📘 [New]
-- **Alt + Shift + Z**: Search answers Note: Answers are saved in the clipboard so you can use **Alt + Shift + V** 🔍
+- **Alt + Shift + Z**: Search Answers and Code. Note: Answers are saved in the clipboard so you can use **Alt + Shift + V** on a text box 🔍
 - **Alt + Shift + X**: Search MCQs 📑
 - **Alt + Shift + V**: Paste answers quickly ✂️
 
