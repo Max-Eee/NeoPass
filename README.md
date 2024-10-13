@@ -7,6 +7,7 @@
 
 > [!IMPORTANT]
 > **Get Your Credentials**: To obtain your credentials, send a screenshot of starring this repository via email: [praveenchn2004@gmail.com](mailto:praveenchn2004@gmail.com).
+> This is manual process so it might take days to get your credentials mailed to you.
 
 # 🚀 Launching **Free** NeoPass Extentsion
 
@@ -37,9 +38,9 @@ Once installed, the extension will automatically activate when you enter the **I
 
 ## ⌨️ Shortcuts
 
+- **Alt + Shift + N**: Solve Iam Neo MCQs Quickly 📘 [New]
 - **Alt + Shift + Z**: Search answers Note: Answers are saved in the clipboard so you can use **Alt + Shift + V** 🔍
 - **Alt + Shift + X**: Search MCQs 📑
-- **Alt + Shift + N**: Search Iam Neo MCQs 📘
 - **Alt + Shift + V**: Paste answers quickly ✂️
 
 ## 💬 Feedback
