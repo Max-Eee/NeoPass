@@ -34,7 +34,7 @@ This project is heavily inspired from Sreecharan. Huge credits to him for his co
 
 ## 🛠️ Usage
 
-Once installed, **Login with your credentials** and the extension will be activate once you **refresh** . You can easily utilize its features by using the following shortcuts:
+Once installed, **Login with your credentials** and the extension will be activate once you **refresh the page** . You can easily utilize its features by using the following shortcuts:
 
 ## ⌨️ Shortcuts
 
