@@ -62,11 +62,11 @@
       },
       "description": "Solve MCQs"
     },
-    "custom-copy": {
+    "nptel": {
       "suggested_key": {
-        "default": "Alt+Shift+C"
+        "default": "Alt+Shift+N"
       },
-      "description": "Custom Copy"
+      "description": "nptel"
     },
     "custom-paste": {
       "suggested_key": {
