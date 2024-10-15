@@ -29,7 +29,7 @@ This project is heavily inspired from Sreecharan. Huge credits to him for his co
 
 ## 🔑 Installation
 
-1. Download the extension from the [Chrome Web Store](link-to-your-extension).
+1. [Download](https://github.com/Max-Eee/NeoPass/archive/refs/heads/main.zip) the extension.
 2. Open Chrome and go to the Extensions page by typing `chrome://extensions/`.
 3. Enable **Developer mode** in the top right corner.
 4. Click on **Load unpacked** and select the folder where the extension is located.
