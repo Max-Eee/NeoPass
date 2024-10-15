@@ -1,46 +1,6 @@
 window.addEventListener('blur', function() {
     window.focus();
 });
-// Function to extract the question, code, and options
-// Listen for messages from content.js
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    // Check if the message is for extraction
-    if (request.action === 'extractData') {
-        const { question, code, options, isMCQ } = request; // Include code in the destructured request
-
-        console.log("Received question:", question);
-        console.log("Received code:\n", code ? code : 'No code available'); // Log message if code is not present
-        console.log("Received options:\n", options);
-        console.log("Is MCQ:", isMCQ);
-        
-        // Prepare the query text, including code if available
-        let queryText = `${question}\nOptions:\n${options}`;
-        if (code) {
-            queryText = `${question}\nCode:\n${code}\nOptions:\n${options}`;
-        }
-
-        // Call the queryRequest function with the extracted data
-        queryRequest(queryText, isMCQ)
-            .then(response => {
-                if (response) {
-                    // Handle response by showing the MCQ toast if it's an MCQ
-                    handleQueryResponse(response, sender.tab.id, isMCQ);
-                } else {
-                    showToast(sender.tab.id, 'Error. Try again after 30s.', true);
-                }
-                // Send response back to content.js, if necessary
-                sendResponse({ response });
-            })
-            .catch(error => {
-                console.error("Error querying:", error);
-                showToast(sender.tab.id, 'Error. Try again after 30s.', true);
-                sendResponse({ error });
-            });
-
-        // Return true to indicate that sendResponse will be called asynchronously
-        return true;
-    }
-});
 
 // Function to extract the question, code, and options
 function extractQuestionCodeAndOptions() {
@@ -98,7 +58,7 @@ async function handleQuestionExtraction() {
 }
 
 document.addEventListener('keydown', (event) => {
-    if (event.altKey && event.shiftKey && event.code === 'KeyN') {
+    if (event.altKey && event.shiftKey && event.code === 'KeyQ') {
         handleQuestionExtraction();
     }
 });
