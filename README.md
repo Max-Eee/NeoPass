@@ -23,7 +23,7 @@ This project is heavily inspired by Sreecharan. Huge credits to him for his cont
 
 ## ✨ Features
 
-- **NPTEL Integration**: Quickly access answers from NPTEL for Wildlife ecology using the shortcut **Alt + Shift + N**! 🫎
+- **NPTEL Integration**: Quickly access NPTEL answers for Wildlife ecology using the shortcut **Alt + Shift + N**! 🫎
 - **Seamless Stealth Search**: Perform AI-powered searches while taking your tests, helping you find answers without switching tabs! 🕵️‍♂️
 - **Tab Switching Bypass**: Our extension prevents unwanted tab switch restrictions. 🔒
 - **Custom Pasting Shortcuts**: Quickly paste answers with ease, reducing the time spent on manual entry. 📋
