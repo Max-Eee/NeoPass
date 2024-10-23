@@ -11,7 +11,7 @@
 > **Get Your Credentials**: To obtain your credentials, send a screenshot of starring 🌟 this repository via email: [praveenchn2004@gmail.com](mailto:praveenchn2004@gmail.com).  
 > Also, a follow would be nice 😄. Just Sayin.  
 > This is a manual process, so it might take days to get your credentials mailed to you.  
-> **Note:** Your credentials may be reworked at any point in time.
+> **Note:** Your credentials may be revoked at any point in time.
 
 # 🚀 Launching **Free** NeoPass Extension With NPTEL Integration.
 
