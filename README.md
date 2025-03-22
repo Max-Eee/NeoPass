@@ -1,5 +1,4 @@
-# <i>**`Free`** NeoPass Extension (not for Neobrowser)</i>
-
+# <i>**`Free`** NeoPass Extension
 This chrome extension is for students taking tests on the **`Iamneo portal`**, **`Wildlife Ecology NPTEL`**<br> and `other exam portals` that restrict your abilities
 
 ---
