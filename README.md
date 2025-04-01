@@ -11,11 +11,10 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 > [!IMPORTANT]
 > **Get Your Credentials**: To obtain your credentials, it is essential to visit the website [freeneopass.tech](https://www.freeneopass.tech) and follow the instructions provided there.  
 > Accessing the website is crucial for a seamless experience with the extension.  
-> **Note:** Your credentials may be revoked at any point in time.
 
 > [!WARNING]
 > **Educational Purposes Only**: This extension is intended for educational purposes. Please use it responsibly and ethically.  
-> I am not responsible for any actions taken, and I do not encourage or promote cheating in any way.  
+> We am not responsible for any actions taken, and we do not encourage or promote cheating in any way.  
 > Be cautious when using the extension to maintain academic integrity.
 
 ## ✨ Features
@@ -56,7 +55,7 @@ Once installed, **login with your credentials** obtained from our [website](http
 
 We'd love to hear your thoughts! If you encounter any issues or have suggestions for improvement, please reach out. Your feedback is invaluable! 💌
 
-📧 **Contact me at:** [freeneopass@gmail.com](mailto:freeneopass@gmail.com)
+📧 **Contact us at:** [freeneopass@gmail.com](mailto:freeneopass@gmail.com)
 
 ## License
 
