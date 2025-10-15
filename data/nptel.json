@@ -448,11 +448,11 @@
         "answer": "all of the above"
     },
     {
-        "question": "Consider the food chain: Grass → Grasshopper → Frog --> Snake → Hawk. In this food chain,",
+        "question": "Consider the food chain: Grass \u2192 Grasshopper \u2192 Frog --> Snake \u2192 Hawk. In this food chain,",
         "answer": "grass is producer"
     },
     {
-        "question": "Consider the food chain: Grass → Grasshopper → Frog --> Snake → Hawk. In this food chain,",
+        "question": "Consider the food chain: Grass \u2192 Grasshopper \u2192 Frog --> Snake \u2192 Hawk. In this food chain,",
         "answer": "grasshopper is consumer"
     },
     {
@@ -468,11 +468,11 @@
         "answer": "together"
     },
     {
-        "question": "“the ability of a single economic actor (or small group of actors) to have a substantial influence on market prices” is known as",
+        "question": "\u201cthe ability of a single economic actor (or small group of actors) to have a substantial influence on market prices\u201d is known as",
         "answer": "market power"
     },
     {
-        "question": "“an economy that allocates resources through the decentralised decisions of many firms and households as they interact in markets for goods and services” is a / an",
+        "question": "\u201can economy that allocates resources through the decentralised decisions of many firms and households as they interact in markets for goods and services\u201d is a / an",
         "answer": "market economy"
     },
     {
@@ -484,7 +484,7 @@
         "answer": "Wants are unlimited, resources are limited"
     },
     {
-        "question": "“an increase in the overall level of prices in the economy” is",
+        "question": "\u201can increase in the overall level of prices in the economy\u201d is",
         "answer": "inflation"
     },
     {
@@ -528,11 +528,11 @@
         "answer": "scoping"
     },
     {
-        "question": "“the potential or capacity of a material to have adverse effects on living organisms” is",
+        "question": "\u201cthe potential or capacity of a material to have adverse effects on living organisms\u201d is",
         "answer": "toxicity"
     },
     {
-        "question": "A deciduous forest in Madhya Pradesh was converted to a mine. After the mining operations were over, the pits were filled up with soil and                      species of deciduous forest planted again. This is an example of",
+        "question": "A deciduous forest in Madhya Pradesh was converted to a mine. After the mining operations were over, the pits were filled up with soil and\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 species of deciduous forest planted again. This is an example of",
         "answer": "restoration"
     },
     {
@@ -540,11 +540,11 @@
         "answer": "pyrogenic hydrocarbons"
     },
     {
-        "question": "A deciduous forest in Madhya Pradesh was converted to a mine. After the mining operations were over, the pits were filled up with water and a               lake was created. It is now visited by several migratory birds. This is an example of",
+        "question": "A deciduous forest in Madhya Pradesh was converted to a mine. After the mining operations were over, the pits were filled up with water and a\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0lake was created. It is now visited by several migratory birds. This is an example of",
         "answer": "replacement"
     },
     {
-        "question": "“the relative effect of exposure” is",
+        "question": "\u201cthe relative effect of exposure\u201d is",
         "answer": "sensitivity"
     },
     {
@@ -552,7 +552,7 @@
         "answer": "screening"
     },
     {
-        "question": "“the extent to which a chemical is available for uptake into an organism” is",
+        "question": "\u201cthe extent to which a chemical is available for uptake into an organism\u201d is",
         "answer": "bioavailability"
     },
     {
@@ -560,12 +560,12 @@
         "answer": "biogenic hydrocarbons"
     },
     {
-        "question": "“Any changes in natural or human systems that inadvertently increase vulnerability to climatic stimuli; an adaptation that does not succeed in                reducing vulnerability but increases it instead” is a definition for",
+        "question": "\u201cAny changes in natural or human systems that inadvertently increase vulnerability to climatic stimuli; an adaptation that does not succeed in\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 reducing vulnerability but increases it instead\u201d is a definition for",
         "answer": "maladaptation"
     },
     {
         "question": "\"The geographical distribution of a species will be controlled by that environmental factor for which the organism has the narrowest range of tolerance.\" This is the statement for",
-        "answer": "Shelford’s law of tolerance"
+        "answer": "Shelford\u2019s law of tolerance"
     },
     {
         "question": "Which of these is a stochastic factor?",
@@ -573,18 +573,18 @@
     },
     {
         "question": "Which of these correctly represents the process of habitat fragmentation and loss?",
-        "answer": "Original forest → Dissection → Perforation → Fragmentation → Attrition"
+        "answer": "Original forest \u2192 Dissection \u2192 Perforation \u2192 Fragmentation \u2192 Attrition"
     },
     {
         "question": "A root zone treatment plant is an example of",
         "answer": "phytoremediation"
     },
     {
-        "question": "“a measure of the responsiveness of quantity demanded or quantity supplied to a change in one of its determinants” is",
+        "question": "\u201ca measure of the responsiveness of quantity demanded or quantity supplied to a change in one of its determinants\u201d is",
         "answer": "elasticity"
     },
     {
-        "question": "“the ability to produce a good using fewer inputs than another producer” is",
+        "question": "\u201cthe ability to produce a good using fewer inputs than another producer\u201d is",
         "answer": "absolute advantage"
     },
     {
@@ -592,7 +592,7 @@
         "answer": "non-excludable, rival in consumption"
     },
     {
-        "question": "“If private parties can bargain without cost over the allocation of resources, they can solve the problem of externalities on their own.” This is a statement for",
+        "question": "\u201cIf private parties can bargain without cost over the allocation of resources, they can solve the problem of externalities on their own.\u201d This is a statement for",
         "answer": "Coase theorem"
     },
     {
@@ -612,39 +612,39 @@
         "answer": "excludable, rival in consumption"
     },
     {
-        "question": "“a simplified description, especially a mathematical one, of a system or process, to assist calculations and predictions” is the definition of a / an",
+        "question": "\u201ca simplified description, especially a mathematical one, of a system or process, to assist calculations and predictions\u201d is the definition of a / an",
         "answer": "model"
     },
     {
-        "question": "“the impact of one person’s actions on the well-being of a bystander” is",
+        "question": "\u201cthe impact of one person\u2019s actions on the well-being of a bystander\u201d is",
         "answer": "externality"
     },
     {
-        "question": "“the claim that, other things being equal, the quantity demanded of a good falls when the price of the good rises” is a statement of",
+        "question": "\u201cthe claim that, other things being equal, the quantity demanded of a good falls when the price of the good rises\u201d is a statement of",
         "answer": "law of demand"
     },
     {
-        "question": "“a legal maximum on the price at which a good can be sold” is",
+        "question": "\u201ca legal maximum on the price at which a good can be sold\u201d is",
         "answer": "price ceiling"
     },
     {
-        "question": "“a good for which, other things being equal, an increase in income leads to a decrease in demand” is",
+        "question": "\u201ca good for which, other things being equal, an increase in income leads to a decrease in demand\u201d is",
         "answer": "inferior good"
     },
     {
-        "question": "“a table that shows the relationship between the price of a good and the quantity supplied” is",
+        "question": "\u201ca table that shows the relationship between the price of a good and the quantity supplied\u201d is",
         "answer": "supply schedule"
     },
     {
-        "question": "“a graph of the relationship between the price of a good and the quantity demanded” is",
+        "question": "\u201ca graph of the relationship between the price of a good and the quantity demanded\u201d is",
         "answer": "demand curve"
     },
     {
-        "question": "“a table that shows the relationship between the price of a good and the quantity demanded” is",
+        "question": "\u201ca table that shows the relationship between the price of a good and the quantity demanded\u201d is",
         "answer": "demand schedule"
     },
     {
-        "question": "“a measure of how much the quantity demanded of one good responds to a change in the price of another good, computed as the percentage change in quantity demanded of the first good divided by the percentage change in price of the second good” is",
+        "question": "\u201ca measure of how much the quantity demanded of one good responds to a change in the price of another good, computed as the percentage change in quantity demanded of the first good divided by the percentage change in price of the second good\u201d is",
         "answer": "cross-price elasticity of demand"
     },
     {
@@ -652,15 +652,15 @@
         "answer": "substitutes"
     },
     {
-        "question": "“a good for which, other things being equal, an increase in income leads to an increase in demand” is",
+        "question": "\u201ca good for which, other things being equal, an increase in income leads to an increase in demand\u201d is",
         "answer": "normal good"
     },
     {
-        "question": "“a measure of how much the quantity demanded of a good responds to a change in the price of that good, computed as the percentage change in quantity demanded divided by the percentage change in price” is",
+        "question": "\u201ca measure of how much the quantity demanded of a good responds to a change in the price of that good, computed as the percentage change in quantity demanded divided by the percentage change in price\u201d is",
         "answer": "price elasticity of demand"
     },
     {
-        "question": "\"the price of a good that prevails in the world market for that good” is the definition of",
+        "question": "\"the price of a good that prevails in the world market for that good\u201d is the definition of",
         "answer": "world price"
     },
     {
@@ -668,11 +668,11 @@
         "answer": "consumer surplus"
     },
     {
-        "question": "“the amount a buyer is willing to pay for a good minus the amount the buyer actually pays for it” is",
+        "question": "\u201cthe amount a buyer is willing to pay for a good minus the amount the buyer actually pays for it\u201d is",
         "answer": "consumer surplus"
     },
     {
-        "question": "“the amount a seller is paid for a good minus the seller’s cost of providing it” is",
+        "question": "\u201cthe amount a seller is paid for a good minus the seller\u2019s cost of providing it\u201d is",
         "answer": "producer surplus"
     },
     {
@@ -680,7 +680,7 @@
         "answer": "total surplus"
     },
     {
-        "question": "“the fall in total surplus that results from a market distortion, such as a tax” is",
+        "question": "\u201cthe fall in total surplus that results from a market distortion, such as a tax\u201d is",
         "answer": "deadweight loss"
     },
     {
@@ -692,7 +692,7 @@
         "answer": "increases producer surplus and government revenue"
     },
     {
-        "question": "“the maximum amount that a buyer will pay for a good” is",
+        "question": "\u201cthe maximum amount that a buyer will pay for a good\u201d is",
         "answer": "willingness to pay"
     },
     {
@@ -708,7 +708,7 @@
         "answer": "SMB = PMB"
     },
     {
-        "question": "“The direct cost to producers of producing an additional unit of a good” is",
+        "question": "\u201cThe direct cost to producers of producing an additional unit of a good\u201d is",
         "answer": "private marginal cost (PMC)"
     },
     {
@@ -716,7 +716,7 @@
         "answer": "SMC = PMC + MD"
     },
     {
-        "question": "“The private marginal cost to producers plus any costs associated with the production of the good that are imposed on others” is",
+        "question": "\u201cThe private marginal cost to producers plus any costs associated with the production of the good that are imposed on others\u201d is",
         "answer": "social marginal cost (SMC)"
     },
     {
@@ -724,43 +724,43 @@
         "answer": "negative consumption externality"
     },
     {
-        "question": "“When an individual’s consumption increases the well-being of others, but the individual is not compensated by those others,” we have",
+        "question": "\u201cWhen an individual\u2019s consumption increases the well-being of others, but the individual is not compensated by those others,\u201d we have",
         "answer": "positive consumption externality"
     },
     {
-        "question": "“When a firm’s production increases the well-being of others but the firm is not compensated by those others,” we have",
+        "question": "\u201cWhen a firm\u2019s production increases the well-being of others but the firm is not compensated by those others,\u201d we have",
         "answer": "positive production externality"
     },
     {
-        "question": "“When an individual’s consumption reduces the well-being of others who are not compensated by the individual,” we have",
+        "question": "\u201cWhen an individual\u2019s consumption reduces the well-being of others who are not compensated by the individual,\u201d we have",
         "answer": "negative consumption externality"
     },
     {
         "question": "For a negative consumption externality,",
-        "answer": "SMB = PMB − MD"
+        "answer": "SMB = PMB \u2212 MD"
     },
     {
-        "question": "“costs that have already been committed and cannot be recovered” are",
+        "question": "\u201ccosts that have already been committed and cannot be recovered\u201d are",
         "answer": "sunk costs"
     },
     {
-        "question": "“total revenue minus total cost, including both explicit and implicit costs” is a definition of",
+        "question": "\u201ctotal revenue minus total cost, including both explicit and implicit costs\u201d is a definition of",
         "answer": "economic profit"
     },
     {
-        "question": "“the increase in total cost that arises from an extra unit of production” are",
+        "question": "\u201cthe increase in total cost that arises from an extra unit of production\u201d are",
         "answer": "marginal costs"
     },
     {
-        "question": "A monopolist firm’s profit is given by",
-        "answer": "(Price - ATC) × Q"
+        "question": "A monopolist firm\u2019s profit is given by",
+        "answer": "(Price - ATC) \u00d7 Q"
     },
     {
         "question": "Which of the following is true for a competitive firm?",
         "answer": "MR = MC"
     },
     {
-        "question": "“the amount a firm receives for the sale of its output” is a definition of",
+        "question": "\u201cthe amount a firm receives for the sale of its output\u201d is a definition of",
         "answer": "total revenue"
     },
     {
@@ -768,19 +768,19 @@
         "answer": "natural monopoly"
     },
     {
-        "question": "“costs that do not vary with the quantity of output produced” are",
+        "question": "\u201ccosts that do not vary with the quantity of output produced\u201d are",
         "answer": "fixed costs"
     },
     {
-        "question": "“costs that vary with the quantity of output produced” are",
+        "question": "\u201ccosts that vary with the quantity of output produced\u201d are",
         "answer": "variable costs"
     },
     {
-        "question": "“the increase in output that arises from an additional unit of input” is",
+        "question": "\u201cthe increase in output that arises from an additional unit of input\u201d is",
         "answer": "marginal product"
     },
     {
-        "question": "“an absolute level of income set by the government for each family size below which a family is deemed to be in poverty” is known as",
+        "question": "\u201can absolute level of income set by the government for each family size below which a family is deemed to be in poverty\u201d is known as",
         "answer": "poverty line"
     },
     {
@@ -788,59 +788,59 @@
         "answer": "on income and on access to social services"
     },
     {
-        "question": "“the equipment and structures used to produce goods and services” is the definition of",
+        "question": "\u201cthe equipment and structures used to produce goods and services\u201d is the definition of",
         "answer": "capital"
     },
     {
-        "question": "“above-equilibrium wages paid by firms to increase worker productivity” are known as",
+        "question": "\u201cabove-equilibrium wages paid by firms to increase worker productivity\u201d are known as",
         "answer": "efficiency wage"
     },
     {
-        "question": "“government policy aimed at protecting people against the risk of adverse events” is",
+        "question": "\u201cgovernment policy aimed at protecting people against the risk of adverse events\u201d is",
         "answer": "Social insurance"
     },
     {
-        "question": "“a difference in wages that arises to offset the non-monetary characteristics of different jobs” is known as",
+        "question": "\u201ca difference in wages that arises to offset the non-monetary characteristics of different jobs\u201d is known as",
         "answer": "compensating differential"
     },
     {
         "question": "For a competitive and profit-maximising firm,",
-        "answer": "each factor’s rental price = the value of the marginal product for that factor"
+        "answer": "each factor\u2019s rental price = the value of the marginal product for that factor"
     },
     {
-        "question": "“a condition characterised by severe deprivation of basic human needs, including food, safe drinking water, sanitation facilities, health, shelter, education and information” is known as",
+        "question": "\u201ca condition characterised by severe deprivation of basic human needs, including food, safe drinking water, sanitation facilities, health, shelter, education and information\u201d is known as",
         "answer": "absolute poverty"
     },
     {
-        "question": "“a condition where a household’s income is lower than the median income in the particular country” is known as",
+        "question": "\u201ca condition where a household\u2019s income is lower than the median income in the particular country\u201d is known as",
         "answer": "relative poverty"
     },
     {
-        "question": "“the increase in the amount of output from an additional unit of labor” is",
+        "question": "\u201cthe increase in the amount of output from an additional unit of labor\u201d is",
         "answer": "marginal product of labour"
     },
     {
-        "question": "“an action taken by an uninformed party to induce an informed party to reveal information” is known as",
+        "question": "\u201can action taken by an uninformed party to induce an informed party to reveal information\u201d is known as",
         "answer": "screening"
     },
     {
-        "question": "“the part of actual resources that can be developed profitably in the future” are",
+        "question": "\u201cthe part of actual resources that can be developed profitably in the future\u201d are",
         "answer": "reserve resources"
     },
     {
-        "question": "“the limit on the consumption bundles that a consumer can afford” is known as",
+        "question": "\u201cthe limit on the consumption bundles that a consumer can afford\u201d is known as",
         "answer": "budget constraint"
     },
     {
-        "question": "“mental short cut using emotion (gut feeling) to influences the decision” is",
+        "question": "\u201cmental short cut using emotion (gut feeling) to influences the decision\u201d is",
         "answer": "affect heuristic"
     },
     {
-        "question": "“those resources that are currently being used after surveying, quantification and qualification” are",
+        "question": "\u201cthose resources that are currently being used after surveying, quantification and qualification\u201d are",
         "answer": "actual resources"
     },
     {
-        "question": "“the change in consumption that results when a price change moves the consumer along a given indifference curve to a point with a new marginal rate of substitution” is known as",
+        "question": "\u201cthe change in consumption that results when a price change moves the consumer along a given indifference curve to a point with a new marginal rate of substitution\u201d is known as",
         "answer": "substitution effect"
     },
     {
@@ -852,11 +852,11 @@
         "answer": "Indifference curves cross at right angles"
     },
     {
-        "question": "“an action taken by an informed party to reveal private information to an uninformed party” is known as",
+        "question": "\u201can action taken by an informed party to reveal private information to an uninformed party\u201d is known as",
         "answer": "signalling"
     },
     {
-        "question": "“simple strategies or mental processes used to quickly form judgments, make decisions, and find solutions to complex problems” is known as",
+        "question": "\u201csimple strategies or mental processes used to quickly form judgments, make decisions, and find solutions to complex problems\u201d is known as",
         "answer": "heuristics"
     },
     {
@@ -892,11 +892,11 @@
         "answer": "regulating service"
     },
     {
-        "question": "“the ability to produce a good at a lower opportunity cost than another producer” is a definition of",
+        "question": "\u201cthe ability to produce a good at a lower opportunity cost than another producer\u201d is a definition of",
         "answer": "comparative advantage"
     },
     {
-        "question": "“fluctuations in economic activity, such as employment and production” are referred to as",
+        "question": "\u201cfluctuations in economic activity, such as employment and production\u201d are referred to as",
         "answer": "business cycles"
     },
     {
@@ -916,7 +916,7 @@
         "answer": "marginal benefits to marginal costs"
     },
     {
-        "question": "“something that induces a person to act” is a definition of",
+        "question": "\u201csomething that induces a person to act\u201d is a definition of",
         "answer": "incentive"
     },
     {
@@ -996,10 +996,6 @@
         "answer": "Law of supply"
     },
     {
-        "question": "Captive breeding is an example of",
-        "answer": "Ex-situ conservation"
-    },
-    {
         "question": "A legal minimum on the price at which a good can be sold is",
         "answer": "Price floor"
     },
@@ -1032,10 +1028,6 @@
         "answer": "Total cost"
     },
     {
-        "question": "Which of these is not an impact of toxic chemicals?",
-        "answer": "Reduction of existing stressors"
-    },
-    {
         "question": "A visual model of the economy showing how money flows through markets among households and firms is",
         "answer": "Circular flow diagram"
     },
@@ -1064,7 +1056,7 @@
         "answer": "Potential resources"
     },
     {
-        "question": "The government mandated replacing incandescent bulbs with LED bulbs to reduce electricity and CO₂ emissions. This is called",
+        "question": "The government mandated replacing incandescent bulbs with LED bulbs to reduce electricity and CO\u2082 emissions. This is called",
         "answer": "Mitigation"
     },
     {
@@ -1080,80 +1072,28 @@
         "answer": "Price elasticity of supply"
     },
     {
-        "question": "“Science of relationships between organisms and their environments” is the definition of:",
+        "question": "\u201cScience of relationships between organisms and their environments\u201d is the definition of:",
         "answer": "ecology"
-    },
-    {
-        "question": "The Trinity explosion of 1945 is taken as the beginning of the",
-        "answer": "Anthropocene"
     },
     {
         "question": "Sustainable harvest of resources falls under the category of:",
         "answer": "conservation"
     },
     {
-        "question": "The quantum of human impacts can be written as",
-        "answer": "I = P X A X T"
-    },
-    {
         "question": "The discipline of Demography is most closely related to:",
         "answer": "Population Geography"
     },
     {
-        "question": "\"The rate of any biological process is limited by that factor in least amount relative to requirement, so there is a single limiting factor.\" This is the               statement for",
-        "answer": "Liebig’s law of the minimum"
+        "question": "\"The rate of any biological process is limited by that factor in least amount relative to requirement, so there is a single limiting factor.\" This is the\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0statement for",
+        "answer": "Liebig\u2019s law of the minimum"
     },
     {
-        "question": "\"The geographical distribution of a species will be controlled by that environmental factor for which the organism has the narrowest range of                      tolerance.\" This is the statement for",
-        "answer": "Shelford’s law of tolerance"
+        "question": "\"The geographical distribution of a species will be controlled by that environmental factor for which the organism has the narrowest range of\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 tolerance.\" This is the statement for",
+        "answer": "Shelford\u2019s law of tolerance"
     },
     {
         "question": "The regional approach to Geography was developed by:",
         "answer": "Karl Ritter"
-    },
-    {
-        "question": "Good climate is a",
-        "answer": "pull factor"
-    },
-    {
-        "question": "Scarcity of food is a",
-        "answer": "push factor"
-    },
-    {
-        "question": "“Science of relationships between organisms and their environments” is the definition of:",
-        "answer": "ecology"
-    },
-    {
-        "question": "The Trinity explosion of 1945 is taken as the beginning of the",
-        "answer": "Anthropocene"
-    },
-    {
-        "question": "Sustainable harvest of resources falls under the category of:",
-        "answer": "conservation"
-    },
-    {
-        "question": "The quantum of human impacts can be written as",
-        "answer": "I = P X A X T"
-    },
-    {
-        "question": "The discipline of Demography is most closely related to:",
-        "answer": "Population Geography"
-    },
-    {
-        "question": "\"The rate of any biological process is limited by that factor in least amount relative to requirement, so there is a single limiting factor.\" This is the               statement for",
-        "answer": "Liebig’s law of the minimum"
-    },
-    {
-        "question": "\"The geographical distribution of a species will be controlled by that environmental factor for which the organism has the narrowest range of                      tolerance.\" This is the statement for",
-        "answer": "Shelford’s law of tolerance"
-    },
-    {
-        "question": "Good climate is a",
-        "answer": "pull factor"
-    },
-    {
-        "question": "Scarcity of food is a",
-        "answer": "push factor"
     },
     {
         "question": "In an undisturbed sedimentary strata, bottom layers are older than layers above them. This is known as",
@@ -1196,7 +1136,7 @@
         "answer": "volcanic eruption"
     },
     {
-        "question": "“the points where three or more cirques meet” is the definition of",
+        "question": "\u201cthe points where three or more cirques meet\u201d is the definition of",
         "answer": "horn"
     },
     {
@@ -1208,7 +1148,7 @@
         "answer": "siliciclastic rock"
     },
     {
-        "question": "“smooth oval-shaped ridge-like features comprised of glacial till, gravel and sand arranged parallel to the direction of ice movement” is the definition of",
+        "question": "\u201csmooth oval-shaped ridge-like features comprised of glacial till, gravel and sand arranged parallel to the direction of ice movement\u201d is the definition of",
         "answer": "drumlin"
     },
     {
@@ -1216,7 +1156,7 @@
         "answer": "deposition"
     },
     {
-        "question": "“white or colourless hard mineral virtually insoluble in water” is a description of",
+        "question": "\u201cwhite or colourless hard mineral virtually insoluble in water\u201d is a description of",
         "answer": "quartz"
     },
     {
@@ -1224,15 +1164,15 @@
         "answer": "carbonate rock"
     },
     {
-        "question": "“green or black coloured inosilicate minerals forming prism or needle-like crystals” is a description of",
+        "question": "\u201cgreen or black coloured inosilicate minerals forming prism or needle-like crystals\u201d is a description of",
         "answer": "amphiboles"
     },
     {
-        "question": "“deep, long and wide troughs or basins with very steep concave to vertically dropping high walls as its head and sides” is the definition of",
+        "question": "\u201cdeep, long and wide troughs or basins with very steep concave to vertically dropping high walls as its head and sides\u201d is the definition of",
         "answer": "cirque"
     },
     {
-        "question": "“magnesium iron silicate; a primary component of the Earth’s upper mantle” is a description of",
+        "question": "\u201cmagnesium iron silicate; a primary component of the Earth\u2019s upper mantle\u201d is a description of",
         "answer": "olivine"
     },
     {
@@ -1248,10 +1188,6 @@
         "answer": "Thermosphere"
     },
     {
-        "question": "The government came up with a regulation that incandescent bulbs be replaced by LED bulbs, so that electricity consumption and release of carbon dioxide from power plants is reduced. In the context of climate change, such an action would be called",
-        "answer": "mitigation"
-    },
-    {
         "question": "Surplus seed and sperm banking is an adaptation option to facilitate",
         "answer": "resilience to climate changes"
     },
@@ -1262,10 +1198,6 @@
     {
         "question": "Noctilucent clouds are present in which layer?",
         "answer": "Mesosphere"
-    },
-    {
-        "question": "Because of climate change, Mudumalai Tiger Reserve is suffering from frequent droughts. The management has built several artificial water holes for animals, and fills them up regularly with tankers. In the context of climate change, such an action would be called",
-        "answer": "adaptation"
     },
     {
         "question": "Which of these is home to the ozone layer?",
@@ -1284,7 +1216,7 @@
         "answer": "guyot"
     },
     {
-        "question": "“mountains with pointed summits rising from the sea floor, but not reaching the surface of the ocean” is a description of",
+        "question": "\u201cmountains with pointed summits rising from the sea floor, but not reaching the surface of the ocean\u201d is a description of",
         "answer": "seamount"
     },
     {
@@ -1296,7 +1228,7 @@
         "answer": "mid-oceanic ridge"
     },
     {
-        "question": "“deep valleys, often cutting across continental shelves and slopes” is a description of",
+        "question": "\u201cdeep valleys, often cutting across continental shelves and slopes\u201d is a description of",
         "answer": "submarine canyon"
     },
     {
@@ -1308,7 +1240,7 @@
         "answer": "mixed diurnal"
     },
     {
-        "question": "“relatively steep-sided, narrow, deep basins” is a description of",
+        "question": "\u201crelatively steep-sided, narrow, deep basins\u201d is a description of",
         "answer": "oceanic deep / trench"
     },
     {
@@ -1324,7 +1256,7 @@
         "answer": "W"
     },
     {
-        "question": "India’s location is",
+        "question": "India\u2019s location is",
         "answer": "Tropical in South, Sub-tropical in North"
     },
     {
@@ -1341,7 +1273,7 @@
     },
     {
         "question": "Which of these is the correct sequence of seasons in India?",
-        "answer": "Hot weather season → South-West monsoon season → Retreating monsoon season → Cold weather season"
+        "answer": "Hot weather season \u2192 South-West monsoon season \u2192 Retreating monsoon season \u2192 Cold weather season"
     },
     {
         "question": "In Koeppen classification, which is monsoonal precipitation?",
@@ -1358,10 +1290,6 @@
     {
         "question": "Soil formation is dependent upon",
         "answer": "all of the above"
-    },
-    {
-        "question": "Which of these is not a characteristic of pioneer species",
-        "answer": "large size"
     },
     {
         "question": "\"groups of actually or potentially interbreeding natural populations, which are reproductively isolated from other such groups\" is a definition of",
@@ -1384,96 +1312,24 @@
         "answer": "substratum layer"
     },
     {
-        "question": "A climax caused by wildfires is an example of",
-        "answer": "catastrophic climax"
-    },
-    {
         "question": "Regur is a term for",
         "answer": "black cotton soil"
     },
     {
         "question": "\"the diversity that exists among different geographies\" is",
-        "answer": "gamma (γ) biodiversity"
+        "answer": "gamma (\u03b3) biodiversity"
     },
     {
-        "question": "The fig tree bears fruits in times when animals do not have much access to food. In this context, it would be a good example of",
-        "answer": "keystone species"
-    },
-    {
-        "question": "The “subset of physical and biotic environmental factors that permit an animal (or plant) to survive and reproduce” is the definition of",
+        "question": "The \u201csubset of physical and biotic environmental factors that permit an animal (or plant) to survive and reproduce\u201d is the definition of",
         "answer": "habitat"
-    },
-    {
-        "question": "Which of these correctly represents the process of habitat fragmentation and loss?",
-        "answer": "Original forest → Dissection → Perforation → Fragmentation → Attrition"
-    },
-    {
-        "question": "Soil formation is an example of",
-        "answer": "supporting service"
-    },
-    {
-        "question": "Biological control of pest populations is an example of",
-        "answer": "regulating service"
-    },
-    {
-        "question": "The acronym HIPPO does not include",
-        "answer": "pollination"
-    },
-    {
-        "question": "The tiger has a home range of several square kilometres, regulates the ecosystem through controlling herbivore populations and trophic cascades, and people come to tiger reserves to watch tigers. Thus, the tiger can be called as",
-        "answer": "all of the above"
-    },
-    {
-        "question": "People come to Sessa orchid sanctuary in Arunachal Pradesh to witness orchids, which in this context would be classified as",
-        "answer": "flagship species"
-    },
-    {
-        "question": "Captive breeding is an example of",
-        "answer": "ex-situ conservation"
-    },
-    {
-        "question": "We prefer those areas for the creation of a conservation reserve where the level of threat is",
-        "answer": "medium"
-    },
-    {
-        "question": "According to Malthusian model,",
-        "answer": "Population grows in geometric progression, food supply increases in arithmetic progression"
     },
     {
         "question": "Which of these is commonly observed during humanising of nature?",
         "answer": "possibilism"
     },
     {
-        "question": "Which of these is a pillar of sustainability",
-        "answer": "social sustainability"
-    },
-    {
         "question": "Which of these is commonly observed in primitive societies?",
         "answer": "environmental determinism"
-    },
-    {
-        "question": "The demographic transition sees a society move from",
-        "answer": "high birth rate, high death rate to low birth rate, low death rate"
-    },
-    {
-        "question": "The logistic growth equation curve is",
-        "answer": "S-shaped"
-    },
-    {
-        "question": "Which of these is a preventive check according to Malthus?",
-        "answer": "foresight"
-    },
-    {
-        "question": "Which of these is not a pillar of sustainability?",
-        "answer": "trans-boundary sustainability"
-    },
-    {
-        "question": "The book \"An Essay on the Principle of Population\" was written by",
-        "answer": "Malthus"
-    },
-    {
-        "question": "Which of these is a positive check according to Malthus?",
-        "answer": "war"
     },
     {
         "question": "Hydrogen for nuclear fusion comes under the category of",
@@ -1484,7 +1340,7 @@
         "answer": "animal manure"
     },
     {
-        "question": "“the part of actual resources that can be developed profitably in the future” is a definition of",
+        "question": "\u201cthe part of actual resources that can be developed profitably in the future\u201d is a definition of",
         "answer": "reserve resources"
     },
     {
@@ -1504,11 +1360,11 @@
         "answer": "mobile sources"
     },
     {
-        "question": "“those resources that are currently being used after surveying, quantification and qualification” is a definition of",
+        "question": "\u201cthose resources that are currently being used after surveying, quantification and qualification\u201d is a definition of",
         "answer": "actual resources"
     },
     {
-        "question": "“those resources that may be used in the future” is a definition of",
+        "question": "\u201cthose resources that may be used in the future\u201d is a definition of",
         "answer": "potential resources"
     },
     {
@@ -1524,20 +1380,8 @@
         "answer": "all of these"
     },
     {
-        "question": "Which of these is a factor governing barrier effect of roads?",
-        "answer": "all of these"
-    },
-    {
         "question": "Varanasi can best be categorised as",
         "answer": "religious town"
-    },
-    {
-        "question": "“the ability to produce a good using fewer inputs than another producer” is",
-        "answer": "absolute advantage"
-    },
-    {
-        "question": "\"the price of a good that prevails in the world market for that good” is the definition of",
-        "answer": "world price"
     },
     {
         "question": "Visakhapatnam can best be categorised as",
@@ -1552,11 +1396,7 @@
         "answer": "industrial town"
     },
     {
-        "question": "“the ability to produce a good at a lower opportunity cost than another producer” is a definition of",
-        "answer": "comparative advantage"
-    },
-    {
-        "question": "The movement of individuals away from their place of birth or hatching or seed production into a new habitat or area to survive and reproduce is               called",
+        "question": "The movement of individuals away from their place of birth or hatching or seed production into a new habitat or area to survive and reproduce is\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0called",
         "answer": "dispersal"
     },
     {
@@ -1572,53 +1412,48 @@
         "answer": "none of these"
     },
     {
-        "question": "“allowing some places and some creatures to exist without significant human interference” is the definition of:",
+        "question": "\u201callowing some places and some creatures to exist without significant human interference\u201d is the definition of:",
         "answer": "preservation"
     },
     {
-      "question":
-        "The time of flight for LiDAR is 0.00001 sec. Find the distance of the object from the instrument.",
-      "answer": "1500 m"
+        "question": "The time of flight for LiDAR is 0.00001 sec. Find the distance of the object from the instrument.",
+        "answer": "1500 m"
     },
     {
-      "question": "Which of these uses imputed willingness to pay?",
-      "answer": "replacement cost method"
+        "question": "Which of these uses imputed willingness to pay?",
+        "answer": "replacement cost method"
     },
     {
-      "question":
-        "“The situation of people, infrastructure, housing, production capacities and other tangible human assets located in hazard-prone areas.” is a definition for",
-      "answer": "exposure"
+        "question": "\u201cThe situation of people, infrastructure, housing, production capacities and other tangible human assets located in hazard-prone areas.\u201d is a definition for",
+        "answer": "exposure"
     },
     {
-      "question":
-        "“A process, phenomenon or human activity that may cause loss of life, injury or other health impacts, property damage, social and economic disruption or environmental degradation.” is a definition for",
-      "answer": "hazard"
+        "question": "\u201cA process, phenomenon or human activity that may cause loss of life, injury or other health impacts, property damage, social and economic disruption or environmental degradation.\u201d is a definition for",
+        "answer": "hazard"
     },
     {
-      "question":
-        "“A serious disruption of the functioning of a community or a society at any scale due to hazardous events interacting with conditions of exposure, vulnerability and capacity, leading to one or more of the following: human, material, economic and environmental losses and impacts.” is a definition for",
-      "answer": "disaster"
+        "question": "\u201cA serious disruption of the functioning of a community or a society at any scale due to hazardous events interacting with conditions of exposure, vulnerability and capacity, leading to one or more of the following: human, material, economic and environmental losses and impacts.\u201d is a definition for",
+        "answer": "disaster"
     },
     {
-      "question":
-        "“The combination of all the strengths, attributes and resources available within an organisation, community or society to manage and reduce disaster risks and strengthen resilience.” is a definition for",
-      "answer": "capacity"
+        "question": "\u201cThe combination of all the strengths, attributes and resources available within an organisation, community or society to manage and reduce disaster risks and strengthen resilience.\u201d is a definition for",
+        "answer": "capacity"
     },
     {
-      "question": "Bathymetric LiDAR uses",
-      "answer": "green light"
+        "question": "Bathymetric LiDAR uses",
+        "answer": "green light"
     },
     {
-      "question": "IMU stands for",
-      "answer": "Inertial measurement unit"
+        "question": "IMU stands for",
+        "answer": "Inertial measurement unit"
     },
     {
-      "question": "Which of these is not a consumptive value?",
-      "answer": "education"
+        "question": "Which of these is not a consumptive value?",
+        "answer": "education"
     },
     {
-      "question": "The frequency of flyovers is an indicator of",
-      "answer": "temporal resolution"
+        "question": "The frequency of flyovers is an indicator of",
+        "answer": "temporal resolution"
     },
     {
         "question": "Mhow can best be categorised as",
@@ -1626,7 +1461,7 @@
     },
     {
         "question": "the diversity that exists within an ecosystem is",
-        "answer": "alpha (α) biodiversity"
+        "answer": "alpha (\u03b1) biodiversity"
     },
     {
         "question": "Bangar is a type of",
@@ -1697,1075 +1532,1191 @@
         "answer": "Crust and mantle"
     },
     {
-    "question": "What is Psychology?",
-    "answer": "A study of cognitive processes & behavior"
-  },
-  {
-    "question": "A broad field of study that explores a variety of questions about thoughts, feelings and actions is ______?",
-    "answer": "Psychology"
-  },
-  {
-    "question": "A systematic assessment that provides information on political views, consumer buying habits and many other topics is called__________?",
-    "answer": "Survey"
-  },
-  {
-    "question": "The word Psyche means _________?",
-    "answer": "Mind or soul"
-  },
-  {
-    "question": "Who established psychology laboratory in Germany?",
-    "answer": "Wilhelm Wundt"
-  },
-  {
-    "question": "“To help people to function effectively and fulfill their own unique potential” is the aim of_________?",
-    "answer": "Humanistic psychology"
-  },
-  {
-    "question": "Behaviorists use a learning process to change abnormal behavior is called_________?",
-    "answer": "Conditioning"
-  },
-  {
-    "question": "The study of changes in behavior during life time is called ______.",
-    "answer": "Developmental Psychology"
-  },
-  {
-    "question": "The study of differences and similarities in the behavior of animals of different species is called ____________________.",
-    "answer": "Comparative Psychology"
-  },
-  {
-    "question": "Which of the following is true regarding learning in psychology?",
-    "answer": "Learning can be defined in many ways"
-  },
-  {
-    "question": "Learning is seen as an effect attributed to an element in ___.",
-    "answer": "environment"
-  },
-  {
-    "question": "Non-associative learning refers to ___ in the intensity of a response as the result of the repeated presentation of a stimulus.",
-    "answer": "a decrease"
-  },
-  {
-    "question": "Which of the following is a type of learning style?",
-    "answer": "all of the above"
-  },
-  {
-    "question": "‘Psychology as the Behaviorist Views It’ is the famous work of ___.",
-    "answer": "John Watson"
-  },
-  {
-    "question": "The state of conscious incompetence may be valuable ___ of a learning experience.",
-    "answer": "at the start"
-  },
-  {
-    "question": "Adding to existing student knowledge is known as ___.",
-    "answer": "conceptual growth"
-  },
-  {
-    "question": "Deliberate practice involves the following, except ___.",
-    "answer": "forgetting"
-  },
-  {
-    "question": "Students persist in the face of challenging tasks and process information more deeply when they adopt ___ goals.",
-    "answer": "mastery"
-  },
-  {
-    "question": "___ refers to a decrease in response rate while ___ refers to an increase in response rate.",
-    "answer": "habituation, sensitization"
-  },
-  {
-    "question": "According to constructivism, reality is determined by ___ .",
-    "answer": "the experiences of the learner"
-  },
-  {
-    "question": "Teachers and instructors who understand the constructivist learning theory understand that their students ___.",
-    "answer": "bring their own unique experiences"
-  },
-  {
-    "question": "The domain of social constructivism is largely attributed to the work done by ___ by adding the focus on societal and peer influence on learning.",
-    "answer": "Lev Vygotsky"
-  },
-  {
-    "question": "Which of the following is not a major type of learning described by behavioral psychology?",
-    "answer": "traditional learning"
-  },
-  {
-    "question": "Which of the following is true according to behaviorism?",
-    "answer": "all behaviors can be unlearned"
-  },
-  {
-    "question": "In ___ conditioning, presentation of unconditioned stimulus precedes the presentation of the conditioned stimulus.",
-    "answer": "backward"
-  },
-  {
-    "question": "Smiling and complimenting students for good performance is a type of ____.",
-    "answer": "positive reinforcement"
-  },
-  {
-    "question": "Which of the following psychologists was instrumental in engendering the dramatic shift from behaviorism to cognitive theories?",
-    "answer": "All of the above"
-  },
-  {
-    "question": "IQ is a typical measurement for ___.",
-    "answer": "intelligence"
-  },
-  {
-    "question": "BBL deals with the concept of learning in a ___ context.",
-    "answer": "neuro-physiological"
-  },
-  {
-    "question": "Which of the following is true?",
-    "answer": "Human memory involves the ability to both preserve and recover information"
-  },
-  {
-    "question": "___ refers to connections between the nerve cells",
-    "answer": "Synapses"
-  },
-  {
-    "question": "In order to create a new memory, information must be changed into ___.",
-    "answer": "a usable form"
-  },
-  {
-    "question": "The memory ___ process allows us to bring stored memories into conscious awareness.",
-    "answer": "retrieval"
-  },
-  {
-    "question": "Which of the following is not a major domain of cognition?",
-    "answer": "Aggression"
-  },
-  {
-    "question": "Which of the following is not an assumption of the information processing view?",
-    "answer": "There are limits on how much information can be processed"
-  },
-  {
-    "question": "___ refers to rote rehearsal of repetition",
-    "answer": "maintenance rehearsal"
-  },
-  {
-    "question": "___ presentations can enhance working memory capacity",
-    "answer": "multimodal"
-  },
-  {
-    "question": "Episodic and semantic memories are categorized under ___ memory",
-    "answer": "declarative"
-  },
-  {
-    "question": "According to the neural network model, memory capacity depends on ___",
-    "answer": "all of the above"
-  },
-  {
-    "question": "Creative thinking is the ability to generate ___ ideas.",
-    "answer": "all of the above"
-  },
-  {
-    "question": "___ are representative items within each concept.",
-    "answer": "Prototypes"
-  },
-  {
-    "question": "A mental representation can take the form of a ___.",
-    "answer": "all of the given"
-  },
-  {
-    "question": "Which of the following is true?",
-    "answer": "Thinking is a sub-vocal talking"
-  },
-  {
-    "question": "Cognitive architecture is a theory about the ___ that create a mind in natural or artificial systems.",
-    "answer": "structures"
-  },
-  {
-    "question": "Bloom’s Taxonomy is a system of hierarchical models (arranged in a hierarchical rank,) used to categorize ___ into varying levels of complexity.",
-    "answer": "learning objectives"
-  },
-  {
-    "question": "___ knowledge refers to knowledge of terminology and specific details.",
-    "answer": "Factual"
-  },
-  {
-    "question": "Choosing to skim subheadings of unimportant information to get to the information we need as a metacognitive skill is called ___.",
-    "answer": "Skimming"
-  },
-  {
-    "question": "___ refers to the ability to regulate your thoughts and set aside any personal biases to come to the best conclusion.",
-    "answer": "Self-regulation"
-  },
-  {
-    "question": "___ method of solving problems refers to a rule that guarantees the solution to a problem",
-    "answer": "algorithm"
-  },
-  {
-    "question": "Motivation is seen as a ___ that drives and directs human behavior.",
-    "answer": "mental impulse"
-  },
-  {
-    "question": "Which of the following is false regarding motivation?",
-    "answer": "Motivation can be directly observed"
-  },
-  {
-    "question": "Which of the following does not come under intrinsic motivation?",
-    "answer": "social pressure"
-  },
-  {
-    "question": "Doing something/behaving well because one feels pressure from within is called ___.",
-    "answer": "introjected regulation"
-  },
-  {
-    "question": "Which of the following is not a biological need/drive?",
-    "answer": "love"
-  },
-  {
-    "question": "___ theory suggests that people are motivated to take action in order to receive a reward.",
-    "answer": "incentive"
-  },
-  {
-    "question": "The Arousal Theory of Motivation was first proposed by ___.",
-    "answer": "Murray"
-  },
-  {
-    "question": "___ theory is based on the assumption that our behavior is based on making a conscious choice from a set of possible alternative behaviors.",
-    "answer": "expectancy"
-  },
-  {
-    "question": "Which of the following is not an attribute of effective goal setting?",
-    "answer": "unrealistic goals"
-  },
-  {
-    "question": "Maslow’s hierarchy of needs consists of ___ tiers.",
-    "answer": "five"
-  },
-  {
-    "question": "___ is mainly responsible for popularizing emotional intelligence.",
-    "answer": "Daniel Goleman"
-  },
-  {
-    "question": "EQ is used to measure __________.",
-    "answer": "emotional intelligence"
-  },
-  {
-    "question": "Experts suggest that EQ is more important than IQ.",
-    "answer": "True"
-  },
-  {
-    "question": "Being able to put words to feelings refers to ___.",
-    "answer": "emotional literacy"
-  },
-  {
-    "question": "The first step in emotional intelligence is ___.",
-    "answer": "perceiving emotions accurately"
-  },
-  {
-    "question": "According to nine-layer model pyramid, ___ lies at the bottom of the pyramid.",
-    "answer": "Emotional stimuli"
-  },
-  {
-    "question": "The mixed model by ___ claims that EQ is a combination of competencies, skills, and “facilitators” that contribute to how people express themselves, respond to challenges in their environment, and connect with others.",
-    "answer": "Bar-On"
-  },
-  {
-    "question": "The transfer of emotions from one person to another is called ___.",
-    "answer": "emotional contagion"
-  },
-  {
-    "question": "Hochschild has given the concept of ___ using the example of flight attendants.",
-    "answer": "emotional labor"
-  },
-  {
-    "question": "Review of literature shows that ___ is associated with increasing levels of burnout.",
-    "answer": "surface acting"
-  },
-  {
-    "question": "Which of the following is false about learning according to Gagne’s definition?",
-    "answer": "It is simply ascribable to processes of growth"
-  },
-  {
-    "question": "Manual or physical skills come under ___ component of Bloom’s taxonomy.",
-    "answer": "Psychomotor"
-  },
-  {
-    "question": "Reflection, learning and education was explored by ___.",
-    "answer": "John Dewey"
-  },
-  {
-    "question": "The principles of ___ refer to how close in time two events must be for a bond to be formed.",
-    "answer": "contiguity"
-  },
-  {
-    "question": "___ gives information to learners about their success or failure concerning the task at hand.",
-    "answer": "Cognitive feedback"
-  },
-  {
-    "question": "The ___ orientation to learning has a quality of personal involvement—the whole person in both feeling and cognitive aspects being in the learning event.",
-    "answer": "humanistic"
-  },
-  {
-    "question": "Learning through play is ___ learning.",
-    "answer": "active"
-  },
-  {
-    "question": "People with ___ learning style are prone to sorting their ideas after speaking, rather than thinking ideas through before.",
-    "answer": "auditory"
-  },
-  {
-    "question": "Which of the following statements is false?",
-    "answer": "Effective instruction is static"
-  },
-  {
-    "question": "In ADDIE model, I stand for ___.",
-    "answer": "implementation"
-  },
-  {
-    "question": "Pedagogy can be defined as a way of ___ any theoretical topic or academic subject.",
-    "answer": "teaching"
-  },
-  {
-    "question": "Good pedagogy is about ___.",
-    "answer": "eliciting responses that demonstrate understanding"
-  },
-  {
-    "question": "Which of the following is a pedagogical approach in teaching?",
-    "answer": "integrative"
-  },
-  {
-    "question": "According to the ___ approach, learners are the makers of meaning and knowledge.",
-    "answer": "constructivist learning"
-  },
-  {
-    "question": "Which of the following is false about inquiry-based learning?",
-    "answer": "is a form of passive learning"
-  },
-  {
-    "question": "The ___ model describes what effective teachers do in their classrooms to engage students in intellectually challenging work.",
-    "answer": "pedagogical"
-  },
-  {
-    "question": "In experiential learning, experiences are structured to require the student to ___.",
-    "answer": "all of the above"
-  },
-  {
-    "question": "The following are the roles of an instructor in experiential learning, except___.",
-    "answer": "blurring the boundaries"
-  },
-  {
-    "question": "Kolb's experiential learning style theory is typically represented by a ___ -stage learning cycle",
-    "answer": "four"
-  },
-  {
-    "question": "People with ___ learning style are hands-on learners, and rely on intuition over logic.",
-    "answer": "accommodating"
-  },
-  {
-    "question": "A ___ classroom is the changing face of learning.",
-    "answer": "digital"
-  },
-  {
-    "question": "Which of the following is not a feature of e-learning?",
-    "answer": "teacher-centeredness"
-  },
-  {
-    "question": "Which of the following is a synonym of e-learning?",
-    "answer": "none of the above"
-  },
-  {
-    "question": "In ___ e-learning course, the content is simple and comprises text, images, audio, power point presentation and text questions.",
-    "answer": "text-driven"
-  },
-  {
-    "question": "Recent thinking in cognitive psychology places the ___ firmly at the center of the learning experience.",
-    "answer": "individual"
-  },
-  {
-    "question": "Which of the following is true?",
-    "answer": "All of the above"
-  },
-  {
-    "question": "Learners may multitask when engaging in an online course, which could be resulting in ___.",
-    "answer": "shorter attention spans"
-  },
-  {
-    "question": "The brain can process ___ visual cues per hour!",
-    "answer": "36,000"
-  },
-  {
-    "question": "Our brain has approximately ___ neurons that send information to one another.",
-    "answer": "85 billion"
-  },
-  {
-    "question": "___ is referring to learners' automatic performance on specific procedures with predetermined steps to be followed.",
-    "answer": "chaining"
-  },
-  {
-    "question": "The ___ Model for New Normal in Education has been designed by many educational institutions.",
-    "answer": "Readiness"
-  },
-  {
-    "question": "The most critical factor that plays a significant role in the success of any remote learning program is the ___.",
-    "answer": "readiness of the participants"
-  },
-  {
-    "question": "The typical picture of a teacher being a ___ of knowledge to the students has been replaced.",
-    "answer": "dispenser"
-  },
-  {
-    "question": "What does today’s teacher need to be successful in the classroom?",
-    "answer": "all of the above"
-  },
-  {
-    "question": "Students who consider intelligence as a ___ entity tend to focus on their goals despite obstacles.",
-    "answer": "malleable"
-  },
-  {
-    "question": "___ feedback to students is important for learning.",
-    "answer": "all of the above"
-  },
-  {
-    "question": "Students tend to enjoy learning and have better outcomes when their motivation is more intrinsic than extrinsic.",
-    "answer": "True"
-  },
-  {
-    "question": "Long term goals are also called ___ goals.",
-    "answer": "distal"
-  },
-  {
-    "question": "Which of the following is an example of a reward?",
-    "answer": "all of the above"
-  },
-  {
-    "question": "___ is a teaching approach that generates feedback students can use to improve their performance.",
-    "answer": "Assessment for learning"
-  },
-  {
-    "question": "Social cognition is the cognitive processes that influence ___.",
-    "answer": "social behavior"
-  },
-  {
-    "question": "Smooth and adaptive social interactions depend on the recruitment of ___.",
-    "answer": "all of the above"
-  },
-  {
-    "question": "Which of the following abilities does not come under social cognition?",
-    "answer": "rote memory"
-  },
-  {
-    "question": "Social cognition develops primarily in old age.",
-    "answer": "False"
-  },
-  {
-    "question": "A theory of mind refers to a person's ability to understand and think about the ___ of other people.",
-    "answer": "mental states"
-  },
-  {
-    "question": "The ___ theory details the processes of observational learning and modeling, and the influence of self-efficacy on the production of behavior.",
-    "answer": "social-cognitive"
-  },
-  {
-    "question": "___ processes account for the information that is selected for observation in the environment.",
-    "answer": "attentional"
-  },
-  {
-    "question": "Children become more aggressive when they observe aggressive or violent models.",
-    "answer": "True"
-  },
-  {
-    "question": "The ___ model of observational learning involves real or fictional characters displaying behaviors in books, films, television programs, or online media.",
-    "answer": "symbolic"
-  },
-  {
-    "question": "___ refers to the anticipated consequences of a person's behavior.",
-    "answer": "expectations"
-  },
-  {"question": "Scarcity of food is a", "answer": "demographic factor"},
-  {"question": "The Geographical discipline of Climatology is most closely related to:", "answer": "Meteorology"},
-  {"question": "The Trinity explosion of 1945 is taken as the beginning of the", "answer": "Anthropocene"},
-  {"question": "In the word root for conservation, con stands for", "answer": "together"},
-  {"question": "In the word root for conservation, servare stands for", "answer": "to keep"},
-  {"question": "Good climate is a", "answer": "pull factor"},
-  {"question": "The rate of any biological process is limited by that factor in least amount relative to requirement, so there is a single limiting factor. This is the statement for", "answer": "Liebig's law of the minimum"},
-  {"question": "The discipline of Demography is most closely related to:", "answer": "Population Geography"},
-  {"question": "Allowing some places and some creatures to exist without significant human interference is the definition of:", "answer": "preservation"},
-  {"question": "The movement of lions across the Gir landscape is an example of", "answer": "diffusion"},
-  {"question": "Which of these is true about P waves?", "answer": "They are longitudinal in nature"},
-  {"question": "Inclusions are older than the host rock. This is known as", "answer": "Principle of inclusions"},
-  {"question": "Mount Fuji is an example of", "answer": "Stratovolcano"},
-  {"question": "Layers of rocks deposited from above (e.g. sediments and lava flows) are originally laid down horizontally. This is known as", "answer": "Principle of original horizontality"},
-  {"question": "Which of these is not a method of absolute dating?", "answer": "Inclusion study"},
-  {"question": "Which of these is true about S waves?", "answer": "They are transverse in nature"},
-  {"question": "Which of these is an example of direct source of information about the Earth?", "answer": "volcanic eruption"},
-  {"question": "Assemblage of fossils are unique to the time that they lived in, and so can be used to age rocks across a wide geographic distribution. This is known as", "answer": "Principle of fossil succession"},
-  {"question": "Within a depositional basin, strata are laterally continuous in all directions till the edge of the basin. This is known as", "answer": "Principle of lateral continuity"},
-  {"question": "Krakatoa eruption resulted in the formation of", "answer": "Caldera"},
-  {"question": "waxy is an example of", "answer": "lustre"},
-  {"question": "ease of passage of light through the mineral is known as", "answer": "transparency"},
-  {"question": "unassorted coarse and fine debris left by melting glaciers, often with angular to sub-angular rock fragments is the definition of", "answer": "glacial till"},
-  {"question": "green or black-coloured inosilicates forming 10% of the Earth's crust is a description of", "answer": "Pyroxene"},
-  {"question": "the ridge edge where two cirques meet is the definition of", "answer": "arete"},
-  {"question": "Mechanical action of ocean waves is an example of", "answer": "physical weathering"},
-  {"question": "Sudden cooling of magma results in", "answer": "smooth grained igneous rocks"},
-  {"question": "Gypsum is an example of", "answer": "evaporite rock"},
-  {"question": "Thermal stresses lead to", "answer": "physical weathering"},
-  {"question": "Which of these are correctly arranged as per Moh's scale from softest to hardest?", "answer": "talc, calcite, feldspar, diamond"},
-  {"question": "Which of these is the densest layer?", "answer": "Troposphere"},
-  {"question": "The government came up with a regulation that incandescent bulbs be replaced by LED bulbs, so that electricity consumption and release of carbon dioxide from power plants is reduced. In the context of climate change, such an action would be called", "answer": "mitigation"},
-  {"question": "Which of these is not a climatic forcing for Earth?", "answer": "changes in Sun's orbit"},
-  {"question": "Which of these contains the most water vapour and aerosols?", "answer": "Troposphere"},
-  {"question": "Which of these is true about Coriolis force on the Earth?", "answer": "It is zero at poles and maximum at Equator."},
-  {"question": "From the surface of the Earth to upwards, which of these is the correct sequence of atmospheric layers?", "answer": "troposphere, stratosphere, mesosphere, thermosphere, exosphere"},
-  {"question": "The ability of a system to adjust to climate change (including climate variability and extremes) to moderate potential damages, to take advantage of opportunities, or to cope with the consequences is a definition for", "answer": "adaptive capacity"},
-  {"question": "Flights of jet planes typically occur in", "answer": "Stratosphere"},
-  {"question": "Noctilucent clouds are present in which layer?", "answer": "Mesosphere"},
-  {"question": "Ionosphere is part of which layer?", "answer": "Thermosphere"},
-  {"question": "Continental slope has a gradient of", "answer": "2-5 degree"},
-  {"question": "Low islands consisting of coral reefs surrounding a central depression is a description of", "answer": "atoll"},
-  {"question": "Deep valleys, often cutting across continental shelves and slopes is a description of", "answer": "submarine canyon"},
-  {"question": "Equal density curves are called", "answer": "isopycnal curves"},
-  {"question": "Equal salinity curves are called", "answer": "isohaline curves"},
-  {"question": "Which of these is a major feature of the ocean floor?", "answer": "mid-oceanic ridge"},
-  {"question": "Equal temperature curves are called", "answer": "isotherm curves"},
-  {"question": "Which of these is not a primary force initiating and governing movement of ocean currents?", "answer": "phase separation"},
-  {"question": "Relatively steep-sided, narrow, deep basins is a description of", "answer": "oceanic deep / trench"},
-  {"question": "Which of these is a minor feature of the ocean floor?", "answer": "guyot"},
-  {"question": "In Koeppen classification, which is cold arid temperature?", "answer": "k"},
-  {"question": "Which of these are broad groups of peninsular plateau of India?", "answer": "all of these"},
-  {"question": "In Koeppen classification, which is steppe precipitation?", "answer": "S"},
-  {"question": "In Koeppen classification, which is hot summer temperature?", "answer": "a"},
-  {"question": "In Koeppen classification, which is cool summer temperature?", "answer": "c"},
-  {"question": "In Koeppen classification, which is summer dry precipitation?", "answer": "s"},
-  {"question": "In Koeppen classification, which is monsoonal precipitation?", "answer": "m"},
-  {"question": "In Koeppen classification, which is polar tundra temperature?", "answer": "T"},
-  {"question": "In Koeppen classification, which is warm summer temperature?", "answer": "b"},
-  {"question": "In Koeppen classification, which is polar climate?", "answer": "E"},
-  {"question": "the diversity that exists among different geographies is", "answer": "gamma (γ) biodiversity"},
-  {"question": "Thermal stresses lead to", "answer": "physical weathering"},
-  {"question": "Vertical arrangement of soil horizons is called", "answer": "soil profile"},
-  {"question": "A climax caused by wildfires is an example of", "answer": "catastrophic climax"},
-  {"question": "Khadar is a type of", "answer": "alluvial soil"},
-  {"question": "The term laterite soil is derived from Latin later which means", "answer": "brick"},
-  {"question": "Which of these has the highest organic matter content?", "answer": "alluvial soil"},
-  {"question": "groups of actually or potentially interbreeding natural populations, which are reproductively isolated from other such groups is a definition of", "answer": "Species"},
-  {"question": "Which of these is not a characteristic of pioneer species", "answer": "large size"},
-  {"question": "Which of these depicts correctly the lithosere primary succession?", "answer": "Rock - Crustose lichen - Foliose lichen - Moss - Herbaceous stage - Shrub - Woodland - Climax"},
-  {"question": "Soil formation is an example of", "answer": "supporting service"},
-  {"question": "The acronym HIPPO does not include", "answer": "habitat enhancement"},
-  {"question": "The elephant has a home range of several square kilometres, regulates the ecosystem by its habit of destructive feeding, and people can relate to this animal which is important for conservation. Given this background, the elephant can be called as", "answer": "all of the above"},
-  {"question": "Religious benefits are an example of", "answer": "cultural service"},
-  {"question": "Which of these is a deterministic factor?", "answer": "death rate"},
-  {"question": "Biological control of pest populations is an example of", "answer": "regulating service"},
-  {"question": "According to Leopold, which of these is not a tool of habitat management?", "answer": "sickle"},
-  {"question": "People come to Sessa orchid sanctuary in Arunachal Pradesh to witness orchids, which in this context would be classified as", "answer": "flagship species"},
-  {"question": "Captive breeding is an example of", "answer": "ex-situ conservation"},
-  {"question": "The subset of physical and biotic environmental factors that permit an animal (or plant) to survive and reproduce is definition of", "answer": "habitat"},
-  {"question": "Which of these is a pillar of sustainability", "answer": "social sustainability"},
-  {"question": "Which of these is commonly observed in primitive societies?", "answer": "environmental determinism"},
-  {"question": "Which of these is a preventive check according to Malthus?", "answer": "late marriage"},
-  {"question": "Which of these is a positive check according to Malthus?", "answer": "war"},
-  {"question": "Which of these is commonly observed during humanising of nature?", "answer": "possibilism"},
-  {"question": "The logistic growth equation curve is", "answer": "S-shaped"},
-  {"question": "Which of these is not a pillar of sustainability?", "answer": "trans-boundary sustainability"},
-  {"question": "The book An Essay on the Principle of Population was written by", "answer": "Malthus"},
-  {"question": "According to Malthusian model", "answer": "Population grows in geometric progression, food supply increases in arithmetic progression"},
-  {"question": "The demographic transition sees a society move from", "answer": "high birth rate, high death rate to low birth rate, low death rate"},
-  {"question": "Which of these is the largest source of sulphur oxides in the atmosphere?", "answer": "electricity generation"},
-  {"question": "those resources that are currently being used after surveying, quantification and qualification is a definition of", "answer": "actual resources"},
-  {"question": "Oil that has not been drilled can be categorised under", "answer": "reserve resources"},
-  {"question": "Timber from forests that is being harvested can be categorised under", "answer": "actual resources"},
-  {"question": "Rain water usage is meant to", "answer": "Increase recharge to groundwater"},
-  {"question": "Which of these is the largest source of ammonia (NH3) in the atmosphere?", "answer": "animal manure"},
-  {"question": "those resources that have been surveyed but we lack the technology to use them is a definition of", "answer": "stock resources"},
-  {"question": "Hydrogen for nuclear fusion comes under the category of", "answer": "stock resources"},
-  {"question": "those resources that may be used in the future is a definition of", "answer": "potential resources"},
-  {"question": "the part of actual resources that can be developed profitably in the future is a definition of", "answer": "reserve resources"},
-  {"question": "Oxford can best be categorised as", "answer": "educational town"},
-  {"question": "New Delhi can best be categorised as", "answer": "administrative town"},
-  {"question": "Visakhapatnam can best be categorised as", "answer": "transport town"},
-  {"question": "Varanasi can best be categorised as", "answer": "religious town"},
-  {"question": "Which of these is a factor governing barrier effect of roads?", "answer": "all of these"},
-  {"question": "the ability to produce a good using fewer inputs than another producer is", "answer": "absolute advantage"},
-  {"question": "Which of these is / are example(s) of mitigation measures to mitigate impacts of linear infrastructure on wildlife?", "answer": "all of these"},
-  {"question": "Bhilai can best be categorised as", "answer": "industrial town"},
-  {"question": "Singrauli can best be categorised as", "answer": "mining town"},
-  {"question": "the price of a good that prevails in the world market for that good is the definition of", "answer": "world price"},
-  {"question": "The conditions determined by physical, social, economic and environmental factors or processes which increase the susceptibility of an individual, a community, assets or systems to the impacts of hazards. is a definition for", "answer": "vulnerability"},
-  {"question": "The combination of all the strengths, attributes and resources available within an organisation, community or society to manage and reduce disaster risks and strengthen resilience. is a definition for", "answer": "capacity"},
-  {"question": "The value derived from the knowledge of use of resources by others in the current generation is called", "answer": "altruistic value"},
-  {"question": "IMU stands for", "answer": "Inertial measurement unit"},
-  {"question": "The situation of people, infrastructure, housing, production capacities and other tangible human assets located in hazard-prone areas. is a definition for", "answer": "exposure"},
-  {"question": "The frequency of flyovers is an indicator of", "answer": "temporal resolution"},
-  {"question": "A process, phenomenon or human activity that may cause loss of life, injury or other health impacts, property damage, social and economic disruption or environmental degradation. is a definition for", "answer": "hazard"},
-  {"question": "Which of these uses imputed willingness to pay?", "answer": "contingent valuation method"},
-  {"question": "The time of flight for LIDAR is 0.00001 sec. Find the distance of the object from the instrument.", "answer": "1500 m"},
-  {"question": "A serious disruption of the functioning of a community or a society at any scale due to hazardous events interacting with conditions of exposure, vulnerability and capacity, leading to one or more of the following: human, material, economic and environmental losses and impacts. is a definition for", "answer": "disaster"},
-  {
-    "question": "What is Psychology?",
-    "answer": "A study of cognitive processes & behavior"
-  },
-  {
-    "question": "A broad field of study that explores a variety of questions about thoughts, feelings and actions is -------?",
-    "answer": "Psychology"
-  },
-  {
-    "question": "A systematic assessment that provides information on political views, consumer buying habits and many other topics is called--------------?",
-    "answer": "Survey"
-  },
-  {
-    "question": "The word Psyche means -------------?",
-    "answer": "Mind or soul"
-  },
-  {
-    "question": "Who established psychology laboratory in Germany?",
-    "answer": "Wilhelm Wundt"
-  },
-  {
-    "question": "To help people to function effectively and fulfill their own unique potential” is the aim of--------------?",
-    "answer": "Humanistic psychology"
-  },
-  {
-    "question": "Behaviorists use a learning process to change abnormal behavior is called------------?",
-    "answer": "Conditioning"
-  },
-  {
-    "question": "The study of changes in behavior during life time is called ----------.",
-    "answer": "Developmental Psychology"
-  },
-  {
-    "question": "The study of differences and similarities in the behavior of animals of different species is called ------------------------.",
-    "answer": "Comparative Psychology"
-  },
-  {
-    "question": "Which of the following is true regarding learning in psychology?",
-    "answer": "none of the given"
-  },
-  {
-    "question": "In order to say that learning has occurred, a/an ___ must occur during the lifetime of the organism.",
-    "answer": "observable change in behavior"
-  },
-  {
-    "question": "Learning changes the ___ through the process of continuous interactions between the learner and the external environment.",
-    "answer": "physical structure of the brain"
-  },
-  {
-    "question": "Watson, one of the first psychologists to study learning and behavior is known for the ____.",
-    "answer": "Little Albert experiment"
-  },
-  {
-    "question": "Which of the following is not explored and described by the psychology of learning?",
-    "answer": "principles of genetic disorders"
-  },
-  {
-    "question": "The state of ___ may be valuable at the start of a learning experience.",
-    "answer": "conscious incompetence"
-  },
-  {
-    "question": "___ is the decrease in the response that an organism gives to a stimulus to which it is exposed in numerous trials or occasions.",
-    "answer": "Habituation"
-  },
-  {
-    "question": "Cooperative learning is shaped by three crucial elements. Which of the following is one of them?",
-    "answer": "all of the given"
-  },
-  {
-    "question": "Which of the following psychologists is an important contributor to the concept of observational learning?",
-    "answer": "Bandura"
-  },
-  {
-    "question": "Which of the following is not considered a pioneer of the behaviorism school of thought in psychology?",
-    "answer": "Freud"
-  },
-  {
-    "question": "___ is known as the father of modern psychology.",
-    "answer": "Wilhelm Wundt"
-  },
-  {
-    "question": "Cognitivists objected to behaviorists because they felt that behaviorists ignored the important role of ___.",
-    "answer": "thinking"
-  },
-  {
-    "question": "___ is viewed as the mainstream for all research on learning designs.",
-    "answer": "Cognitivism"
-  },
-  {
-    "question": "___ is a perspective in psychology focusing on the belief that human consciousness cannot be broken down into its elements and is based on the concept of a ‘whole’.",
-    "answer": "Gestalt psychology"
-  },
-  {
-    "question": "Theory of multiple intelligences is given by ___.",
-    "answer": "Howard Gardner"
-  },
-  {
-    "question": "The general intelligence factor, also known as g, is what intelligence tests typically measure and refers only to ___ intelligence.",
-    "answer": "academic"
-  },
-  {
-    "question": "Cognitive evaluation for planning, attention, simultaneous, and successive processing of individuals can be done through CAS based on PASS theory. CAS here stands for ___.",
-    "answer": "Cognitive Assessment System"
-  },
-  {
-    "question": "BBL is a new science that shapes the learning process and is an approach that is based on the structure and function of the human brain. BBL stands for ___.",
-    "answer": "Brain based learning"
-  },
-  {
-    "question": "Gagne’s Conditions of Learning is also known as ___ Events of Instruction.",
-    "answer": "nine"
-  },
-  {
-    "question": "Which of the following is not a type of constructivism?",
-    "answer": "biological"
-  },
-  {
-    "question": "Which of the following is not one of the three major processes involved in memory?",
-    "answer": "imagination"
-  },
-  {
-    "question": "___ refers to changing information into a usable form.",
-    "answer": "Encoding"
-  },
-  {
-    "question": "___ refers to a range of mental processes relating to the acquisition, storage, manipulation and retrieval of information.",
-    "answer": "Cognition"
-  },
-  {
-    "question": "Which of the following is a challenge faced by people with social cognition deficits?",
-    "answer": "difficulty in reading facial expressions"
-  },
-  {
-    "question": "Which of the following is not true about the assumptions underlying the Information Processing View of Learning?",
-    "answer": "There is no limit on how much information can be processed at each stage"
-  },
-  {
-    "question": "___ prevents the quick disappearance of information from short term memory",
-    "answer": "Rehearsal"
-  },
-  {
-    "question": "The Multicomponent Model of Working Memory is largely attributed to the work by ___",
-    "answer": "Baddley"
-  },
-  {
-    "question": "___ memory refers to the events that can be reported from a person’s life.",
-    "answer": "Episodic"
-  },
-  {
-    "question": "The memory capacity depends on which of the following?",
-    "answer": "all of the given"
-  },
-  {
-    "question": "Which of the following is not one of the three measurable dimensions of cognitive load?",
-    "answer": "physical effort"
-  },
-  {
-    "question": "The three main types of thinking in psychology include the following except ___.",
-    "answer": "convergent"
-  },
-  {
-    "question": "Young children engaging in imaginative play often engage in ___ thinking.",
-    "answer": "symbolic"
-  },
-  {
-    "question": "Which of the following is a way in which we think?",
-    "answer": "all of the given"
-  },
-  {
-    "question": "People experience the ___ experience when they find the solution to a problem suddenly that had been in their mind for hours or days, late.",
-    "answer": "“aha”"
-  },
-  {
-    "question": "___ knowledge refers to knowledge of terminology and specific details.",
-    "answer": "factual"
-  },
-  {
-    "question": "Which of the following is not true about metacognition?",
-    "answer": "allows people to be dependent on others for their learning"
-  },
-  {
-    "question": "Which of the following is not an effective way to develop reflective thinking?",
-    "answer": "avoiding reflective discussions"
-  },
-  {
-    "question": "Which of the following is not true about creative thinking?",
-    "answer": "It is not a skill anybody can develop"
-  },
-  {
-    "question": "The ___ stage of the creative thinking process refers to the ‘’eureka’’ moment.",
-    "answer": "insight"
-  },
-  {
-    "question": "In a concept map, two nodes connected with a labeled arrow are called a ___.",
-    "answer": "proposition"
-  },
-  {
-    "question": "Which of the following is not a causal factor for extrinsic motivation?",
-    "answer": "curiosity"
-  },
-  {
-    "question": "___ refers to realizing the value of developing a skill/behavior.",
-    "answer": "Identified regulation"
-  },
-  {
-    "question": "Drive theory is a psychological concept that attempts to explain why and how people behave in the ways they do. It is given by ___.",
-    "answer": "Hull"
-  },
-  {
-    "question": "___ theory that suggests that people are motivated to take action in order to receive a reward and is based on the idea of operant conditioning.",
-    "answer": "Incentive"
-  },
-  {
-    "question": "The Yerkes Dodson law gives ___ relationship between arousal and performance.",
-    "answer": "inverted U shaped"
-  },
-  {
-    "question": "The expectancy theory is based on the assumption that ___.",
-    "answer": "our behavior is based on making a conscious choice from a set of possible alternative behaviors"
-  },
-  {
-    "question": "Valence, or the perceived value of reward, would have ___ value if one wants to avoid that reward.",
-    "answer": "negative"
-  },
-  {
-    "question": "Which of the following is not true about Maslow’s need hierarchy?",
-    "answer": "Safety needs lie at the bottom of the pyramid"
-  },
-  {
-    "question": "Self-Determination Theory differentiates between ___ and ___ motivation types.",
-    "answer": "autonomous and controlled"
-  },
-  {
-    "question": "In achievement motivation, the motive to avoid failure often consists of ___.",
-    "answer": "all of the given"
-  },
-  {
-    "question": "Daniel Goleman’s work in emotional intelligence (EI) has outlined ___ main areas of this intelligence.",
-    "answer": "five"
-  },
-  {
-    "question": "Which of the following statements is not true?",
-    "answer": "Studies show that EI does not impact aspects of one’s life like academic performance"
-  },
-  {
-    "question": "___ refers to how tuned to the emotions of others a person is.",
-    "answer": "Empathy"
-  },
-  {
-    "question": "The following are advantages of developing emotional intelligence, except------",
-    "answer": "Being able to hide our feelings from others"
-  },
-  {
-    "question": "The Pyramid of Emotional Intelligence is also known as the ___ layer model.",
-    "answer": "nine"
-  },
-  {
-    "question": "EI can be developed at any stage of life through self-effort & training.",
-    "answer": "True"
-  },
-  {
-    "question": "When someone engages in___, they can regulate their emotions to ensure that others feel more comfortable.",
-    "answer": "emotional labor"
-  },
-  {
-    "question": "The management of emotions is ___.",
-    "answer": "all of the given"
-  },
-  {
-    "question": "___ is seen when workers change their outward emotional expressions but do not attempt to feel the emotions that they are displaying.",
-    "answer": "surface acting"
-  },
-  {
-    "question": "The concept of emotional contagion can be linked to biological basis of ___.",
-    "answer": "mirror neurons"
-  },
-  {
-    "question": "___ defined learning as ‘a change in human disposition or capacity that persists over a period of time and is not simply ascribable to processes of growth.",
-    "answer": "Gagne"
-  },
-  {
-    "question": "The principles of contiguity (how close in time two events must be for a bond to be formed) and reinforcement (any means of increasing the likelihood that an event will be repeated) are central to explaining the learning process in the ___ orientation to learning.",
-    "answer": "Behaviorist"
-  },
-  {
-    "question": "Which of the following is not true about humanistic orientations to learning?",
-    "answer": "The locus of evaluation resides definitely outside the learner"
-  },
-  {
-    "question": "The concept of situated learning is studied under which school of thought of learning theories?",
-    "answer": "social"
-  },
-  {
-    "question": "Which of the following is not one of the individual variable factors affecting learning?",
-    "answer": "ergonomics"
-  },
-  {
-    "question": "___ learners prefer maps, graphs, diagrams and charts to learn.",
-    "answer": "Visual"
-  },
-  {
-    "question": "___ learners search for connections, causes, patterns, and results in their learning.",
-    "answer": "logical"
-  },
-  {
-    "question": "Effective instruction is ___.",
-    "answer": "all of the given"
-  },
-  {
-    "question": "___ role of the trainer consists of transmitting information about a subject to the audience.",
-    "answer": "expert"
-  },
-  {
-    "question": "Which of the following is not a component of the ADDIE model?",
-    "answer": "integration"
-  },
-  {
-    "question": "The word ‘pedagogy’ has been derived from the Greek word “pedagogue” which stands for___.",
-    "answer": "the art of teaching children"
-  },
-  {
-    "question": "Which of the following statements is not true about pedagogy?",
-    "answer": "It is about suppressing responses from learners"
-  },
-  {
-    "question": "Which of the following is not a pedagogical approach in teaching?",
-    "answer": "collective"
-  },
-  {
-    "question": "___ is a form of active learning that starts by posing questions, problems or scenarios rather than simply presenting established facts or portraying a smooth path to knowledge.",
-    "answer": "inquiry-based learning"
-  },
-  {
-    "question": "Which of the following is a primary role of the instructor in experiential learning?",
-    "answer": "posing problems"
-  },
-  {
-    "question": "The ‘’what is important?” stage of the experiential learning process refers to the ___ stage",
-    "answer": "processing"
-  },
-  {
-    "question": "The ___ learning style as given by Kolb suggests that these individuals prefer to look at things from multiple perspectives and prefer to watch rather than do.",
-    "answer": "Diverging"
-  },
-  {
-    "question": "The following factors influence preferred learning styles except___",
-    "answer": "genes"
-  },
-  {
-    "question": "Integrative learning often involves three steps. Which of the following is not one of them?",
-    "answer": "collaboration"
-  },
-  {
-    "question": "In transformative learning, ___ includes a student’s habit of the mind, as well as a personal point of view.",
-    "answer": "frame of reference"
-  },
-  {
-    "question": "E-learning implies ___ learning",
-    "answer": "computer enhanced"
-  },
-  {
-    "question": "___ type of e-learning is highly interactive, which includes graphics, video, audio and games too.",
-    "answer": "simulation"
-  },
-  {
-    "question": "Which of the following is not true about e-learning?",
-    "answer": "it is targeted to cater to the needs of students specifically"
-  },
-  {
-    "question": "As learning depends on the learner’s prior experience, and no two learners will have the same experiences, new information will be dealt with in different ways by different learners. This statement means that learning is ___.",
-    "answer": "idiosyncratic"
-  },
-  {
-    "question": "Which of the following is a way of facilitating the social dimension to learning?",
-    "answer": "all of the given"
-  },
-  {
-    "question": "We can say that when we're good at something after practice, it's usually because ___",
-    "answer": "our brain has made stronger connections with this information"
-  },
-  {
-    "question": "Learners may multitask when engaging in an online course, which could be resulting in ___.",
-    "answer": "shorter attention spans"
-  },
-  {
-    "question": "The cognitive load theory suggests that when we overload our___, we are unable to acquire and process new information.",
-    "answer": "working memory"
-  },
-  {
-    "question": "There are five critical aspects of psychology which are needed to guarantee the implementation of successful eLearning. Which of the following is not one of them?",
-    "answer": "evolution"
-  },
-  {
-    "question": "___ is a learning tool, because the explicit navigation of the topic and association types might enable meaningful learning and it helps to reduce the cognitive loads caused by E-learning content and constant attention.",
-    "answer": "topic map"
-  },
-  {
-    "question": "The Readiness Model for New Normal in Education designed by many educational institutions caters to the following components except ___.",
-    "answer": "society readiness"
-  },
-  {
-    "question": "In 2018, Global Education and Skills Forum noted that the ‘future’ teacher would need some skills to thrive in the 21st century. Which of the following is not one of them?",
-    "answer": "Internal focus"
-  },
-  {
-    "question": "Which of the following impacts student learning?",
-    "answer": "All of the given"
-  },
-  {
-    "question": "Which of the following statements is not true?",
-    "answer": "Students tend to enjoy learning and have better outcomes when their motivation is more extrinsic than intrinsic"
-  },
-  {
-    "question": "Both formative and summative assessment are important and useful, provided they are applied and interpreted appropriately.",
-    "answer": "True"
-  },
-  {
-    "question": "Individual differences are the unique ways each human being differs from another. It can be handled through using different techniques. Which of the following is not one of them?",
-    "answer": "ignorance"
-  },
-  {
-    "question": "Clapping is an example of ___ reward.",
-    "answer": "social"
-  },
-  {
-    "question": "___ is the process of judging the value or worth of an individual's achievements or characteristics.",
-    "answer": "Evaluation"
-  },
-  {
-    "question": "___ refers to the frequent, interactive assessment of student progress to identify learning needs and shape teaching.",
-    "answer": "Formative assessment"
-  },
-  {
-    "question": "‘’That is an intelligent response, well done’’ is an example of a ___ level feedback.",
-    "answer": "Personal-level"
-  },
-  {
-    "question": "___ refers to a complex set of mental abilities underlying social stimulus perception, processing, interpretation, and response.",
-    "answer": "social cognition"
-  },
-  {
-    "question": "Piaget’s conception of ___ views information inconsistent with an individual’s cognitive structures as an initiator for assimilation and accommodation processes.",
-    "answer": "cognitive conflict"
-  },
-  {
-    "question": "During the earliest stages of development, children see the world from their own perspective and struggle to think about how other people may view the world. This highlights that initially, children are ___.",
-    "answer": "egocentric"
-  },
-  {
-    "question": "Which of the following is false regarding social cognition?",
-    "answer": "There are no cultural differences in social cognition"
-  },
-  {
-    "question": "Social processes influence how information is selected, organized, integrated, and retrieved. This highlights the ___ hypothesis.",
-    "answer": "cognitive influence"
-  },
-  {
-    "question": "The social cognitive theory is developed by ___.",
-    "answer": "Bandura"
-  },
-  {
-    "question": "___ refers to the internal or external responses to a person's behavior that affect the likelihood of continuing or discontinuing the behavior.",
-    "answer": "reinforcements"
-  },
-  {
-    "question": "Observational learning occurs through the sequence of ___ number of processes. One of those is attentional processes.",
-    "answer": "four"
-  },
-  {
-    "question": "The ___ model of observational learning involves an actual individual demonstrating or acting out a behavior.",
-    "answer": "live"
-  },
-  {
-    "question": "___ suggests that our behavior, personal factors, and environmental factors all influence each other.",
-    "answer": "reciprocal determinism"
-  }  
+        "question": "What is Psychology?",
+        "answer": "A study of cognitive processes & behavior"
+    },
+    {
+        "question": "A broad field of study that explores a variety of questions about thoughts, feelings and actions is ______?",
+        "answer": "Psychology"
+    },
+    {
+        "question": "A systematic assessment that provides information on political views, consumer buying habits and many other topics is called__________?",
+        "answer": "Survey"
+    },
+    {
+        "question": "The word Psyche means _________?",
+        "answer": "Mind or soul"
+    },
+    {
+        "question": "Who established psychology laboratory in Germany?",
+        "answer": "Wilhelm Wundt"
+    },
+    {
+        "question": "\u201cTo help people to function effectively and fulfill their own unique potential\u201d is the aim of_________?",
+        "answer": "Humanistic psychology"
+    },
+    {
+        "question": "Behaviorists use a learning process to change abnormal behavior is called_________?",
+        "answer": "Conditioning"
+    },
+    {
+        "question": "The study of changes in behavior during life time is called ______.",
+        "answer": "Developmental Psychology"
+    },
+    {
+        "question": "The study of differences and similarities in the behavior of animals of different species is called ____________________.",
+        "answer": "Comparative Psychology"
+    },
+    {
+        "question": "Which of the following is true regarding learning in psychology?",
+        "answer": "Learning can be defined in many ways"
+    },
+    {
+        "question": "Learning is seen as an effect attributed to an element in ___.",
+        "answer": "environment"
+    },
+    {
+        "question": "Non-associative learning refers to ___ in the intensity of a response as the result of the repeated presentation of a stimulus.",
+        "answer": "a decrease"
+    },
+    {
+        "question": "Which of the following is a type of learning style?",
+        "answer": "all of the above"
+    },
+    {
+        "question": "\u2018Psychology as the Behaviorist Views It\u2019 is the famous work of ___.",
+        "answer": "John Watson"
+    },
+    {
+        "question": "The state of conscious incompetence may be valuable ___ of a learning experience.",
+        "answer": "at the start"
+    },
+    {
+        "question": "Adding to existing student knowledge is known as ___.",
+        "answer": "conceptual growth"
+    },
+    {
+        "question": "Deliberate practice involves the following, except ___.",
+        "answer": "forgetting"
+    },
+    {
+        "question": "Students persist in the face of challenging tasks and process information more deeply when they adopt ___ goals.",
+        "answer": "mastery"
+    },
+    {
+        "question": "___ refers to a decrease in response rate while ___ refers to an increase in response rate.",
+        "answer": "habituation, sensitization"
+    },
+    {
+        "question": "According to constructivism, reality is determined by ___ .",
+        "answer": "the experiences of the learner"
+    },
+    {
+        "question": "Teachers and instructors who understand the constructivist learning theory understand that their students ___.",
+        "answer": "bring their own unique experiences"
+    },
+    {
+        "question": "The domain of social constructivism is largely attributed to the work done by ___ by adding the focus on societal and peer influence on learning.",
+        "answer": "Lev Vygotsky"
+    },
+    {
+        "question": "Which of the following is not a major type of learning described by behavioral psychology?",
+        "answer": "traditional learning"
+    },
+    {
+        "question": "Which of the following is true according to behaviorism?",
+        "answer": "all behaviors can be unlearned"
+    },
+    {
+        "question": "In ___ conditioning, presentation of unconditioned stimulus precedes the presentation of the conditioned stimulus.",
+        "answer": "backward"
+    },
+    {
+        "question": "Smiling and complimenting students for good performance is a type of ____.",
+        "answer": "positive reinforcement"
+    },
+    {
+        "question": "Which of the following psychologists was instrumental in engendering the dramatic shift from behaviorism to cognitive theories?",
+        "answer": "All of the above"
+    },
+    {
+        "question": "IQ is a typical measurement for ___.",
+        "answer": "intelligence"
+    },
+    {
+        "question": "BBL deals with the concept of learning in a ___ context.",
+        "answer": "neuro-physiological"
+    },
+    {
+        "question": "Which of the following is true?",
+        "answer": "Human memory involves the ability to both preserve and recover information"
+    },
+    {
+        "question": "___ refers to connections between the nerve cells",
+        "answer": "Synapses"
+    },
+    {
+        "question": "In order to create a new memory, information must be changed into ___.",
+        "answer": "a usable form"
+    },
+    {
+        "question": "The memory ___ process allows us to bring stored memories into conscious awareness.",
+        "answer": "retrieval"
+    },
+    {
+        "question": "Which of the following is not a major domain of cognition?",
+        "answer": "Aggression"
+    },
+    {
+        "question": "Which of the following is not an assumption of the information processing view?",
+        "answer": "There are limits on how much information can be processed"
+    },
+    {
+        "question": "___ refers to rote rehearsal of repetition",
+        "answer": "maintenance rehearsal"
+    },
+    {
+        "question": "___ presentations can enhance working memory capacity",
+        "answer": "multimodal"
+    },
+    {
+        "question": "Episodic and semantic memories are categorized under ___ memory",
+        "answer": "declarative"
+    },
+    {
+        "question": "According to the neural network model, memory capacity depends on ___",
+        "answer": "all of the above"
+    },
+    {
+        "question": "Creative thinking is the ability to generate ___ ideas.",
+        "answer": "all of the above"
+    },
+    {
+        "question": "___ are representative items within each concept.",
+        "answer": "Prototypes"
+    },
+    {
+        "question": "A mental representation can take the form of a ___.",
+        "answer": "all of the given"
+    },
+    {
+        "question": "Which of the following is true?",
+        "answer": "Thinking is a sub-vocal talking"
+    },
+    {
+        "question": "Cognitive architecture is a theory about the ___ that create a mind in natural or artificial systems.",
+        "answer": "structures"
+    },
+    {
+        "question": "Bloom\u2019s Taxonomy is a system of hierarchical models (arranged in a hierarchical rank,) used to categorize ___ into varying levels of complexity.",
+        "answer": "learning objectives"
+    },
+    {
+        "question": "___ knowledge refers to knowledge of terminology and specific details.",
+        "answer": "Factual"
+    },
+    {
+        "question": "Choosing to skim subheadings of unimportant information to get to the information we need as a metacognitive skill is called ___.",
+        "answer": "Skimming"
+    },
+    {
+        "question": "___ refers to the ability to regulate your thoughts and set aside any personal biases to come to the best conclusion.",
+        "answer": "Self-regulation"
+    },
+    {
+        "question": "___ method of solving problems refers to a rule that guarantees the solution to a problem",
+        "answer": "algorithm"
+    },
+    {
+        "question": "Motivation is seen as a ___ that drives and directs human behavior.",
+        "answer": "mental impulse"
+    },
+    {
+        "question": "Which of the following is false regarding motivation?",
+        "answer": "Motivation can be directly observed"
+    },
+    {
+        "question": "Which of the following does not come under intrinsic motivation?",
+        "answer": "social pressure"
+    },
+    {
+        "question": "Doing something/behaving well because one feels pressure from within is called ___.",
+        "answer": "introjected regulation"
+    },
+    {
+        "question": "Which of the following is not a biological need/drive?",
+        "answer": "love"
+    },
+    {
+        "question": "___ theory suggests that people are motivated to take action in order to receive a reward.",
+        "answer": "incentive"
+    },
+    {
+        "question": "The Arousal Theory of Motivation was first proposed by ___.",
+        "answer": "Murray"
+    },
+    {
+        "question": "___ theory is based on the assumption that our behavior is based on making a conscious choice from a set of possible alternative behaviors.",
+        "answer": "expectancy"
+    },
+    {
+        "question": "Which of the following is not an attribute of effective goal setting?",
+        "answer": "unrealistic goals"
+    },
+    {
+        "question": "Maslow\u2019s hierarchy of needs consists of ___ tiers.",
+        "answer": "five"
+    },
+    {
+        "question": "___ is mainly responsible for popularizing emotional intelligence.",
+        "answer": "Daniel Goleman"
+    },
+    {
+        "question": "EQ is used to measure __________.",
+        "answer": "emotional intelligence"
+    },
+    {
+        "question": "Experts suggest that EQ is more important than IQ.",
+        "answer": "True"
+    },
+    {
+        "question": "Being able to put words to feelings refers to ___.",
+        "answer": "emotional literacy"
+    },
+    {
+        "question": "The first step in emotional intelligence is ___.",
+        "answer": "perceiving emotions accurately"
+    },
+    {
+        "question": "According to nine-layer model pyramid, ___ lies at the bottom of the pyramid.",
+        "answer": "Emotional stimuli"
+    },
+    {
+        "question": "The mixed model by ___ claims that EQ is a combination of competencies, skills, and \u201cfacilitators\u201d that contribute to how people express themselves, respond to challenges in their environment, and connect with others.",
+        "answer": "Bar-On"
+    },
+    {
+        "question": "The transfer of emotions from one person to another is called ___.",
+        "answer": "emotional contagion"
+    },
+    {
+        "question": "Hochschild has given the concept of ___ using the example of flight attendants.",
+        "answer": "emotional labor"
+    },
+    {
+        "question": "Review of literature shows that ___ is associated with increasing levels of burnout.",
+        "answer": "surface acting"
+    },
+    {
+        "question": "Which of the following is false about learning according to Gagne\u2019s definition?",
+        "answer": "It is simply ascribable to processes of growth"
+    },
+    {
+        "question": "Manual or physical skills come under ___ component of Bloom\u2019s taxonomy.",
+        "answer": "Psychomotor"
+    },
+    {
+        "question": "Reflection, learning and education was explored by ___.",
+        "answer": "John Dewey"
+    },
+    {
+        "question": "The principles of ___ refer to how close in time two events must be for a bond to be formed.",
+        "answer": "contiguity"
+    },
+    {
+        "question": "___ gives information to learners about their success or failure concerning the task at hand.",
+        "answer": "Cognitive feedback"
+    },
+    {
+        "question": "The ___ orientation to learning has a quality of personal involvement\u2014the whole person in both feeling and cognitive aspects being in the learning event.",
+        "answer": "humanistic"
+    },
+    {
+        "question": "Learning through play is ___ learning.",
+        "answer": "active"
+    },
+    {
+        "question": "People with ___ learning style are prone to sorting their ideas after speaking, rather than thinking ideas through before.",
+        "answer": "auditory"
+    },
+    {
+        "question": "Which of the following statements is false?",
+        "answer": "Effective instruction is static"
+    },
+    {
+        "question": "In ADDIE model, I stand for ___.",
+        "answer": "implementation"
+    },
+    {
+        "question": "Pedagogy can be defined as a way of ___ any theoretical topic or academic subject.",
+        "answer": "teaching"
+    },
+    {
+        "question": "Good pedagogy is about ___.",
+        "answer": "eliciting responses that demonstrate understanding"
+    },
+    {
+        "question": "Which of the following is a pedagogical approach in teaching?",
+        "answer": "integrative"
+    },
+    {
+        "question": "According to the ___ approach, learners are the makers of meaning and knowledge.",
+        "answer": "constructivist learning"
+    },
+    {
+        "question": "Which of the following is false about inquiry-based learning?",
+        "answer": "is a form of passive learning"
+    },
+    {
+        "question": "The ___ model describes what effective teachers do in their classrooms to engage students in intellectually challenging work.",
+        "answer": "pedagogical"
+    },
+    {
+        "question": "In experiential learning, experiences are structured to require the student to ___.",
+        "answer": "all of the above"
+    },
+    {
+        "question": "The following are the roles of an instructor in experiential learning, except___.",
+        "answer": "blurring the boundaries"
+    },
+    {
+        "question": "Kolb's experiential learning style theory is typically represented by a ___ -stage learning cycle",
+        "answer": "four"
+    },
+    {
+        "question": "People with ___ learning style are hands-on learners, and rely on intuition over logic.",
+        "answer": "accommodating"
+    },
+    {
+        "question": "A ___ classroom is the changing face of learning.",
+        "answer": "digital"
+    },
+    {
+        "question": "Which of the following is not a feature of e-learning?",
+        "answer": "teacher-centeredness"
+    },
+    {
+        "question": "Which of the following is a synonym of e-learning?",
+        "answer": "none of the above"
+    },
+    {
+        "question": "In ___ e-learning course, the content is simple and comprises text, images, audio, power point presentation and text questions.",
+        "answer": "text-driven"
+    },
+    {
+        "question": "Recent thinking in cognitive psychology places the ___ firmly at the center of the learning experience.",
+        "answer": "individual"
+    },
+    {
+        "question": "Which of the following is true?",
+        "answer": "All of the above"
+    },
+    {
+        "question": "Learners may multitask when engaging in an online course, which could be resulting in ___.",
+        "answer": "shorter attention spans"
+    },
+    {
+        "question": "The brain can process ___ visual cues per hour!",
+        "answer": "36,000"
+    },
+    {
+        "question": "Our brain has approximately ___ neurons that send information to one another.",
+        "answer": "85 billion"
+    },
+    {
+        "question": "___ is referring to learners' automatic performance on specific procedures with predetermined steps to be followed.",
+        "answer": "chaining"
+    },
+    {
+        "question": "The ___ Model for New Normal in Education has been designed by many educational institutions.",
+        "answer": "Readiness"
+    },
+    {
+        "question": "The most critical factor that plays a significant role in the success of any remote learning program is the ___.",
+        "answer": "readiness of the participants"
+    },
+    {
+        "question": "The typical picture of a teacher being a ___ of knowledge to the students has been replaced.",
+        "answer": "dispenser"
+    },
+    {
+        "question": "What does today\u2019s teacher need to be successful in the classroom?",
+        "answer": "all of the above"
+    },
+    {
+        "question": "Students who consider intelligence as a ___ entity tend to focus on their goals despite obstacles.",
+        "answer": "malleable"
+    },
+    {
+        "question": "___ feedback to students is important for learning.",
+        "answer": "all of the above"
+    },
+    {
+        "question": "Students tend to enjoy learning and have better outcomes when their motivation is more intrinsic than extrinsic.",
+        "answer": "True"
+    },
+    {
+        "question": "Long term goals are also called ___ goals.",
+        "answer": "distal"
+    },
+    {
+        "question": "Which of the following is an example of a reward?",
+        "answer": "all of the above"
+    },
+    {
+        "question": "___ is a teaching approach that generates feedback students can use to improve their performance.",
+        "answer": "Assessment for learning"
+    },
+    {
+        "question": "Social cognition is the cognitive processes that influence ___.",
+        "answer": "social behavior"
+    },
+    {
+        "question": "Smooth and adaptive social interactions depend on the recruitment of ___.",
+        "answer": "all of the above"
+    },
+    {
+        "question": "Which of the following abilities does not come under social cognition?",
+        "answer": "rote memory"
+    },
+    {
+        "question": "Social cognition develops primarily in old age.",
+        "answer": "False"
+    },
+    {
+        "question": "A theory of mind refers to a person's ability to understand and think about the ___ of other people.",
+        "answer": "mental states"
+    },
+    {
+        "question": "The ___ theory details the processes of observational learning and modeling, and the influence of self-efficacy on the production of behavior.",
+        "answer": "social-cognitive"
+    },
+    {
+        "question": "___ processes account for the information that is selected for observation in the environment.",
+        "answer": "attentional"
+    },
+    {
+        "question": "Children become more aggressive when they observe aggressive or violent models.",
+        "answer": "True"
+    },
+    {
+        "question": "The ___ model of observational learning involves real or fictional characters displaying behaviors in books, films, television programs, or online media.",
+        "answer": "symbolic"
+    },
+    {
+        "question": "___ refers to the anticipated consequences of a person's behavior.",
+        "answer": "expectations"
+    },
+    {
+        "question": "The rate of any biological process is limited by that factor in least amount relative to requirement, so there is a single limiting factor. This is the statement for",
+        "answer": "Liebig's law of the minimum"
+    },
+    {
+        "question": "Allowing some places and some creatures to exist without significant human interference is the definition of:",
+        "answer": "preservation"
+    },
+    {
+        "question": "Which of these is true about P waves?",
+        "answer": "They are longitudinal in nature"
+    },
+    {
+        "question": "Inclusions are older than the host rock. This is known as",
+        "answer": "Principle of inclusions"
+    },
+    {
+        "question": "Mount Fuji is an example of",
+        "answer": "Stratovolcano"
+    },
+    {
+        "question": "Layers of rocks deposited from above (e.g. sediments and lava flows) are originally laid down horizontally. This is known as",
+        "answer": "Principle of original horizontality"
+    },
+    {
+        "question": "waxy is an example of",
+        "answer": "lustre"
+    },
+    {
+        "question": "ease of passage of light through the mineral is known as",
+        "answer": "transparency"
+    },
+    {
+        "question": "unassorted coarse and fine debris left by melting glaciers, often with angular to sub-angular rock fragments is the definition of",
+        "answer": "glacial till"
+    },
+    {
+        "question": "green or black-coloured inosilicates forming 10% of the Earth's crust is a description of",
+        "answer": "Pyroxene"
+    },
+    {
+        "question": "the ridge edge where two cirques meet is the definition of",
+        "answer": "arete"
+    },
+    {
+        "question": "Sudden cooling of magma results in",
+        "answer": "smooth grained igneous rocks"
+    },
+    {
+        "question": "Gypsum is an example of",
+        "answer": "evaporite rock"
+    },
+    {
+        "question": "Thermal stresses lead to",
+        "answer": "physical weathering"
+    },
+    {
+        "question": "Which of these are correctly arranged as per Moh's scale from softest to hardest?",
+        "answer": "talc, calcite, feldspar, diamond"
+    },
+    {
+        "question": "Which of these is the densest layer?",
+        "answer": "Troposphere"
+    },
+    {
+        "question": "Which of these contains the most water vapour and aerosols?",
+        "answer": "Troposphere"
+    },
+    {
+        "question": "Which of these is true about Coriolis force on the Earth?",
+        "answer": "It is maximum at poles and zero at Equator."
+    },
+    {
+        "question": "From the surface of the Earth to upwards, which of these is the correct sequence of atmospheric layers?",
+        "answer": "troposphere, stratosphere, mesosphere, thermosphere, exosphere"
+    },
+    {
+        "question": "The ability of a system to adjust to climate change (including climate variability and extremes) to moderate potential damages, to take advantage of opportunities, or to cope with the consequences is a definition for",
+        "answer": "adaptive capacity"
+    },
+    {
+        "question": "Flights of jet planes typically occur in",
+        "answer": "Stratosphere"
+    },
+    {
+        "question": "Ionosphere is part of which layer?",
+        "answer": "Thermosphere"
+    },
+    {
+        "question": "Low islands consisting of coral reefs surrounding a central depression is a description of",
+        "answer": "atoll"
+    },
+    {
+        "question": "Deep valleys, often cutting across continental shelves and slopes is a description of",
+        "answer": "submarine canyon"
+    },
+    {
+        "question": "Equal salinity curves are called",
+        "answer": "isohaline curves"
+    },
+    {
+        "question": "Which of these is a major feature of the ocean floor?",
+        "answer": "oceanic deep / trench"
+    },
+    {
+        "question": "Equal temperature curves are called",
+        "answer": "isotherm curves"
+    },
+    {
+        "question": "Which of these is not a primary force initiating and governing movement of ocean currents?",
+        "answer": "arrangement of coasts"
+    },
+    {
+        "question": "Relatively steep-sided, narrow, deep basins is a description of",
+        "answer": "oceanic deep / trench"
+    },
+    {
+        "question": "Which of these are broad groups of peninsular plateau of India?",
+        "answer": "all of these"
+    },
+    {
+        "question": "In Koeppen classification, which is steppe precipitation?",
+        "answer": "S"
+    },
+    {
+        "question": "In Koeppen classification, which is summer dry precipitation?",
+        "answer": "s"
+    },
+    {
+        "question": "In Koeppen classification, which is polar tundra temperature?",
+        "answer": "T"
+    },
+    {
+        "question": "In Koeppen classification, which is warm summer temperature?",
+        "answer": "b"
+    },
+    {
+        "question": "In Koeppen classification, which is polar climate?",
+        "answer": "E"
+    },
+    {
+        "question": "the diversity that exists among different geographies is",
+        "answer": "gamma (\u03b3) biodiversity"
+    },
+    {
+        "question": "Vertical arrangement of soil horizons is called",
+        "answer": "soil profile"
+    },
+    {
+        "question": "Khadar is a type of",
+        "answer": "alluvial soil"
+    },
+    {
+        "question": "The term laterite soil is derived from Latin later which means",
+        "answer": "brick"
+    },
+    {
+        "question": "Which of these has the highest organic matter content?",
+        "answer": "peaty soil"
+    },
+    {
+        "question": "groups of actually or potentially interbreeding natural populations, which are reproductively isolated from other such groups is a definition of",
+        "answer": "Species"
+    },
+    {
+        "question": "Which of these depicts correctly the lithosere primary succession?",
+        "answer": "Rock - Crustose lichen - Foliose lichen - Moss - Herbaceous stage - Shrub - Woodland - Climax"
+    },
+    {
+        "question": "Religious benefits are an example of",
+        "answer": "cultural service"
+    },
+    {
+        "question": "According to Leopold, which of these is not a tool of habitat management?",
+        "answer": "sickle"
+    },
+    {
+        "question": "The subset of physical and biotic environmental factors that permit an animal (or plant) to survive and reproduce is definition of",
+        "answer": "habitat"
+    },
+    {
+        "question": "The book An Essay on the Principle of Population was written by",
+        "answer": "Malthus"
+    },
+    {
+        "question": "Which of these is the largest source of sulphur oxides in the atmosphere?",
+        "answer": "electricity generation"
+    },
+    {
+        "question": "those resources that are currently being used after surveying, quantification and qualification is a definition of",
+        "answer": "actual resources"
+    },
+    {
+        "question": "Rain water usage is meant to",
+        "answer": "Increase recharge to groundwater"
+    },
+    {
+        "question": "those resources that have been surveyed but we lack the technology to use them is a definition of",
+        "answer": "stock resources"
+    },
+    {
+        "question": "those resources that may be used in the future is a definition of",
+        "answer": "potential resources"
+    },
+    {
+        "question": "the part of actual resources that can be developed profitably in the future is a definition of",
+        "answer": "reserve resources"
+    },
+    {
+        "question": "Oxford can best be categorised as",
+        "answer": "educational town"
+    },
+    {
+        "question": "the ability to produce a good using fewer inputs than another producer is",
+        "answer": "absolute advantage"
+    },
+    {
+        "question": "Singrauli can best be categorised as",
+        "answer": "mining town"
+    },
+    {
+        "question": "the price of a good that prevails in the world market for that good is the definition of",
+        "answer": "world price"
+    },
+    {
+        "question": "The conditions determined by physical, social, economic and environmental factors or processes which increase the susceptibility of an individual, a community, assets or systems to the impacts of hazards. is a definition for",
+        "answer": "vulnerability"
+    },
+    {
+        "question": "The combination of all the strengths, attributes and resources available within an organisation, community or society to manage and reduce disaster risks and strengthen resilience. is a definition for",
+        "answer": "capacity"
+    },
+    {
+        "question": "The value derived from the knowledge of use of resources by others in the current generation is called",
+        "answer": "altruistic value"
+    },
+    {
+        "question": "The situation of people, infrastructure, housing, production capacities and other tangible human assets located in hazard-prone areas. is a definition for",
+        "answer": "exposure"
+    },
+    {
+        "question": "A process, phenomenon or human activity that may cause loss of life, injury or other health impacts, property damage, social and economic disruption or environmental degradation. is a definition for",
+        "answer": "hazard"
+    },
+    {
+        "question": "Which of these uses imputed willingness to pay?",
+        "answer": "contingent valuation method"
+    },
+    {
+        "question": "A serious disruption of the functioning of a community or a society at any scale due to hazardous events interacting with conditions of exposure, vulnerability and capacity, leading to one or more of the following: human, material, economic and environmental losses and impacts. is a definition for",
+        "answer": "disaster"
+    },
+    {
+        "question": "A broad field of study that explores a variety of questions about thoughts, feelings and actions is -------?",
+        "answer": "Psychology"
+    },
+    {
+        "question": "A systematic assessment that provides information on political views, consumer buying habits and many other topics is called--------------?",
+        "answer": "Survey"
+    },
+    {
+        "question": "The word Psyche means -------------?",
+        "answer": "Mind or soul"
+    },
+    {
+        "question": "To help people to function effectively and fulfill their own unique potential\u201d is the aim of--------------?",
+        "answer": "Humanistic psychology"
+    },
+    {
+        "question": "Behaviorists use a learning process to change abnormal behavior is called------------?",
+        "answer": "Conditioning"
+    },
+    {
+        "question": "The study of changes in behavior during life time is called ----------.",
+        "answer": "Developmental Psychology"
+    },
+    {
+        "question": "The study of differences and similarities in the behavior of animals of different species is called ------------------------.",
+        "answer": "Comparative Psychology"
+    },
+    {
+        "question": "Which of the following is true regarding learning in psychology?",
+        "answer": "none of the given"
+    },
+    {
+        "question": "In order to say that learning has occurred, a/an ___ must occur during the lifetime of the organism.",
+        "answer": "observable change in behavior"
+    },
+    {
+        "question": "Learning changes the ___ through the process of continuous interactions between the learner and the external environment.",
+        "answer": "physical structure of the brain"
+    },
+    {
+        "question": "Watson, one of the first psychologists to study learning and behavior is known for the ____.",
+        "answer": "Little Albert experiment"
+    },
+    {
+        "question": "Which of the following is not explored and described by the psychology of learning?",
+        "answer": "principles of genetic disorders"
+    },
+    {
+        "question": "The state of ___ may be valuable at the start of a learning experience.",
+        "answer": "conscious incompetence"
+    },
+    {
+        "question": "___ is the decrease in the response that an organism gives to a stimulus to which it is exposed in numerous trials or occasions.",
+        "answer": "Habituation"
+    },
+    {
+        "question": "Cooperative learning is shaped by three crucial elements. Which of the following is one of them?",
+        "answer": "all of the given"
+    },
+    {
+        "question": "Which of the following psychologists is an important contributor to the concept of observational learning?",
+        "answer": "Bandura"
+    },
+    {
+        "question": "Which of the following is not considered a pioneer of the behaviorism school of thought in psychology?",
+        "answer": "Freud"
+    },
+    {
+        "question": "___ is known as the father of modern psychology.",
+        "answer": "Wilhelm Wundt"
+    },
+    {
+        "question": "Cognitivists objected to behaviorists because they felt that behaviorists ignored the important role of ___.",
+        "answer": "thinking"
+    },
+    {
+        "question": "___ is viewed as the mainstream for all research on learning designs.",
+        "answer": "Cognitivism"
+    },
+    {
+        "question": "___ is a perspective in psychology focusing on the belief that human consciousness cannot be broken down into its elements and is based on the concept of a \u2018whole\u2019.",
+        "answer": "Gestalt psychology"
+    },
+    {
+        "question": "Theory of multiple intelligences is given by ___.",
+        "answer": "Howard Gardner"
+    },
+    {
+        "question": "The general intelligence factor, also known as g, is what intelligence tests typically measure and refers only to ___ intelligence.",
+        "answer": "academic"
+    },
+    {
+        "question": "Cognitive evaluation for planning, attention, simultaneous, and successive processing of individuals can be done through CAS based on PASS theory. CAS here stands for ___.",
+        "answer": "Cognitive Assessment System"
+    },
+    {
+        "question": "BBL is a new science that shapes the learning process and is an approach that is based on the structure and function of the human brain. BBL stands for ___.",
+        "answer": "Brain based learning"
+    },
+    {
+        "question": "Gagne\u2019s Conditions of Learning is also known as ___ Events of Instruction.",
+        "answer": "nine"
+    },
+    {
+        "question": "Which of the following is not a type of constructivism?",
+        "answer": "biological"
+    },
+    {
+        "question": "Which of the following is not one of the three major processes involved in memory?",
+        "answer": "imagination"
+    },
+    {
+        "question": "___ refers to changing information into a usable form.",
+        "answer": "Encoding"
+    },
+    {
+        "question": "___ refers to a range of mental processes relating to the acquisition, storage, manipulation and retrieval of information.",
+        "answer": "Cognition"
+    },
+    {
+        "question": "Which of the following is a challenge faced by people with social cognition deficits?",
+        "answer": "difficulty in reading facial expressions"
+    },
+    {
+        "question": "Which of the following is not true about the assumptions underlying the Information Processing View of Learning?",
+        "answer": "There is no limit on how much information can be processed at each stage"
+    },
+    {
+        "question": "___ prevents the quick disappearance of information from short term memory",
+        "answer": "Rehearsal"
+    },
+    {
+        "question": "The Multicomponent Model of Working Memory is largely attributed to the work by ___",
+        "answer": "Baddley"
+    },
+    {
+        "question": "___ memory refers to the events that can be reported from a person\u2019s life.",
+        "answer": "Episodic"
+    },
+    {
+        "question": "The memory capacity depends on which of the following?",
+        "answer": "all of the given"
+    },
+    {
+        "question": "Which of the following is not one of the three measurable dimensions of cognitive load?",
+        "answer": "physical effort"
+    },
+    {
+        "question": "The three main types of thinking in psychology include the following except ___.",
+        "answer": "convergent"
+    },
+    {
+        "question": "Young children engaging in imaginative play often engage in ___ thinking.",
+        "answer": "symbolic"
+    },
+    {
+        "question": "Which of the following is a way in which we think?",
+        "answer": "all of the given"
+    },
+    {
+        "question": "People experience the ___ experience when they find the solution to a problem suddenly that had been in their mind for hours or days, late.",
+        "answer": "\u201caha\u201d"
+    },
+    {
+        "question": "Which of the following is not true about metacognition?",
+        "answer": "allows people to be dependent on others for their learning"
+    },
+    {
+        "question": "Which of the following is not an effective way to develop reflective thinking?",
+        "answer": "avoiding reflective discussions"
+    },
+    {
+        "question": "Which of the following is not true about creative thinking?",
+        "answer": "It is not a skill anybody can develop"
+    },
+    {
+        "question": "The ___ stage of the creative thinking process refers to the \u2018\u2019eureka\u2019\u2019 moment.",
+        "answer": "insight"
+    },
+    {
+        "question": "In a concept map, two nodes connected with a labeled arrow are called a ___.",
+        "answer": "proposition"
+    },
+    {
+        "question": "Which of the following is not a causal factor for extrinsic motivation?",
+        "answer": "curiosity"
+    },
+    {
+        "question": "___ refers to realizing the value of developing a skill/behavior.",
+        "answer": "Identified regulation"
+    },
+    {
+        "question": "Drive theory is a psychological concept that attempts to explain why and how people behave in the ways they do. It is given by ___.",
+        "answer": "Hull"
+    },
+    {
+        "question": "___ theory that suggests that people are motivated to take action in order to receive a reward and is based on the idea of operant conditioning.",
+        "answer": "Incentive"
+    },
+    {
+        "question": "The Yerkes Dodson law gives ___ relationship between arousal and performance.",
+        "answer": "inverted U shaped"
+    },
+    {
+        "question": "The expectancy theory is based on the assumption that ___.",
+        "answer": "our behavior is based on making a conscious choice from a set of possible alternative behaviors"
+    },
+    {
+        "question": "Valence, or the perceived value of reward, would have ___ value if one wants to avoid that reward.",
+        "answer": "negative"
+    },
+    {
+        "question": "Which of the following is not true about Maslow\u2019s need hierarchy?",
+        "answer": "Safety needs lie at the bottom of the pyramid"
+    },
+    {
+        "question": "Self-Determination Theory differentiates between ___ and ___ motivation types.",
+        "answer": "autonomous and controlled"
+    },
+    {
+        "question": "In achievement motivation, the motive to avoid failure often consists of ___.",
+        "answer": "all of the given"
+    },
+    {
+        "question": "Daniel Goleman\u2019s work in emotional intelligence (EI) has outlined ___ main areas of this intelligence.",
+        "answer": "five"
+    },
+    {
+        "question": "Which of the following statements is not true?",
+        "answer": "Studies show that EI does not impact aspects of one\u2019s life like academic performance"
+    },
+    {
+        "question": "___ refers to how tuned to the emotions of others a person is.",
+        "answer": "Empathy"
+    },
+    {
+        "question": "The following are advantages of developing emotional intelligence, except------",
+        "answer": "Being able to hide our feelings from others"
+    },
+    {
+        "question": "The Pyramid of Emotional Intelligence is also known as the ___ layer model.",
+        "answer": "nine"
+    },
+    {
+        "question": "EI can be developed at any stage of life through self-effort & training.",
+        "answer": "True"
+    },
+    {
+        "question": "When someone engages in___, they can regulate their emotions to ensure that others feel more comfortable.",
+        "answer": "emotional labor"
+    },
+    {
+        "question": "The management of emotions is ___.",
+        "answer": "all of the given"
+    },
+    {
+        "question": "___ is seen when workers change their outward emotional expressions but do not attempt to feel the emotions that they are displaying.",
+        "answer": "surface acting"
+    },
+    {
+        "question": "The concept of emotional contagion can be linked to biological basis of ___.",
+        "answer": "mirror neurons"
+    },
+    {
+        "question": "___ defined learning as \u2018a change in human disposition or capacity that persists over a period of time and is not simply ascribable to processes of growth.",
+        "answer": "Gagne"
+    },
+    {
+        "question": "The principles of contiguity (how close in time two events must be for a bond to be formed) and reinforcement (any means of increasing the likelihood that an event will be repeated) are central to explaining the learning process in the ___ orientation to learning.",
+        "answer": "Behaviorist"
+    },
+    {
+        "question": "Which of the following is not true about humanistic orientations to learning?",
+        "answer": "The locus of evaluation resides definitely outside the learner"
+    },
+    {
+        "question": "The concept of situated learning is studied under which school of thought of learning theories?",
+        "answer": "social"
+    },
+    {
+        "question": "Which of the following is not one of the individual variable factors affecting learning?",
+        "answer": "ergonomics"
+    },
+    {
+        "question": "___ learners prefer maps, graphs, diagrams and charts to learn.",
+        "answer": "Visual"
+    },
+    {
+        "question": "___ learners search for connections, causes, patterns, and results in their learning.",
+        "answer": "logical"
+    },
+    {
+        "question": "Effective instruction is ___.",
+        "answer": "all of the given"
+    },
+    {
+        "question": "___ role of the trainer consists of transmitting information about a subject to the audience.",
+        "answer": "expert"
+    },
+    {
+        "question": "Which of the following is not a component of the ADDIE model?",
+        "answer": "integration"
+    },
+    {
+        "question": "The word \u2018pedagogy\u2019 has been derived from the Greek word \u201cpedagogue\u201d which stands for___.",
+        "answer": "the art of teaching children"
+    },
+    {
+        "question": "Which of the following statements is not true about pedagogy?",
+        "answer": "It is about suppressing responses from learners"
+    },
+    {
+        "question": "Which of the following is not a pedagogical approach in teaching?",
+        "answer": "collective"
+    },
+    {
+        "question": "___ is a form of active learning that starts by posing questions, problems or scenarios rather than simply presenting established facts or portraying a smooth path to knowledge.",
+        "answer": "inquiry-based learning"
+    },
+    {
+        "question": "Which of the following is a primary role of the instructor in experiential learning?",
+        "answer": "posing problems"
+    },
+    {
+        "question": "The \u2018\u2019what is important?\u201d stage of the experiential learning process refers to the ___ stage",
+        "answer": "processing"
+    },
+    {
+        "question": "The ___ learning style as given by Kolb suggests that these individuals prefer to look at things from multiple perspectives and prefer to watch rather than do.",
+        "answer": "Diverging"
+    },
+    {
+        "question": "The following factors influence preferred learning styles except___",
+        "answer": "genes"
+    },
+    {
+        "question": "Integrative learning often involves three steps. Which of the following is not one of them?",
+        "answer": "collaboration"
+    },
+    {
+        "question": "In transformative learning, ___ includes a student\u2019s habit of the mind, as well as a personal point of view.",
+        "answer": "frame of reference"
+    },
+    {
+        "question": "E-learning implies ___ learning",
+        "answer": "computer enhanced"
+    },
+    {
+        "question": "___ type of e-learning is highly interactive, which includes graphics, video, audio and games too.",
+        "answer": "simulation"
+    },
+    {
+        "question": "Which of the following is not true about e-learning?",
+        "answer": "it is targeted to cater to the needs of students specifically"
+    },
+    {
+        "question": "As learning depends on the learner\u2019s prior experience, and no two learners will have the same experiences, new information will be dealt with in different ways by different learners. This statement means that learning is ___.",
+        "answer": "idiosyncratic"
+    },
+    {
+        "question": "Which of the following is a way of facilitating the social dimension to learning?",
+        "answer": "all of the given"
+    },
+    {
+        "question": "We can say that when we're good at something after practice, it's usually because ___",
+        "answer": "our brain has made stronger connections with this information"
+    },
+    {
+        "question": "The cognitive load theory suggests that when we overload our___, we are unable to acquire and process new information.",
+        "answer": "working memory"
+    },
+    {
+        "question": "There are five critical aspects of psychology which are needed to guarantee the implementation of successful eLearning. Which of the following is not one of them?",
+        "answer": "evolution"
+    },
+    {
+        "question": "___ is a learning tool, because the explicit navigation of the topic and association types might enable meaningful learning and it helps to reduce the cognitive loads caused by E-learning content and constant attention.",
+        "answer": "topic map"
+    },
+    {
+        "question": "The Readiness Model for New Normal in Education designed by many educational institutions caters to the following components except ___.",
+        "answer": "society readiness"
+    },
+    {
+        "question": "In 2018, Global Education and Skills Forum noted that the \u2018future\u2019 teacher would need some skills to thrive in the 21st century. Which of the following is not one of them?",
+        "answer": "Internal focus"
+    },
+    {
+        "question": "Which of the following impacts student learning?",
+        "answer": "All of the given"
+    },
+    {
+        "question": "Which of the following statements is not true?",
+        "answer": "Students tend to enjoy learning and have better outcomes when their motivation is more extrinsic than intrinsic"
+    },
+    {
+        "question": "Both formative and summative assessment are important and useful, provided they are applied and interpreted appropriately.",
+        "answer": "True"
+    },
+    {
+        "question": "Individual differences are the unique ways each human being differs from another. It can be handled through using different techniques. Which of the following is not one of them?",
+        "answer": "ignorance"
+    },
+    {
+        "question": "Clapping is an example of ___ reward.",
+        "answer": "social"
+    },
+    {
+        "question": "___ is the process of judging the value or worth of an individual's achievements or characteristics.",
+        "answer": "Evaluation"
+    },
+    {
+        "question": "___ refers to the frequent, interactive assessment of student progress to identify learning needs and shape teaching.",
+        "answer": "Formative assessment"
+    },
+    {
+        "question": "\u2018\u2019That is an intelligent response, well done\u2019\u2019 is an example of a ___ level feedback.",
+        "answer": "Personal-level"
+    },
+    {
+        "question": "___ refers to a complex set of mental abilities underlying social stimulus perception, processing, interpretation, and response.",
+        "answer": "social cognition"
+    },
+    {
+        "question": "Piaget\u2019s conception of ___ views information inconsistent with an individual\u2019s cognitive structures as an initiator for assimilation and accommodation processes.",
+        "answer": "cognitive conflict"
+    },
+    {
+        "question": "During the earliest stages of development, children see the world from their own perspective and struggle to think about how other people may view the world. This highlights that initially, children are ___.",
+        "answer": "egocentric"
+    },
+    {
+        "question": "Which of the following is false regarding social cognition?",
+        "answer": "There are no cultural differences in social cognition"
+    },
+    {
+        "question": "Social processes influence how information is selected, organized, integrated, and retrieved. This highlights the ___ hypothesis.",
+        "answer": "cognitive influence"
+    },
+    {
+        "question": "The social cognitive theory is developed by ___.",
+        "answer": "Bandura"
+    },
+    {
+        "question": "___ refers to the internal or external responses to a person's behavior that affect the likelihood of continuing or discontinuing the behavior.",
+        "answer": "reinforcements"
+    },
+    {
+        "question": "Observational learning occurs through the sequence of ___ number of processes. One of those is attentional processes.",
+        "answer": "four"
+    },
+    {
+        "question": "The ___ model of observational learning involves an actual individual demonstrating or acting out a behavior.",
+        "answer": "live"
+    },
+    {
+        "question": "___ suggests that our behavior, personal factors, and environmental factors all influence each other.",
+        "answer": "reciprocal determinism"
+    }
 ]
