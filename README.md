@@ -49,9 +49,11 @@ Once installed, **login with your credentials** obtained from our [website](http
 
 ## ⌨️ Shortcuts
 
+### Windows/Linux Users:
 - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>Q</kbd> : Solve Iam Neo MCQs/Coding Questions with 100% ACCURACY
 - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> : Solve Iam Neo MCQs/Coding Questions with using AI [Backup]
 - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Type Iam Neo Coding Questions One by One
+- <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> : Solve HackerRank Questions [BETA]
 > [!NOTE]
 > The following shortcuts **require text to be selected** before activation:  
 > - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> : Solve NPTEL MCQs from selected text
@@ -59,6 +61,25 @@ Once installed, **login with your credentials** obtained from our [website](http
 > - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> : Search MCQs from selected text
 - <kbd>Ctrl</kbd> + <kbd>V</kbd> : Paste content when blocked
 - <kbd>Alt</kbd> + <kbd>C</kbd> : Open/Close Chatbot
+
+<details>
+<summary><strong>Mac Users (Click to expand)</strong></summary>
+
+- <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Q</kbd> : Solve Iam Neo MCQs/Coding Questions with 100% ACCURACY
+- <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> : Solve Iam Neo MCQs/Coding Questions with using AI [Backup]
+- <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Type Iam Neo Coding Questions One by One
+- <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> : Solve HackerRank Questions [BETA]
+
+> [!NOTE]
+> The following shortcuts **require text to be selected** before activation:  
+> - <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> : Solve NPTEL MCQs from selected text
+> - <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> : Search answers and code from selected text  
+> - <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> : Search MCQs from selected text
+
+- <kbd>Cmd</kbd> + <kbd>V</kbd> : Paste content when blocked
+- <kbd>Option</kbd> + <kbd>C</kbd> : Open/Close Chatbot
+
+</details>
 
 ## 🤝 Contribute or Add NPTEL Dataset
 
@@ -88,4 +109,3 @@ We'd love to hear your thoughts! If you encounter any issues or have suggestions
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 </samp>
-

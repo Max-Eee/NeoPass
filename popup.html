@@ -9,13 +9,15 @@
             background-color: black;
             color: white;
             font-family: monospace;
-            width: 320px;
+            width: 380px;
+            max-width: 800px;
             margin: 0;
             padding: 16px;
-            min-height: 200px;
+            max-height: 600px;
             display: flex;
             flex-direction: column;
             position: relative;
+            box-sizing: border-box;
         }
         #userInfo {
             width: 100%;
@@ -143,28 +145,58 @@
             vertical-align: middle;
         }
 
-        .shortcuts-category {
-            margin-top: 16px;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
+        .shortcuts-category-header {
+            margin-top: 12px;
+            margin-bottom: 6px;
+            font-size: 0.75rem;
             font-weight: bold;
             color: white;
             text-align: left;
-            padding-bottom: 4px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .shortcuts-category-header span {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: white; /* Fallback for browsers that don't support background-clip */
+        }
+
+        .shortcuts-section {
+            margin-bottom: 8px;
+        }
+
+        /* Different gradient colors for each category */
+        .shortcuts-category-header[data-category="universal"] span {
             background: linear-gradient(45deg, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .shortcuts-container {
-            padding: 12px 15px;
-            background: linear-gradient(45deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 12px;
-            text-align: left;
+        .shortcuts-category-header[data-category="iamneo"] span {
+            background: linear-gradient(45deg, #10b981, #059669, #047857);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .shortcuts-category-header[data-category="hackerrank"] span {
+            background: linear-gradient(45deg, #f59e0b, #f97316, #ea580c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .shortcuts-category-header[data-category="nptel"] span {
+            background: linear-gradient(45deg, #dc2626, #ef4444, #f87171);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .shortcuts-header {
@@ -250,6 +282,7 @@
             font-size: 0.8rem;
             font-weight: bold;
             color: white;
+            margin-right: 16px;
         }
 
         .toggle-warning {
@@ -368,6 +401,29 @@
             border-color: rgba(255, 255, 255, 0.8);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
+        
+        /* Select dropdown styling */
+        select.glow-input {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            padding-right: 32px;
+        }
+        
+        select.glow-input option {
+            background-color: #1a1a1a;
+            color: white;
+        }
+        
+        /* API Config Header */
+        .api-config-header {
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: white;
+        }
 
         .glow-button {
             position: relative;
@@ -471,29 +527,28 @@
             animation: pulse 2s infinite;
         }
 
-        .tag-version {
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-            color: white;
+        .text-selection-required {
+            font-size: 0.65rem;
+            color: #fbbf24;
+            font-weight: bold;
+            margin-left: 4px;
+            padding: 1px 4px;
+            border-radius: 3px;
+            background-color: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            display: inline-block;
+            margin-top: 2px;
         }
 
-        .tag-mcq {
-            background: linear-gradient(45deg, #f59e0b, #f97316);
-            color: white;
+        .shortcut-item-with-requirement {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
         }
 
-        .tag-coding {
-            background: linear-gradient(45deg, #10b981, #059669);
-            color: white;
-        }
-
-        .tag-stealth {
-            background: linear-gradient(45deg, #dc2626, #ef4444);
-            color: white;
-        }
-
-        .tag-old {
-            background: linear-gradient(45deg, #6b7280, #4b5563);
-            color: white;
+        .shortcut-main-line {
+            display: flex;
+            align-items: center;
         }
 
         @keyframes pulse {
@@ -642,80 +697,139 @@
                 
                 <!-- Tab Contents -->
                 <div id="shortcuts-tab" class="tab-content active">
-                    <div class="shortcuts-container">                        
-                        <div class="shortcuts-category">Universal Shortcuts</div>
-                        <ul class="shortcuts-list">
-                            <li>
-                                <span class="shortcut-key">Alt + Shift + S</span>
-                                <span class="shortcut-description">Search Coding Answers Using AI</span>
-                            </li>
-                            <li>
-                                <span class="shortcut-key">Alt + Shift + M</span>
-                                <span class="shortcut-description">Solve MCQs By Selecting Text Using AI</span>
-                            </li>
-                            <li>
-                                <span class="shortcut-key">Alt + C</span>
-                                <span class="shortcut-description">Toggle Chatbot Overlay</span>
-                            </li>
-                            <li>
-                                <span class="shortcut-key">Ctrl + V</span>
-                                <span class="shortcut-description">Paste Content Even When Restricted</span>
-                            </li>
-                        </ul>
+                    <div class="shortcuts-container">
+                        <!-- All shortcuts displayed without dropdowns -->
+                        <div class="shortcuts-section">
+                            <div class="shortcuts-category-header" data-category="iamneo">
+                                <span>Examly/Iamneo</span>
+                            </div>
+                            <ul class="shortcuts-list">
+                                <li>
+                                    <span class="shortcut-key">Ctrl + Shift + Q</span>
+                                    <span class="shortcut-description">Answer Neo Questions with 100% Accuracy</span>
+                                </li>
+                                <li>
+                                    <span class="shortcut-key">Ctrl + Shift + T</span>
+                                    <span class="shortcut-description">Type Neo Coding Answers</span>
+                                </li>
+                                <li>
+                                    <span class="shortcut-key">Option + Shift + A</span>
+                                    <span class="shortcut-description">Search Neo Answers Using AI</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="shortcuts-section">
+                            <div class="shortcuts-category-header" data-category="universal">
+                                <span>Universal</span>
+                            </div>
+                            <ul class="shortcuts-list">
+                                <li>
+                                    <div class="shortcut-item-with-requirement">
+                                        <div class="shortcut-main-line">
+                                            <span class="shortcut-key">Option + Shift + S</span>
+                                            <span class="shortcut-description">Search Answers Using AI</span>
+                                        </div>
+                                        <span class="text-selection-required">SELECT QUESTION FIRST</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="shortcut-item-with-requirement">
+                                        <div class="shortcut-main-line">
+                                            <span class="shortcut-key">Option + Shift + M</span>
+                                            <span class="shortcut-description">Solve MCQs Using AI</span>
+                                        </div>
+                                        <span class="text-selection-required">SELECT QUESTION FIRST</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="shortcut-key">Option + C</span>
+                                    <span class="shortcut-description">Toggle Chatbot Overlay</span>
+                                </li>
+                                <li>
+                                    <span class="shortcut-key">Option + Shift + V</span>
+                                    <span class="shortcut-description">Paste Using Drag and Drop</span>
+                                </li>
+                            </ul>
+                        </div>
                         
-                        <div class="shortcuts-category">Examly/Iamneo Portal Shortcuts</div>
-                        <ul class="shortcuts-list">
-                            <li>
-                                <span class="shortcut-key">Alt + Shift + Q</span>
-                                <span class="shortcut-description">Answer Neo Questions with 100% Accuracy</span>
-                                <div>
-                                    <span class="hot-feature tag-version">V1.2</span>
-                                    <span class="hot-feature tag-mcq">MCQ</span>
-                                    <span class="hot-feature tag-coding">CODING</span>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="shortcut-key">Alt + Shift + T</span>
-                                <span class="shortcut-description">Type Neo Coding Answers Automatically</span>
-                                <div>
-                                    <span class="hot-feature tag-stealth">STEALTH</span>
-                                    <span class="hot-feature tag-coding">CODING</span>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="shortcut-key">Alt + Shift + A</span>
-                                <span class="shortcut-description">Search Neo Answers Using AI</span>
-                                <div>
-                                    <span class="hot-feature tag-old">BACKUP</span>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="shortcuts-section">
+                            <div class="shortcuts-category-header" data-category="hackerrank">
+                                <span>HackerRank</span>
+                            </div>
+                            <ul class="shortcuts-list">
+                                <li>
+                                    <span class="shortcut-key">Ctrl + Shift + H</span>
+                                    <span class="shortcut-description">Solve HackerRank Questions [BETA]</span>
+                                </li>
+                            </ul>
+                        </div>
                         
-                        <div class="shortcuts-category">NPTEL Portal Shortcuts</div>
-                        <ul class="shortcuts-list">
-                            <li>
-                                <span class="shortcut-key">Alt + Shift + N</span>
-                                <span class="shortcut-description">Solve NPTEL MCQs</span>
-                            </li>
-                        </ul>
+                        <div class="shortcuts-section">
+                            <div class="shortcuts-category-header" data-category="nptel">
+                                <span>NPTEL</span>
+                            </div>
+                            <ul class="shortcuts-list">
+                                <li>
+                                    <span class="shortcut-key">Option + Shift + N</span>
+                                    <span class="shortcut-description">Solve NPTEL MCQs</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 
                 <div id="options-tab" class="tab-content">
-                    <!-- Ultra Stealth Mode Toggle -->
+                    <!-- Custom API Configuration -->
                     <div class="toggle-container mb-4">
-                        <div class="toggle-header">
-                            <span class="toggle-label">Ultra Stealth Mode</span>
+                        <div class="api-config-header">
+                            <span class="toggle-label">Custom AI Configuration</span>
+                        </div>
+                        <div class="toggle-info" style="margin-bottom: 12px;">
+                            Use your own API key to bypass rate limits
+                        </div>
+                        
+                        <!-- Toggle for Custom API -->
+                        <div class="toggle-header" style="margin-bottom: 12px;">
+                            <span class="toggle-label" style="font-size: 0.75rem;">Use Custom API</span>
                             <label class="toggle-switch">
-                                <input type="checkbox" id="ultraStealthModeTab">
+                                <input type="checkbox" id="useCustomAPI">
                                 <span class="toggle-slider"></span>
                             </label>
                         </div>
-                        <div class="toggle-warning">
-                            Disables popup and hides chatbot (still accessible via Alt+C)
-                        </div>
-                        <div class="ultra-toggle-success hidden">
-                            Ultra stealth mode enabled
+                        
+                        <!-- API Configuration Form (hidden by default) -->
+                        <div id="customAPIForm" class="hidden" style="margin-top: 12px;">
+                            <div class="mb-4">
+                                <label for="aiProvider" class="block text-sm mb-2" style="font-weight: bold; font-size: 0.75rem;">AI Provider:</label>
+                                <select id="aiProvider" class="glow-input" style="font-size: 0.75rem;">
+                                    <option value="openai">OpenAI</option>
+                                    <option value="anthropic">Claude (Anthropic)</option>
+                                    <option value="google">Google Gemini</option>
+                                    <option value="deepseek">DeepSeek</option>
+                                    <option value="custom">Custom Provider</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4" id="customEndpointDiv" class="hidden">
+                                <label for="customEndpoint" class="block text-sm mb-2" style="font-weight: bold; font-size: 0.75rem;">Custom API Endpoint:</label>
+                                <input type="text" id="customEndpoint" class="glow-input" placeholder="https://api.example.com/v1/chat" style="font-size: 0.75rem;">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="apiKey" class="block text-sm mb-2" style="font-weight: bold; font-size: 0.75rem;">API Key:</label>
+                                <input type="password" id="apiKey" class="glow-input" placeholder="Enter your API key" style="font-size: 0.75rem;">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="modelName" class="block text-sm mb-2" style="font-weight: bold; font-size: 0.75rem;">Model Name:</label>
+                                <input type="text" id="modelName" class="glow-input" placeholder="e.g., gpt-4, claude-3-opus" style="font-size: 0.75rem;">
+                                <div style="font-size: 0.65rem; color: #888; margin-top: 4px;">Leave empty for provider default</div>
+                            </div>
+                            
+                            <button id="testAPIConfig" class="glow-button" style="width: 100%; padding: 8px; font-size: 0.75rem;">
+                                Test Connection
+                            </button>
                         </div>
                     </div>
                     
@@ -728,7 +842,7 @@
                             </button>
                         </div>
                         <div class="toggle-info">
-                            Shortcut: Alt + O
+                            Shortcut: Option + O
                         </div>
                     </div>
                     
