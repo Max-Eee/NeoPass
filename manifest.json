@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "NeoExamShield",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "To prevent malpractice, identifies and blocks third-party browser extensions during tests on the Iamneo portal. Also provides tools for AI responses, custom copy/paste, and keeping the window active.",
   "background": {
     "service_worker": "worker.js"
@@ -125,6 +125,13 @@
         "mac": "Alt+Shift+N"
       },
       "description": "nptel"
+    },
+        "customPaste": {
+      "suggested_key": {
+        "default": "Alt+Shift+V",
+        "mac": "Alt+Shift+V"
+      },
+      "description": "Paste using drag-and-drop when blocked"
     }
   },
   "icons": {
