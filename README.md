@@ -9,7 +9,7 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 <samp>
   
 > [!IMPORTANT]
-> **Get Your Credentials**: To obtain your credentials, it is essential to visit the website [freeneopass](https://freeneopass.vercel.app) and follow the instructions provided there.  
+> **Get Your Credentials**: To obtain your credentials, it is essential to visit the website [neopass](https://freeneopass.vercel.app) and follow the instructions provided there.  
 > Accessing the website is crucial for a seamless experience with the extension.  
 
 > [!WARNING]
