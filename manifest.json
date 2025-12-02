@@ -90,6 +90,16 @@
       ]
     },
     {
+      "js": ["data/inject/f41e2811.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "matchOriginAsFallback": true,
+      "world": "MAIN",
+      "matches": [
+        "<all_urls>"
+      ]
+    },
+    {
       "js": ["data/inject/28c9f8e6.js"],
       "run_at": "document_start",
       "all_frames": true,
