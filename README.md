@@ -102,7 +102,7 @@ This helps expand our database and improves the accuracy of the NPTEL question s
 
 We'd love to hear your thoughts! If you encounter any issues or have suggestions for improvement, please reach out. Your feedback is invaluable! 💌
 
-📧 **Contact us at:** [freeneopass@gmail.com](mailto:freeneopass@gmail.com)
+📧 **Contact us at:** [freeneopass@gmail.com](mailto:freeneopass@gmail.com?subject=Issue%20Title%3A%20%5BBrief%20description%20of%20your%20issue%5D&body=Hello%20NeoPass%20Support%20Team%2C%0A%0AIssue%20Description%3A%0A%5BPlease%20describe%20your%20issue%20in%20detail%5D%0A%0AWhen%20does%20this%20occur%3A%0A%5BSpecify%20when%20the%20issue%20happens%20-%20e.g.%2C%20during%20login%2C%20while%20using%20a%20specific%20feature%2C%20etc.%5D%0A%0ASteps%20to%20Reproduce%3A%0A1.%20%5BFirst%20step%5D%0A2.%20%5BSecond%20step%5D%0A3.%20%5BThird%20step%5D%0A%0AScreenshots%2FError%20Messages%20if%20possible%3A%0A%5BPlease%20attach%20any%20relevant%20screenshots%20or%20paste%20error%20messages%20here%5D%0A%0AAdditional%20Information%3A%0A%5BAny%20other%20relevant%20details%5D%0A%0AThank%20you!)
 
 ## License
 
