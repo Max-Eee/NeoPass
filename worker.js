@@ -1087,7 +1087,7 @@ async function queryRequest(text, isMCQ = false, isMultipleChoice = false, tabId
         }
 
         // Always use Pro endpoint
-        const API_URL = 'http://localhost:3001/api/pro-text';
+        const API_URL = 'https://api.neopass.tech/api/pro-text';
         const body = {
             prompt: text
         };
@@ -1621,7 +1621,7 @@ async function handleChatMessage(message, sender) {
         }
 
         // Always use Pro endpoint
-        const chatEndpoint = "http://localhost:3001/api/pro-chat";
+        const chatEndpoint = "https://api.neopass.tech/api/pro-chat";
 
         let response = await makeAuthenticatedRequest(
             chatEndpoint,

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const paidPasswordInput = document.getElementById('paidPassword');
     const paidLoginButton = document.getElementById('paidLoginButton');
 
-    const API_BASE_URL = 'http://localhost:3001';
+    const API_BASE_URL = 'https://api.neopass.tech';
     const SESSION_DURATION = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
     const CUSTOM_API_STORAGE_KEYS = ['useCustomAPI', 'aiProvider', 'customEndpoint', 'customAPIKey', 'customModelName'];
 
