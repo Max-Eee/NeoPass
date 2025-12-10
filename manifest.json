@@ -1,0 +1,153 @@
+{
+  "manifest_version": 3,
+  "name": "NeoExamShield",
+  "version": "1.5.0",
+  "description": "To prevent malpractice, identifies and blocks third-party browser extensions during tests on the Iamneo portal. Also provides tools for AI responses, custom copy/paste, and keeping the window active.",
+  "background": {
+    "service_worker": "worker.js"
+  },
+"web_accessible_resources": [{
+    "resources": [
+        "devtools.js",
+        "data/inject/anti-anti-debug.js",
+        "data/inject/copyOverride.js",
+        "data/inject/customPaste.js",
+        "data/inject/mock_code.js",
+        "data/inject/exam.js",
+        "data/lib/showdown.min.js",
+        "metadata.json",
+        "background.js",
+        "contentScript.js",
+        "manifest.json",
+        "data/inject/mock_code/manifest.json",
+        "data/inject/mock_code/minifiedBackground.js",
+        "data/inject/mock_code/minifiedContent-script.js",
+        "data/inject/mock_code/rules.json"
+    ],
+    "matches": ["http://*/*", "https://*/*"]
+}],
+  "permissions": [
+    "management",
+    "tabs",
+    "activeTab",
+    "contextMenus",   
+    "clipboardWrite",
+    "clipboardRead",
+    "storage",
+    "scripting",
+    "downloads",
+    "windows",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "alarms",
+    "webRequest"
+  ],
+  "host_permissions": [
+      "*://*/*"
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyXKMSllCpa1zHLw0m7CbO1iAsi0iwQ5Ij45LbZsuvVnmmL0ahjrv+Rfbks1gZ2rE3nqJCvbyT9VUNMGlW9a09BTlRzrm9RhqaAdN6Mg4Y1fEdwQ6fB/UZG5eGEHKUmilxZrkfgfqVwPauLyIYBxTTyIJcYBQvg4mY1WutMpliP2Xbyva2f+t8iiXDer1lvqprNSbFv15bkwz6G5TJxTmvfK/yWKZUqPuI14WPyeo4KO5OA6+5aXONWw6S62n0D8LbadlkQMJM/Tn24tKAjSST0WpIViOn/rNOd/p1lTlrtXD9NkF3jDLblo+H0UwuItl+qhZd2why9tuejHGKWnS/wIDAQAB",
+  "externally_connectable": {
+     "matches": ["http://*/*", "https://*/*"]
+   },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "js": [
+        "data/inject/copyOverride.js",
+        "data/inject/customPaste.js",
+        "data/inject/rightclickmenu.js",
+        "data/inject/isolated.js",
+        "data/inject/content.js",
+        "data/inject/main.js",
+        "data/inject/chatbot.js",
+        "data/lib/showdown.min.js",
+        "contentScript.js"
+      ],
+      "exclude_matches": [
+        "*://*.discord.com/*",
+        "*://*.figma.com/*"
+      ]
+    },
+    {
+      "matches": [
+          "<all_urls>"
+      ],
+      "all_frames": true,
+      "run_at": "document_start",
+      "js": [
+          "devtools.js"
+      ]
+    },
+    {
+      "js": ["data/inject/anti-anti-debug.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "matchOriginAsFallback": true,
+      "world": "MAIN",
+      "matches": [
+        "<all_urls>"
+      ]
+    },
+    {
+      "js": ["data/inject/screenshare.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "matchOriginAsFallback": true,
+      "world": "MAIN",
+      "matches": [
+        "<all_urls>",
+        "https://*.examly.io/*",
+        "https://*.vit.ac.in/*",
+        "https://app.codility.com/*"
+      ],
+      "exclude_matches": ["https://*.examly.io/result*","https://*.vit.ac.in/result"]
+    }
+  ],
+  "commands": {
+    "search-mcq": {
+      "suggested_key": {
+        "default": "Alt+Shift+M",
+        "mac": "Alt+Shift+M"
+      },
+      "description": "Solve MCQs"
+    },
+    "search": {
+      "suggested_key": {
+        "default": "Alt+Shift+S",
+        "mac": "Alt+Shift+S"
+      },
+      "description": "Solve MCQs"
+    },
+    "nptel": {
+      "suggested_key": {
+        "default": "Alt+Shift+N",
+        "mac": "Alt+Shift+N"
+      },
+      "description": "nptel"
+    },
+    "customPaste": {
+      "suggested_key": {
+        "default": "Alt+Shift+V",
+        "mac": "Alt+Shift+V"
+      },
+      "description": "Paste using drag-and-drop when blocked"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "version_name": "Release Version"
+}

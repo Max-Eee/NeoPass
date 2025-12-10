@@ -1,0 +1,13 @@
+const dataset = [];
+document.querySelectorAll('.qt-mc-question').forEach(questionBlock => {
+    const questionText = questionBlock.querySelector('.qt-question')?.innerText.trim();
+    const correctAnswerLabel = questionBlock.querySelector('.qt-feedback .faculty-answer label')?.innerText.trim();
+
+    if (questionText && correctAnswerLabel) {
+        dataset.push({
+            question: questionText,
+            answer: correctAnswerLabel
+        });
+    }
+});
+console.log(dataset);

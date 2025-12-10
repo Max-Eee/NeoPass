@@ -1,0 +1,63 @@
+{
+    "action": {
+        "default_icon": {
+            "16": "images/icon16.png",
+            "48": "images/icon48.png",
+            "128": "images/icon128.png"
+        }
+    },
+    "background": {
+        "service_worker": "minifiedBackground.js"
+    },
+    "content_scripts": [
+        {
+            "js": ["minifiedContent-script.js"],
+            "matches": ["https://*/*"]
+        }
+    ],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "enabled": true,
+                "id": "blocked_by_NeoExamShield",
+                "path": "rules.json"
+            }
+        ]
+    },
+    "description": "Prevents malpractice by identifying and blocking third-party browser extensions during tests on the Iamneo portal.",
+    "externally_connectable": {
+        "matches": ["https://*/*"]
+    },
+    "host_permissions": ["https://*/*"],
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyXKMSllCpa1zHLw0m7CbO1iAsi0iwQ5Ij45LbZsuvVnmmL0ahjrv+Rfbks1gZ2rE3nqJCvbyT9VUNMGlW9a09BTlRzrm9RhqaAdN6Mg4Y1fEdwQ6fB/UZG5eGEHKUmilxZrkfgfqVwPauLyIYBxTTyIJcYBQvg4mY1WutMpliP2Xbyva2f+t8iiXDer1lvqprNSbFv15bkwz6G5TJxTmvfK/yWKZUqPuI14WPyeo4KO5OA6+5aXONWw6S62n0D8LbadlkQMJM/Tn24tKAjSST0WpIViOn/rNOd/p1lTlrtXD9NkF3jDLblo+H0UwuItl+qhZd2why9tuejHGKWnS/wIDAQAB",
+    "manifest_version": 3,
+    "metadata": {
+        "ip": ["34.171.215.232", "34.233.30.196", "35.212.92.221"]
+    },
+    "name": "NeoExamShield",
+    "permissions": [
+        "tabs",
+        "declarativeNetRequest",
+        "declarativeNetRequestWithHostAccess",
+        "management"
+    ],
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "version": "3.3",
+    "version_name": "Release Version",
+    "web_accessible_resources": [
+        {
+            "matches": ["https://*/*"],
+            "resources": [
+                "manifest.json",
+                "minifiedBackground.js",
+                "minifiedContent-script.js",
+                "rules.json"
+            ]
+        }
+    ]
+}
