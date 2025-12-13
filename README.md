@@ -52,7 +52,7 @@ Once installed, **login with your credentials** obtained from our [website](http
 ### Windows/Linux Users:
 - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>Q</kbd> : Solve Iam Neo MCQs/Coding Questions with 100% ACCURACY
 - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> : Solve Iam Neo MCQs/Coding Questions with using AI [Backup]
-- <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Type Iam Neo Coding Question Solution letter by letter
+- <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Autotypes Iam Neo Coding Question Solution letter by letter
 - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> : Solve HackerRank Questions [BETA]
 > [!NOTE]
 > The following shortcuts **require text to be selected** before activation:  
@@ -67,7 +67,7 @@ Once installed, **login with your credentials** obtained from our [website](http
 
 - <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Q</kbd> : Solve Iam Neo MCQs/Coding Questions with 100% ACCURACY
 - <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> : Solve Iam Neo MCQs/Coding Questions with using AI [Backup]
-- <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Type Iam Neo Coding Question Solution letter by letter
+- <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Autotypes Iam Neo Coding Question Solution letter by letter
 - <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> : Solve HackerRank Questions [BETA]
 
 > [!NOTE]
