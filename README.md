@@ -2,15 +2,21 @@
 
 # <i>**`Free`** NeoPass Extension</i>
 
-This chrome extension is for students taking tests on the **`Iamneo portal`**, **`Wildlife Ecology NPTEL`**<br>, **`conservation-geography NPTEL`**<br>, **`forest management NPTEL`**<br>  and `other exam portals in chrome browser` that restrict your abilities
+> **NeoPass Pro** - [Click here to see Pro features and benefits](https://neopass.tech/pro) 🚀
+
+This chrome extension is for students taking tests on the **`Iamneo portal`**, **`HackerRank`**, **`Wildlife Ecology NPTEL`**, **`conservation-geography NPTEL`**, **`forest management NPTEL`** and `other exam portals in chrome browser` that restrict your abilities
 
 ### [**Make sure to visit our website for the best experience!**](https://freeneopass.vercel.app) 🌐
 
 <samp>
   
 > [!IMPORTANT]
-> **Get Your Credentials**: To obtain your credentials, it is essential to visit the website [neopass](https://freeneopass.vercel.app) and follow the instructions provided there.  
-> Accessing the website is crucial for a seamless experience with the extension.  
+> **Free Users**: No sign-up needed! Configure your own AI API key by clicking the extension icon and going to the **Settings** tab.  
+> Supported providers: OpenAI, Google Gemini, Anthropic Claude, and custom endpoints.
+> 
+> **Note**: If your AI service provider is blocked on your network, the extension will not work.
+>
+> **Want a hassle-free experience?** Upgrade to Pro by visiting **neopass.tech/pro** for AI managed by NeoPass (GPT-5.1), increased rate limits, and NeoBrowser 1.1.15 access!  
 
 > [!WARNING]
 > **Educational Purposes Only**: This extension is intended for educational purposes. Please use it responsibly and ethically.  
@@ -19,14 +25,24 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 
 ## ✨ Features
 
+### Free Version (Bring Your Own API Key)
 - **`NPTEL Integration`** : Solve NPTEL Wildlife ecology answers
-- **`NeoExamShield Bypass`** : Break free from Examly's limitations.  NeoPass mimics the NeoExamShield extension
+- **`NeoExamShield Bypass`** : Break free from Examly's limitations. NeoPass mimics the NeoExamShield extension
 - **`Chatbot With Stealth Mode`** : Leverage AI Chatbot to enhance your search capabilities
 - **`AI Search Answers/Code`** : Perform AI-powered searches, helping you find answers without switching tabs
-- **`Solve MCQ`** : Quicky Search MCQ Answers by simply selecting
+- **`Solve MCQ`** : Quickly Search MCQ Answers by simply selecting
 - **`Tab Switching Bypass`** : Prevents unwanted tab switch restrictions
 - **`Pasting When Restricted`** : Quickly paste answers with ease, reducing the time spent on manual entry
-- **`Remote Logout`** : Remote logout your account from the extension ensuring your identity is hidden.
+- **`Multiple AI Providers`** : Support for OpenAI, Google Gemini, Anthropic Claude, and custom endpoints
+
+### 🚀 Pro Version Features
+- **`Everything in free`** : All free features are included
+- **`Managed AI by NeoPass`** : Powered by GPT-5.1 - no API key needed!
+- **`NeoBrowser 1.1.15 Access`** : Exclusive access to the NeoBrowser extension with enhanced features
+- **`No Network Restrictions`** : Works even if AI providers are blocked on your network
+- **`Increased Rate Limits`** : Higher usage limits for intensive exam sessions
+- **`Priority Support`** : Get help when you need it most
+- **`Hassle-Free Experience`** : No configuration needed, just login and go!
 
 ## ⬇️ Installation
 
@@ -45,7 +61,22 @@ https://github.com/user-attachments/assets/89fb986c-2edb-4252-8232-dbd10beec0cf
 
 ## 💻 Usage
 
-Once installed, **login with your credentials** obtained from our [website](https://freeneopass.vercel.app).
+### For Free Users:
+1. Click the NeoPass extension icon in your browser toolbar
+2. Navigate to the **Settings** tab
+3. Enter your AI API key (OpenAI, Google Gemini, Anthropic, or custom endpoint)
+4. Select your AI provider from the dropdown menu
+5. Click "Test Connection" to verify your setup
+6. Start using all NeoPass features with your own API!
+
+> [!NOTE]
+> **Network Restrictions**: If your school/organization blocks AI service providers (OpenAI, Google, etc.), the extension will not work even with a valid API key. In this case, consider using a VPN or upgrade to Pro by visiting **neopass.tech/pro**.
+
+### For Pro Users:
+1. Visit [neopass.tech/pro](https://freeneopass.vercel.app/pro) to subscribe
+2. Click the extension icon and go to the **Pro** tab
+3. Login with your Pro credentials you have created from the webstie
+4. Enjoy hassle-free AI-powered assistance with no configuration needed!
 
 ## ⌨️ Shortcuts
 

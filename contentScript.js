@@ -27,155 +27,98 @@ script.src = chrome.runtime.getURL('data/inject/exam.js');
 
 // Function removed - login check no longer required for extension features
 
-// // Neo Browser Download Link
-// const neoBrowserDownloadLink = "//removed";
+// Neo Browser Download Link - Updated
+const neoBrowserDownloadLink = "https://freeneopass.vercel.app/pro";
 
-// // Function to replace "Download Neo Browser" text links
-// function replaceDownloadTextLink() {
-//   const existing = Array.from(document.querySelectorAll("div"))
-//     .find(el => el.textContent.trim() === "Download Neo Browser");
+// Function to replace the new Neo Browser button structure
+function replaceNeoBrowserButton() {
+  const neoButton = document.querySelector('button#neobrowser');
+  
+  if (neoButton && !neoButton.dataset.replaced) {
+    // Prevent default behavior
+    neoButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.open(neoBrowserDownloadLink, '_blank');
+    }, true);
+    
+    // Create custom styled button/link
+    const replacementBtn = document.createElement('a');
+    replacementBtn.innerHTML = `
+      <div class="container jcc btn-align">
+        <div class="t-whitespace-nowrap ng-star-inserted">
+          <span>Download NeoPass's NeoBrowser</span>
+        </div>
+      </div>
+    `;
+    replacementBtn.href = neoBrowserDownloadLink;
+    replacementBtn.target = "_blank";
+    replacementBtn.className = neoButton.className;
+    replacementBtn.id = "neobrowser";
+    replacementBtn.tabIndex = 0;
+    
+    // Apply gradient styling
+    replacementBtn.style.cssText = `
+      position: relative !important;
+      display: inline-flex !important;
+      padding: 8px 16px !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      color: white !important;
+      background-color: black !important;
+      border-radius: 8px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      z-index: 1 !important;
+      border: 2px solid transparent !important;
+      transition: all 0.3s ease !important;
+    `;
+    
+    // Create gradient border effect
+    const beforeStyle = document.createElement('style');
+    beforeStyle.textContent = `
+      a#neobrowser {
+        position: relative !important;
+        background: linear-gradient(black, black) padding-box,
+                    linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899) border-box !important;
+        border: 2px solid transparent !important;
+      }
+      a#neobrowser:hover {
+        transform: scale(1.05) !important;
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.6) !important;
+      }
+    `;
+    if (!document.querySelector('style[data-neobrowser-style]')) {
+      beforeStyle.setAttribute('data-neobrowser-style', 'true');
+      document.head.appendChild(beforeStyle);
+    }
+    
+    // Replace the button
+    neoButton.replaceWith(replacementBtn);
+    replacementBtn.dataset.replaced = "true";
+    
+    console.log('✅ Neo Browser button replaced with NeoPass redirect');
+  }
+}
 
-//   if (existing && !existing.dataset.replaced) {
-//     const newTextBtn = document.createElement("a");
-//     newTextBtn.textContent = "Download NeoPass's NeoBrowser";
-//     newTextBtn.href = neoBrowserDownloadLink;
-//     newTextBtn.target = "_blank";
-//     newTextBtn.style.cssText = `
-//       color: #0070f3;
-//       font-weight: 500;
-//       font-size: 15px;
-//       text-decoration: underline;
-//       cursor: pointer;
-//       white-space: nowrap;
-//       background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
-//       -webkit-background-clip: text;
-//       background-clip: text;
-//       -webkit-text-fill-color: transparent;
-//     `;
-//     existing.replaceWith(newTextBtn);
-//     existing.dataset.replaced = "true";
-//   }
-// }
+// Observer to detect and replace Neo Browser button
+const buttonObserver = new MutationObserver((mutations) => {
+  replaceNeoBrowserButton();
+});
 
-// // Function to replace "Take test only in Neo Browser" buttons
-// function replaceTakeTestButton() {
-//   const buttons = document.querySelectorAll("#testButtonsID button");
-//   buttons.forEach(btn => {
-//     const isTarget =
-//       btn.textContent.trim() === "Take test only in Neo Browser" &&
-//       btn.classList.contains("disabled");
+// Start observing for button changes
+buttonObserver.observe(document.body, { 
+  childList: true, 
+  subtree: true 
+});
 
-//     if (isTarget && !btn.closest("#testButtonsID")?.dataset.replaced) {
-//       const replacementBtn = document.createElement("a");
-//       replacementBtn.textContent = "Take test only in NeoPass's NeoBrowser";
-//       replacementBtn.href = neoBrowserDownloadLink;
-//       replacementBtn.target = "_blank";
-      
-//       // Apply gradient styling similar to popup.html glow-button
-//       replacementBtn.style.cssText = `
-//         position: relative;
-//         display: inline-block;
-//         padding: 10px 20px;
-//         font-size: 15px;
-//         font-weight: 500;
-//         color: white;
-//         background-color: black;
-//         border-radius: 8px;
-//         text-align: center;
-//         text-decoration: none;
-//         cursor: pointer;
-//         z-index: 1;
-//         border: 1px solid transparent;
-//         transition: all 0.3s ease;
-//       `;
-      
-//       // Create pseudo-elements with CSS
-//       const beforeStyle = document.createElement('style');
-//       beforeStyle.textContent = `
-//         .neo-download-btn {
-//           position: relative;
-//           z-index: 1;
-//         }
-//         .neo-download-btn:before {
-//           content: '';
-//           position: absolute;
-//           top: -2px;
-//           right: -2px;
-//           bottom: -2px;
-//           left: -2px;
-//           background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
-//           border-radius: 9px;
-//           z-index: -1;
-//           transition: opacity 0.3s ease;
-//           opacity: 0.5;
-//         }
-//         .neo-download-btn:after {
-//           content: '';
-//           position: absolute;
-//           inset: 1px;
-//           background: black;
-//           border-radius: 7px;
-//           z-index: -1;
-//         }
-//         .neo-download-btn:hover:before {
-//           opacity: 1;
-//           filter: blur(2px);
-//         }
-//         .neo-download-btn:hover {
-//           transform: scale(1.02);
-//         }
-//       `;
-//       document.head.appendChild(beforeStyle);
-//       replacementBtn.classList.add('neo-download-btn');
-
-//       const parent = btn.parentElement?.parentElement;
-//       if (parent) {
-//         parent.innerHTML = "";
-//         parent.appendChild(replacementBtn);
-//         parent.dataset.replaced = "true";
-//       }
-//     }
-//   });
-// }
-
-// // Function to observe and attach event listeners to test buttons
-// function observeTestButtons() {
-//   // Only observe buttons when URL includes "mycourses"
-//   if (!window.location.href.includes("mycourses")) {
-//     return;
-//   }
-
-//   const observer = new MutationObserver((mutations) => {
-//       mutations.forEach((mutation) => {
-//           mutation.addedNodes.forEach((node) => {
-//               if (node.nodeType === 1) { // Ensure it's an element
-//                   const buttons = node.querySelectorAll("button");
-//                   buttons.forEach((button) => {
-//                       if (
-//                           button.innerText.includes("Resume Test") ||
-//                           button.innerText.includes("Start Test")
-//                       ) {
-//                           button.addEventListener("click", checkLoginStatusAndProceed, true);
-//                       }
-//                   });
-//               }
-//           });
-//       });
-      
-//       // Also check for download buttons to replace
-//       replaceDownloadTextLink();
-//       replaceTakeTestButton();
-//   });
-
-//   observer.observe(document.body, { childList: true, subtree: true });
-// }
-
-// // Start observing when the script loads
-// observeTestButtons();
-
-// // Initial check for Neo Browser buttons (in case already loaded)
-// replaceDownloadTextLink();
-// replaceTakeTestButton();
+// Initial check for Neo Browser button (in case already loaded)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', replaceNeoBrowserButton);
+} else {
+  replaceNeoBrowserButton();
+}
 
 // Listen for window messages
 window.addEventListener("message", function(event) {
