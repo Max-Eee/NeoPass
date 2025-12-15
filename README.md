@@ -2,7 +2,7 @@
 
 # <i>**`Free`** NeoPass Extension</i>
 
-> **NeoPass Pro** - [Click here to see Pro features and benefits](https://neopass.tech/pro) 🚀
+> **NeoPass Pro** - [Click here to see Pro features and benefits](https://neopass.tech/pro)
 
 This chrome extension is for students taking tests on the **`Iamneo portal`**, **`HackerRank`**, **`Wildlife Ecology NPTEL`**, **`conservation-geography NPTEL`**, **`forest management NPTEL`** and `other exam portals in chrome browser` that restrict your abilities
 
