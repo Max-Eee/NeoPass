@@ -38,7 +38,7 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 ### 🚀 Pro Version Features
 - **`Everything in free`** : All free features are included
 - **`Managed AI by NeoPass`** : Powered by GPT-5.1 - no API key needed!
-- **`NeoBrowser 1.1.15 Access`** : Exclusive access to the NeoBrowser extension with enhanced features
+- **`NeoBrowser 1.1.15 Access`** : Exclusive access to the NeoBrowser
 - **`No Network Restrictions`** : Works even if AI providers are blocked on your network
 - **`Increased Rate Limits`** : Higher usage limits for intensive exam sessions
 - **`Priority Support`** : Get help when you need it most
