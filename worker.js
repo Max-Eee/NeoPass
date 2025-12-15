@@ -1151,7 +1151,8 @@ async function queryRequest(text, isMCQ = false, isMultipleChoice = false, tabId
                     errorType = 'forbidden';
                     
                     // Check if this is a Pro subscription expiration
-                    if (errorData.error && (errorData.error.includes('Pro subscription') || errorData.error.includes('active Pro subscription') || errorData.error.includes('subscription') || errorData.error.includes('expired'))) {
+                    if ((errorData.error && (errorData.error.includes('Pro subscription') || errorData.error.includes('active Pro subscription') || errorData.error.includes('subscription') || errorData.error.includes('expired'))) ||
+                        (errorData.message && (errorData.message.includes('subscription') || errorData.message.includes('expired')))) {
                         errorMessage = 'Pro subscription required or expired.';
                         detailedInfo = 'This service requires an active Pro subscription. Please upgrade or renew your Pro subscription.';
                         
@@ -1685,7 +1686,8 @@ async function handleChatMessage(message, sender) {
                     }
                 } else if (response.status === 403) {
                     // Check if this is a Pro subscription expiration
-                    if (errorData.error && (errorData.error.includes('Pro subscription') || errorData.error.includes('active Pro subscription') || errorData.error.includes('subscription') || errorData.error.includes('expired'))) {
+                    if ((errorData.error && (errorData.error.includes('Pro subscription') || errorData.error.includes('active Pro subscription') || errorData.error.includes('subscription') || errorData.error.includes('expired'))) ||
+                        (errorData.message && (errorData.message.includes('subscription') || errorData.message.includes('expired')))) {
                         errorMessage = "Your Pro subscription is required or has expired. Please upgrade or renew your Pro subscription to continue using this service.";
                         
                         // Auto-logout user when subscription expires

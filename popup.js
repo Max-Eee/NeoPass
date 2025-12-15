@@ -411,7 +411,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     
                     showError('Logged in successfully!', 2000);
                 } else {
-                    showError(data.message || 'Login failed');
+                    // Handle subscription expiration specifically
+                    if (data.subscriptionExpired) {
+                        showError(data.message || 'Your subscription has expired. Please renew to continue.', 7000);
+                    } else {
+                        showError(data.message || 'Login failed');
+                    }
                 }
         
             } catch (error) {
