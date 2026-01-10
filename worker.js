@@ -1411,7 +1411,7 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
 }
 
 
-const API_BASE_URL = 'http://localhost:3001';
+const API_BASE_URL = 'https://api.neopass.tech';
 // Listen for messages from Chrome runtime for ChatBot
 // Helper function to get tokens from chrome storage
 async function getTokens() {
