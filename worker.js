@@ -456,6 +456,16 @@ function showUpdateToast(tabId, message, latestVersion) {
                                 });
                             };
 
+                            // Listen for dismissal message from other tabs
+                            chrome.runtime.onMessage.addListener((message) => {
+                                if (message.action === "removeUpdateNotification") {
+                                    if (gradientContainer && gradientContainer.parentElement) {
+                                        gradientContainer.style.animation = 'fadeOut 0.3s ease-out';
+                                        setTimeout(() => gradientContainer.remove(), 280);
+                                    }
+                                }
+                            });
+
                             // Add animation styles
                             const style = document.createElement('style');
                             style.textContent = `
@@ -538,11 +548,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             }
         });
 
-        // Standard update check logic (limited to once per session)
-        if (!updateCheckedThisSession) {
-            updateCheckedThisSession = true;
-            checkForUpdate();
-        }
+        // Standard update check logic (shows on every tab until dismissed)
+        checkForUpdate();
     }
 });
 
@@ -578,9 +585,6 @@ chrome.runtime.onInstalled.addListener((details) => {
     }
 });
 
-// Keep track of whether we've checked for an update in this session
-let updateCheckedThisSession = false;
-
 // Additional listener for update dismissal messages from content script
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "updateDismissed") {
@@ -588,19 +592,21 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             lastUpdateDismissed: message.timestamp,
             lastUpdateVersion: message.version
         });
+        
+        // Broadcast to all tabs to remove the notification
+        chrome.tabs.query({}, (tabs) => {
+            tabs.forEach(tab => {
+                chrome.tabs.sendMessage(tab.id, {
+                    action: "removeUpdateNotification"
+                }).catch(() => {
+                    // Ignore errors for tabs that can't receive messages
+                });
+            });
+        });
     }
 });
 
-// Modified tab refresh update check with URL validation and throttling
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    // Only check when page is fully loaded and URL is not a chrome URL
-    // Also limit to once per browser session
-    if (changeInfo.status === 'complete' && tab.url &&
-        !tab.url.startsWith('chrome://') && !updateCheckedThisSession) {
-        updateCheckedThisSession = true;
-        checkForUpdate();
-    }
-});
+
 
 let extensionStatus = 'on';
 
@@ -1087,9 +1093,10 @@ async function queryRequest(text, isMCQ = false, isMultipleChoice = false, tabId
         }
 
         // Always use Pro endpoint
-        const API_URL = 'https://api.neopass.tech/api/pro-text';
+        const API_URL = `${API_BASE_URL}/api/pro-text`;
         const body = {
-            prompt: text
+            prompt: text,
+            refreshToken: refreshToken  // Required for server-side automatic token refresh
         };
 
         if (isMCQ) {
@@ -1105,17 +1112,16 @@ async function queryRequest(text, isMCQ = false, isMultipleChoice = false, tabId
         try {
             let response = await makeAuthenticatedRequest(API_URL, 'POST', accessToken, body);
 
+            // Server automatically handles token refresh if access token expired
+            // If auth fails, it means refresh token is also invalid/expired
             if (!response.ok && (response.status === 401 || response.status === 403)) {
-                console.log('[queryRequest] Token expired/invalid, attempting refresh...');
-                const newAccessToken = await refreshAccessToken(refreshToken);
-
-                if (!newAccessToken) {
-                    chrome.storage.local.remove(['accessToken', 'refreshToken', 'loggedIn']);
-                    return { error: 'Session expired. Please log in again.', errorType: 'auth' };
-                }
-
-                console.log('[queryRequest] Token refreshed, retrying request...');
-                response = await makeAuthenticatedRequest(API_URL, 'POST', newAccessToken, body);
+                console.log('[queryRequest] Authentication failed - session expired');
+                chrome.storage.local.remove(['accessToken', 'refreshToken', 'loggedIn']);
+                return { 
+                    error: 'Session expired. Please log in again.', 
+                    errorType: 'auth',
+                    detailedInfo: 'Your session has expired. Please log in again to continue using NeoPass features.'
+                };
             }
 
             if (!response.ok) {
@@ -1188,10 +1194,11 @@ async function queryRequest(text, isMCQ = false, isMultipleChoice = false, tabId
 
             const responseData = await response.json();
             
-            // Check if token was auto-refreshed by the server
-            if (responseData.tokenRefreshed && responseData.accessToken) {
-                await chrome.storage.local.set({ accessToken: responseData.accessToken });
-                console.log('✅ Access token auto-refreshed by server');
+            // Server automatically refreshes access token if it expired
+            // Store the new access token (refresh token remains unchanged)
+            if (responseData.newAccessToken) {
+                await chrome.storage.local.set({ accessToken: responseData.newAccessToken });
+                console.log('✅ Access token auto-refreshed by server and stored');
             }
             
             return responseData.text;
@@ -1404,7 +1411,7 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
 }
 
 
-const API_BASE_URL = 'https://api.neopass.tech';
+const API_BASE_URL = 'http://localhost:3001';
 // Listen for messages from Chrome runtime for ChatBot
 // Helper function to get tokens from chrome storage
 async function getTokens() {
@@ -1622,7 +1629,7 @@ async function handleChatMessage(message, sender) {
         }
 
         // Always use Pro endpoint
-        const chatEndpoint = "https://api.neopass.tech/api/pro-chat";
+        const chatEndpoint = `${API_BASE_URL}/api/pro-chat`;
 
         let response = await makeAuthenticatedRequest(
             chatEndpoint,
@@ -1630,38 +1637,30 @@ async function handleChatMessage(message, sender) {
             accessToken,
             {
                 message: message.message,
-                context: message.context
+                context: message.context,
+                refreshToken: refreshToken  // Send refresh token for server-side auto-refresh
             }
         );
 
-        // Handle unauthorized responses
+        // Server automatically handles token refresh if access token expired
+        // If auth fails, it means refresh token is also invalid/expired
         if (!response.ok && (response.status === 401 || response.status === 403)) {
-            const newAccessToken = await refreshAccessToken(refreshToken);
-
-            if (!newAccessToken) {
-                // Clear stored tokens
-                chrome.storage.local.remove(['accessToken', 'refreshToken', 'loggedIn']);
-                sendChatErrorResponse(sender.tab.id, "Session expired. Please log in again.");
-                return;
-            }
-
-            // Retry with new access token
-            response = await makeAuthenticatedRequest(
-                chatEndpoint,
-                "POST",
-                newAccessToken,
-                {
-                    message: message.message,
-                    context: message.context
+            // Check if this is an auth error vs Pro subscription error
+            try {
+                const errorData = await response.json();
+                if (errorData.message && errorData.message.includes('subscription')) {
+                    // This is a Pro subscription issue, not an auth issue
+                    sendChatErrorResponse(sender.tab.id, "Your Pro subscription is required or has expired. Please upgrade or renew.");
+                    return;
                 }
-            );
-
-            // If still unauthorized after refresh, clear tokens
-            if (!response.ok && (response.status === 401 || response.status === 403)) {
-                chrome.storage.local.remove(['accessToken', 'refreshToken', 'loggedIn']);
-                sendChatErrorResponse(sender.tab.id, "Session expired. Please log in again.");
-                return;
+            } catch (e) {
+                // Couldn't parse error, assume auth failure
             }
+            
+            // Authentication failed - clear tokens
+            chrome.storage.local.remove(['accessToken', 'refreshToken', 'loggedIn']);
+            sendChatErrorResponse(sender.tab.id, "Session expired. Please log in again.");
+            return;
         }
 
         // Handle different error scenarios with specific user messages
@@ -1718,10 +1717,11 @@ async function handleChatMessage(message, sender) {
         const data = await response.json();
 
         if (response.ok && data.success) {
-            // Check if token was auto-refreshed by the server
-            if (data.tokenRefreshed && data.accessToken) {
-                await chrome.storage.local.set({ accessToken: data.accessToken });
-                console.log('✅ Access token auto-refreshed during chat request');
+            // Server automatically refreshes access token if it expired
+            // Store the new access token (refresh token remains unchanged)
+            if (data.newAccessToken) {
+                await chrome.storage.local.set({ accessToken: data.newAccessToken });
+                console.log('✅ Access token auto-refreshed during chat request and stored');
             }
             
             sendChatResponse(sender.tab.id, data.response);
@@ -1764,37 +1764,17 @@ function sendChatErrorResponse(tabId, content) {
     });
 }
 
-// Refresh token function (reused from your existing code)
-async function refreshAccessToken(refreshToken) {
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/refresh-token`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                refreshToken
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error('Token refresh failed');
-        }
-
-        const data = await response.json();
-        if (data.success && data.accessToken) {
-            // Store the new access token in chrome storage
-            await chrome.storage.local.set({
-                accessToken: data.accessToken
-            });
-            return data.accessToken;
-        }
-        return null;
-    } catch (error) {
-        console.error('Error refreshing token:', error);
-        return null;
-    }
-}
+// ========================================
+// NOTE: Token refresh is now handled automatically by the server
+// ========================================
+// The server's authenticateTokenWithRefresh middleware automatically:
+// 1. Detects when access token expires
+// 2. Generates a new access token (keeps same refresh token)
+// 3. Returns newAccessToken in the response
+// 4. Client stores the new access token
+//
+// Old client-side refresh logic has been removed as it's no longer needed
+// ========================================
 
 async function copyToClipboard(text, tabId) {
     try {

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const paidPasswordInput = document.getElementById('paidPassword');
     const paidLoginButton = document.getElementById('paidLoginButton');
 
-    const API_BASE_URL = 'https://api.neopass.tech';
+    const API_BASE_URL = 'http://localhost:3001';
     const SESSION_DURATION = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
     const CUSTOM_API_STORAGE_KEYS = ['useCustomAPI', 'aiProvider', 'customEndpoint', 'customAPIKey', 'customModelName'];
 
@@ -221,38 +221,62 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     
-    // Function to fetch account information from backend
-    async function fetchAccountInfo() {
-        try {
-            const { accessToken } = await chrome.storage.local.get(['accessToken']);
-            
-            if (!accessToken) {
-                return;
-            }
-            
-            const response = await fetch(`${API_BASE_URL}/api/account`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${accessToken}`
-                }
-            });
-            
-            if (response.ok) {
-                const data = await response.json();
-                if (data.success && data.account) {
-                    // Check if token was auto-refreshed
-                    if (data.tokenRefreshed && data.accessToken) {
-                        await chrome.storage.local.set({ accessToken: data.accessToken });
-                        console.log('✅ Access token auto-refreshed by /api/account');
-                    }
-                    
-                    displayAccountInfo(data.account);
-                }
-            }
-        } catch (error) {
-            console.error('Error fetching account info:', error);
+// Function to fetch account information from backend
+async function fetchAccountInfo() {
+    try {
+        const { accessToken } = await chrome.storage.local.get(['accessToken']);
+        
+        if (!accessToken) {
+            return;
         }
+        
+        const response = await fetch(`${API_BASE_URL}/api/account`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        });
+        
+        const data = await response.json();
+
+        // CHECK 1: Handle Expired Subscription or Invalid Token explicitly
+        if (!response.ok) {
+            // If the backend says the token is invalid or subscription is expired (403 or 401)
+            if (response.status === 403 || response.status === 401) {
+                if (data.subscriptionExpired || data.message === 'Invalid token' || data.tokenExpired) {
+                    console.log('Session invalid or expired, logging out...');
+                    logoutUser(); // Force logout
+                    showError(data.message || 'Your session has expired. Please login again.', 5000);
+                    return;
+                }
+            }
+        }
+        
+        if (data.success && data.account) {
+            // Check if token was auto-refreshed
+            if (data.tokenRefreshed && data.accessToken) {
+                await chrome.storage.local.set({ accessToken: data.accessToken });
+                console.log('✅ Access token auto-refreshed by /api/account');
+            }
+            
+            // CHECK 2: Double check payment status in the successful response body
+            // Sometimes status is 200 but account data shows expired
+            if (data.account.payment_status === 'expired' || data.account.accountType === 'expired') {
+                 console.log('Account status is expired, logging out...');
+                 logoutUser();
+                 showError('Your subscription has expired.', 5000);
+                 return;
+            }
+
+            displayAccountInfo(data.account);
+        }
+    } catch (error) {
+        console.error('Error fetching account info:', error);
+        // Optional: If network fails completely, you might not want to logout immediately
+        // to allow offline usage if that's a feature, otherwise:
+        // showError('Failed to validate session');
     }
+}
 
     function showLoggedOutState() {
         // Show login form in Pro tab
