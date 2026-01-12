@@ -94,8 +94,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Define shortcut mappings
         const shortcutMappings = {
             // Use Control on macOS for these combos, Alt on others
-            'Ctrl + Shift + T': isMac ? 'Ctrl + Shift + T' : 'Alt + Shift + T',
-            'Ctrl + Shift + H': isMac ? 'Ctrl + Shift + H' : 'Alt + Shift + H',
+            'Control + Shift + T': isMac ? 'Control + Shift + T' : 'Alt + Shift + T',
+            'Control + Shift + H': isMac ? 'Control + Shift + H' : 'Alt + Shift + H',
 
             // Alt-based combos render as Option on macOS
             'Option + Shift + A': isMac ? 'Option + Shift + A' : 'Alt + Shift + A',
