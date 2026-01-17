@@ -20,6 +20,9 @@
 
     // Store the last copied text in a global variable for paste operations
     window.neoPassClipboard = '';
+    
+    // Flag to track when we're performing a custom copy operation
+    let isCustomCopying = false;
 
     // Override navigator.clipboard.writeText to use our custom copy AND store in clipboard
     const originalWriteText = navigator.clipboard.writeText;
@@ -62,6 +65,9 @@
         if (!selectedText) return false;
 
         try {
+            // Set flag to prevent blocking our own copy
+            isCustomCopying = true;
+            
             // Store in our global clipboard variable
             window.neoPassClipboard = selectedText;
             
@@ -84,9 +90,15 @@
             invisibleTextarea.value = '';
             invisibleTextarea.blur();
             
+            // Reset flag after a longer delay to allow all copy events to complete
+            setTimeout(() => {
+                isCustomCopying = false;
+            }, 300);
+            
             return success;
         } catch (err) {
             console.error('Copy using invisible textarea failed:', err);
+            isCustomCopying = false;
             return false;
         }
     }
@@ -101,9 +113,14 @@
 
     // CRITICAL: Block ALL copy events at the earliest phase
     document.addEventListener('copy', function(event) {
-        // Only allow copy from our invisible textarea
+        // Allow copy if we're currently performing a custom copy
+        if (isCustomCopying) {
+            // Silently allow during custom copy window
+            return;
+        }
+        
+        // Only allow copy from our invisible textarea - block everything else
         if (event.target !== invisibleTextarea && document.activeElement !== invisibleTextarea) {
-            console.log('Blocking default copy event from:', event.target);
             event.preventDefault();
             event.stopImmediatePropagation();
         }
@@ -119,24 +136,27 @@
                 event.preventDefault();
                 event.stopImmediatePropagation();
                 
+                // Clear selection IMMEDIATELY to prevent spurious copy events
+                window.getSelection().removeAllRanges();
+                
+                console.log('[CopyOverride] Ctrl+C detected, initiating custom copy');
+                
                 try {
                     // Store in global clipboard
                     window.neoPassClipboard = selectedText;
                     
-                    // Perform custom copy
+                    // Perform custom copy with flag protection
                     const success = await customCopy(selectedText);
                     
-                    console.log('Custom copy executed:', {
+                    console.log('[CopyOverride] Custom copy executed:', {
                         success,
                         textLength: selectedText.length,
                         preview: selectedText.substring(0, 40) + (selectedText.length > 40 ? '...' : '')
                     });
                     
-                    // Clear selection after copy
-                    window.getSelection().removeAllRanges();
-                    
                 } catch (error) {
-                    console.error('Error in custom copy handler:', error);
+                    console.error('[CopyOverride] Error in custom copy handler:', error);
+                    isCustomCopying = false; // Reset flag on error
                 }
             }
         }
