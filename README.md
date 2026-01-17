@@ -14,7 +14,6 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 > **Free Users**: No sign-up needed! Configure your own AI API key by clicking the extension icon and going to the **Settings** tab.  
 > Supported providers: OpenAI, Google Gemini, Anthropic Claude, and custom endpoints.
 > 
-> **Note**: If your AI service provider is blocked on your network, the extension will not work.
 >
 > **Want a hassle-free experience?** Upgrade to Pro by visiting **neopass.tech/pro** for AI managed by NeoPass (GPT-5.1), increased rate limits, and NeoBrowser 1.1.15 access!  
 

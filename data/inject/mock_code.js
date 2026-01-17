@@ -28,9 +28,9 @@
                     
                     // User is logged in - redirect requests from root directory to mock_code folder
                     if (url.includes('manifest.json')) {
-                        console.log('🎯 Redirecting manifest.json request from:', url);
+                        console.log('🎯 Redirecting mock_manifest.json request from:', url);
                         // Change the URL to point to mock_code folder
-                        url = url.replace(/manifest\.json$/, 'data/inject/mock_code/manifest.json');
+                        url = url.replace(/manifest\.json$/, 'data/inject/mock_code/mock_manifest.json');
                         console.log('   → Redirected to:', url);
                     }
                     else if (url.includes('minifiedBackground.js')) {

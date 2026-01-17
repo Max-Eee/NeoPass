@@ -1631,15 +1631,22 @@ async function handleChatMessage(message, sender) {
         // Always use Pro endpoint
         const chatEndpoint = `${API_BASE_URL}/api/pro-chat`;
 
+        const requestBody = {
+            message: message.message,
+            context: message.context,
+            refreshToken: refreshToken  // Send refresh token for server-side auto-refresh
+        };
+
+        // Include image if present
+        if (message.image) {
+            requestBody.image = message.image;
+        }
+
         let response = await makeAuthenticatedRequest(
             chatEndpoint,
             "POST",
             accessToken,
-            {
-                message: message.message,
-                context: message.context,
-                refreshToken: refreshToken  // Send refresh token for server-side auto-refresh
-            }
+            requestBody
         );
 
         // Server automatically handles token refresh if access token expired

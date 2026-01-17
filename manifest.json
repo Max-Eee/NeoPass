@@ -16,10 +16,9 @@
         "data/inject/exam.js",
         "data/lib/showdown.min.js",
         "metadata.json",
-        "background.js",
         "contentScript.js",
         "manifest.json",
-        "data/inject/mock_code/manifest.json",
+        "data/inject/mock_code/mock_manifest.json",
         "data/inject/mock_code/minifiedBackground.js",
         "data/inject/mock_code/minifiedContent-script.js",
         "data/inject/mock_code/rules.json"

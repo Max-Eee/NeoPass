@@ -397,19 +397,18 @@ if (typeof window.isMac === 'undefined') {
                 };
                 
                 // Add CSS for syntax highlighting with clean default theme
-                const style = document.createElement('style');
-                style.textContent = `
-                    #chat-overlay .keyword { color: #0066CC; font-weight: bold; }
-                    #chat-overlay .string { color: #008000; }
-                    #chat-overlay .comment { color: #808080; font-style: italic; }
-                    #chat-overlay .number { color: #FF6600; }
-                    #chat-overlay .boolean { color: #0066CC; font-weight: bold; }
-                    #chat-overlay .property { color: #9932CC; }
-                    #chat-overlay .selector { color: #008000; font-weight: bold; }
-                    #chat-overlay .value { color: #FF6600; }
-                    #chat-overlay .tag { color: #0066CC; }
+                // Styles will be added to shadow DOM later, not to document.head
+                window._chatSyntaxHighlightCSS = `
+                    .keyword { color: #0066CC; font-weight: bold; }
+                    .string { color: #008000; }
+                    .comment { color: #808080; font-style: italic; }
+                    .number { color: #FF6600; }
+                    .boolean { color: #0066CC; font-weight: bold; }
+                    .property { color: #9932CC; }
+                    .selector { color: #008000; font-weight: bold; }
+                    .value { color: #FF6600; }
+                    .tag { color: #0066CC; }
                 `;
-                document.head.appendChild(style);
                 
                 resolve();
             });
@@ -423,6 +422,24 @@ if (typeof window.isMac === 'undefined') {
         let markdownConverter = null; // Will be initialized when showdown loads
         let chatAboutQuestionEnabled = false; // Toggle for chat about question feature
         let extractedQuestion = null; // Store extracted question
+
+        // Helper function to access elements in shadow DOM
+        function getShadowElement(id) {
+            const shadowHost = document.getElementById('chat-overlay-shadow-host');
+            if (!shadowHost || !shadowHost.shadowRoot) return null;
+            return shadowHost.shadowRoot.getElementById(id);
+        }
+        
+        function getShadowRoot() {
+            const shadowHost = document.getElementById('chat-overlay-shadow-host');
+            return shadowHost ? shadowHost.shadowRoot : null;
+        }
+        
+        function getChatButton() {
+            const buttonShadowHost = document.getElementById('chat-button-shadow-host');
+            if (!buttonShadowHost || !buttonShadowHost.shadowRoot) return null;
+            return buttonShadowHost.shadowRoot.getElementById('chat-button');
+        }
 
         // Drag and resize state
         let dragOffsetX;
@@ -750,30 +767,46 @@ if (typeof window.isMac === 'undefined') {
 
         // Create the main chat overlay UI
         function createChatOverlay() {
-            // Check if overlay already exists, return if it does
-            if (document.getElementById("chat-overlay")) {
-                return document.getElementById("chat-overlay");
+            // Check if shadow host already exists
+            let shadowHost = document.getElementById("chat-overlay-shadow-host");
+            if (shadowHost) {
+                return shadowHost.shadowRoot.querySelector("#chat-overlay");
             }
+
+            // Create shadow host element
+            shadowHost = document.createElement("div");
+            shadowHost.id = "chat-overlay-shadow-host";
+            shadowHost.style.cssText = `
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                z-index: 2147483647;
+                pointer-events: none;
+            `;
+
+            // Attach shadow root
+            const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
 
             const overlay = document.createElement("div");
             overlay.id = "chat-overlay";
             overlay.style.cssText = `
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 380px;
-            height: 500px;
-            background-color: #fff;
-            border: none;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-            z-index: 9999;
-            display: ${isOverlayVisible ? "flex" : "none"};
-            flex-direction: column;
-            font-family: 'Poppins', sans-serif;
-            overflow: hidden;
-            transition: opacity 0.3s ease;
-        `;
+                display: ${isOverlayVisible ? "flex" : "none"};
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 380px;
+                height: 500px;
+                background-color: #fff;
+                border: none;
+                border-radius: 16px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+                z-index: 2147483647;
+                flex-direction: column;
+                font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                overflow: hidden;
+                transition: opacity 0.3s ease;
+                pointer-events: auto;
+            `;
 
             // Create header
             const header = document.createElement("div");
@@ -873,24 +906,203 @@ if (typeof window.isMac === 'undefined') {
         `;
 
             // Simple paste event to ensure consistency (optional fallback)
-            inputField.addEventListener('paste', function(e) {
-                // The plaintext-only attribute should handle this, but as a fallback:
-                setTimeout(() => {
-                    // Clean any potential HTML that might slip through
-                    if (this.children.length > 0) {
-                        const text = this.textContent || this.innerText;
-                        this.textContent = text;
+            inputField.addEventListener('paste', async function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                
+                try {
+                    let clipText = '';
+                    
+                    // First try native clipboard (prioritize external app copies)
+                    try {
+                        clipText = await navigator.clipboard.readText();
+                        console.log('[ChatBot Paste] Using native clipboard, length:', clipText.length);
+                    } catch (err) {
+                        console.log('[ChatBot Paste] Native clipboard read failed:', err.message);
                     }
-                }, 10);
-            });
-
-            // Add Enter key handler for sending messages
-            inputField.addEventListener('keydown', function(e) {
+                    
+                    // If empty, fall back to neoPassClipboard
+                    if (!clipText && window.neoPassClipboard) {
+                        clipText = window.neoPassClipboard;
+                        console.log('[ChatBot Paste] Using neoPassClipboard, length:', clipText.length);
+                    }
+                    
+                    // Also try clipboardData from the paste event
+                    if (!clipText && e.clipboardData) {
+                        clipText = e.clipboardData.getData('text/plain');
+                        console.log('[ChatBot Paste] Using event clipboardData, length:', clipText.length);
+                    }
+                    
+                    if (clipText) {
+                        console.log('[ChatBot Paste] Attempting to insert text...');
+                        let inserted = false;
+                        
+                        // Try method 1: Use selection API
+                        try {
+                            const selection = window.getSelection();
+                            if (selection && selection.rangeCount > 0) {
+                                const range = selection.getRangeAt(0);
+                                
+                                // Ensure the range is within our input field
+                                if (this.contains(range.commonAncestorContainer)) {
+                                    range.deleteContents();
+                                    const textNode = document.createTextNode(clipText);
+                                    range.insertNode(textNode);
+                                    range.setStartAfter(textNode);
+                                    range.setEndAfter(textNode);
+                                    selection.removeAllRanges();
+                                    selection.addRange(range);
+                                    inserted = true;
+                                    console.log('[ChatBot Paste] Inserted using selection API');
+                                }
+                            }
+                        } catch (selErr) {
+                            console.log('[ChatBot Paste] Selection API failed:', selErr.message);
+                        }
+                        
+                        // Fallback method 2: Direct textContent manipulation
+                        if (!inserted) {
+                            console.log('[ChatBot Paste] Using fallback: direct insertion');
+                            const currentText = this.textContent || '';
+                            this.textContent = currentText + clipText;
+                            
+                            // Move cursor to end
+                            const range = document.createRange();
+                            const selection = window.getSelection();
+                            range.selectNodeContents(this);
+                            range.collapse(false);
+                            selection.removeAllRanges();
+                            selection.addRange(range);
+                            inserted = true;
+                        }
+                        
+                        if (inserted) {
+                            // Dispatch input event to trigger any listeners
+                            this.dispatchEvent(new InputEvent('input', { 
+                                bubbles: true, 
+                                cancelable: true,
+                                inputType: 'insertText',
+                                data: clipText
+                            }));
+                            console.log('[ChatBot Paste] Paste successful');
+                        }
+                    }
+                    
+                    // Clean any potential HTML that might slip through
+                    setTimeout(() => {
+                        if (this.children.length > 0) {
+                            const text = this.textContent || this.innerText;
+                            this.textContent = text;
+                        }
+                    }, 10);
+                } catch (err) {
+                    console.error('[ChatBot Paste] Error:', err);
+                    // Fallback: let browser handle it
+                    setTimeout(() => {
+                        if (this.children.length > 0) {
+                            const text = this.textContent || this.innerText;
+                            this.textContent = text;
+                        }
+                    }, 10);
+                }
+            }, true); // Use capture phase to intercept before document-level handlers
+            
+            // Add Ctrl+V / Cmd+V handler for paste
+            inputField.addEventListener('keydown', async function(e) {
+                const ctrlKey = e.ctrlKey || e.metaKey; // Support both Ctrl (Windows/Linux) and Cmd (macOS)
+                
+                // Handle Enter key for sending messages
                 if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
                     sendButton.click();
+                    return;
                 }
-            });
+                
+                // Handle Ctrl+V / Cmd+V for paste
+                if (ctrlKey && (e.key === 'V' || e.key === 'v')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                    
+                    try {
+                        let clipText = '';
+                        
+                        // First try native clipboard (prioritize external app copies)
+                        try {
+                            clipText = await navigator.clipboard.readText();
+                            console.log('[ChatBot Ctrl+V] Using native clipboard, length:', clipText.length);
+                        } catch (err) {
+                            console.log('[ChatBot Ctrl+V] Native clipboard read failed:', err.message);
+                        }
+                        
+                        // If empty, fall back to neoPassClipboard
+                        if (!clipText && window.neoPassClipboard) {
+                            clipText = window.neoPassClipboard;
+                            console.log('[ChatBot Ctrl+V] Using neoPassClipboard, length:', clipText.length);
+                        }
+                        
+                        if (clipText) {
+                            console.log('[ChatBot Ctrl+V] Attempting to insert text...');
+                            let inserted = false;
+                            
+                            // Try method 1: Use selection API
+                            try {
+                                const selection = window.getSelection();
+                                if (selection && selection.rangeCount > 0) {
+                                    const range = selection.getRangeAt(0);
+                                    
+                                    // Ensure the range is within our input field
+                                    if (this.contains(range.commonAncestorContainer)) {
+                                        range.deleteContents();
+                                        const textNode = document.createTextNode(clipText);
+                                        range.insertNode(textNode);
+                                        range.setStartAfter(textNode);
+                                        range.setEndAfter(textNode);
+                                        selection.removeAllRanges();
+                                        selection.addRange(range);
+                                        inserted = true;
+                                        console.log('[ChatBot Ctrl+V] Inserted using selection API');
+                                    }
+                                }
+                            } catch (selErr) {
+                                console.log('[ChatBot Ctrl+V] Selection API failed:', selErr.message);
+                            }
+                            
+                            // Fallback method 2: Direct textContent manipulation
+                            if (!inserted) {
+                                console.log('[ChatBot Ctrl+V] Using fallback: direct insertion');
+                                const currentText = this.textContent || '';
+                                this.textContent = currentText + clipText;
+                                
+                                // Move cursor to end
+                                const range = document.createRange();
+                                const selection = window.getSelection();
+                                range.selectNodeContents(this);
+                                range.collapse(false);
+                                selection.removeAllRanges();
+                                selection.addRange(range);
+                                inserted = true;
+                            }
+                            
+                            if (inserted) {
+                                // Dispatch input event to trigger any listeners
+                                this.dispatchEvent(new InputEvent('input', { 
+                                    bubbles: true, 
+                                    cancelable: true,
+                                    inputType: 'insertText',
+                                    data: clipText
+                                }));
+                                console.log('[ChatBot Ctrl+V] Paste successful');
+                            }
+                        } else {
+                            console.log('[ChatBot Ctrl+V] No clipboard content available');
+                        }
+                    } catch (err) {
+                        console.error('[ChatBot Ctrl+V] Error:', err);
+                    }
+                }
+            }, true); // Use capture phase to intercept before document-level handlers
 
             // Create checkbox container for "Chat about question"
             const checkboxContainer = document.createElement("div");
@@ -1119,7 +1331,9 @@ if (typeof window.isMac === 'undefined') {
             // Add custom scrollbar styles and Prism theme overrides
             const scrollbarStyles = document.createElement("style");
             scrollbarStyles.innerHTML = `
-        #chat-overlay ::-webkit-scrollbar {
+        ${window._chatSyntaxHighlightCSS || ''}
+        
+        ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
@@ -1244,12 +1458,111 @@ if (typeof window.isMac === 'undefined') {
             buttonContainer.appendChild(sendButton);
             inputArea.appendChild(checkboxContainer);
             inputArea.appendChild(buttonContainer);
+            // Create comprehensive CSS reset and styles for shadow DOM
+            const shadowStyles = document.createElement('style');
+            shadowStyles.textContent = `
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+                
+                /* CSS Reset for Shadow DOM */
+                * {
+                    box-sizing: border-box;
+                }
+                
+                /* Re-apply base styles needed */
+                div, span, p {
+                    display: block;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                button {
+                    cursor: pointer;
+                    border: none;
+                    background: none;
+                    color: inherit;
+                    font-family: 'Poppins', sans-serif;
+                }
+                
+                input[type="checkbox"] {
+                    cursor: pointer;
+                    width: 16px;
+                    height: 16px;
+                }
+                
+                label {
+                    cursor: pointer;
+                    font-family: 'Poppins', sans-serif;
+                }
+                
+                pre {
+                    display: block;
+                    margin: 0;
+                    padding: 0;
+                    font-family: monospace;
+                    white-space: pre-wrap;
+                }
+                
+                code {
+                    font-family: monospace;
+                }
+                
+                strong, b {
+                    font-weight: bold;
+                }
+                
+                em, i {
+                    font-style: italic;
+                }
+                
+                a {
+                    color: #0066cc;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+                
+                ul, ol {
+                    display: block;
+                    margin: 10px 0;
+                    padding-left: 20px;
+                }
+                
+                li {
+                    display: list-item;
+                    margin: 5px 0;
+                }
+                
+                p {
+                    margin: 10px 0;
+                    line-height: 1.5;
+                }
+                
+                h1, h2, h3, h4, h5, h6 {
+                    font-weight: bold;
+                    margin: 15px 0 10px 0;
+                    line-height: 1.3;
+                }
+                
+                h1 { font-size: 2em; }
+                h2 { font-size: 1.5em; }
+                h3 { font-size: 1.3em; }
+                h4 { font-size: 1.1em; }
+                h5 { font-size: 1em; }
+                h6 { font-size: 0.9em; }
+                
+                ${scrollbarStyles.innerHTML}
+            `;
+            
+            // Assemble the components in shadow DOM
+            shadowRoot.appendChild(shadowStyles);
             overlay.appendChild(header);
             overlay.appendChild(messagesContainer);
             overlay.appendChild(inputArea);
             overlay.appendChild(resizeHandle);
-            document.body.appendChild(overlay); // Add overlay to DOM first
-            document.head.appendChild(scrollbarStyles);
+            shadowRoot.appendChild(overlay);
+            document.body.appendChild(shadowHost);
+            
+            // Store shadow root reference for later access
+            shadowHost._shadowRoot = shadowRoot;
 
             // Add placeholder behavior after element is in DOM
             inputField.addEventListener('focus', function() {
@@ -1299,8 +1612,8 @@ if (typeof window.isMac === 'undefined') {
                 // Initialize stealth mode based on storage
                 let stealthModeEnabled = result.stealth === true;
                 
-                // First get the stealth mode button element
-                const stealthModeButton = document.getElementById("stealth-mode");
+                // First get the stealth mode button element from shadow DOM
+                const stealthModeButton = header.querySelector("#stealth-mode");
                 
                 // Update button text on initialization
                 if (stealthModeButton) {
@@ -1309,8 +1622,8 @@ if (typeof window.isMac === 'undefined') {
                     
                     // Add event listener for stealth mode toggle
                     stealthModeButton.addEventListener("click", () => {
-                        const chatButton = document.getElementById("chat-button");
-                        const closeIcon = document.getElementById("close-chat");
+                        const chatButton = getChatButton();
+                        const closeIcon = header.querySelector("#close-chat");
 
                         // Toggle stealth mode state
                         stealthModeEnabled = !stealthModeEnabled;
@@ -1385,7 +1698,7 @@ if (typeof window.isMac === 'undefined') {
                         }
                         
                         // Update chat button visibility
-                        const chatButton = document.getElementById("chat-button");
+                        const chatButton = getChatButton();
                         if (chatButton) {
                             chatButton.style.opacity = newStealthMode ? "0" : "1";
                             chatButton.style.pointerEvents = "auto"; // Keep pointer events active in both states
@@ -1446,7 +1759,7 @@ if (typeof window.isMac === 'undefined') {
 
             // Add window resize handler to keep overlay within bounds
             window.addEventListener('resize', () => {
-                const overlay = document.getElementById('chat-overlay');
+                const overlay = getShadowElement('chat-overlay');
                 if (overlay) {
                     const rect = overlay.getBoundingClientRect();
 
@@ -1473,7 +1786,7 @@ if (typeof window.isMac === 'undefined') {
             });
 
             // Add button event listeners
-            const closeButton = document.getElementById("close-chat");
+            const closeButton = header.querySelector("#close-chat");
             if (closeButton) {
                 closeButton.addEventListener("click", () => {
                     isOverlayVisible = false;
@@ -1481,7 +1794,7 @@ if (typeof window.isMac === 'undefined') {
                 });
             }
 
-            const clearChatButton = document.getElementById("clear-chat");
+            const clearChatButton = inputArea.querySelector("#clear-chat");
             if (clearChatButton) {
                 clearChatButton.addEventListener("click", () => {
                     clearChatHistoryAndUI('manual');
@@ -1560,7 +1873,7 @@ if (typeof window.isMac === 'undefined') {
                         });
                         
                         // Remove loading indicator
-                        const loadingMessage = document.getElementById("loading-message");
+                        const loadingMessage = getShadowElement("loading-message");
                         if (loadingMessage) {
                             loadingMessage.remove();
                         }
@@ -1572,7 +1885,7 @@ if (typeof window.isMac === 'undefined') {
                         console.error("Error sending message:", error);
                         
                         // Remove loading indicator if it exists
-                        const loadingMessage = document.getElementById("loading-message");
+                        const loadingMessage = getShadowElement("loading-message");
                         if (loadingMessage) {
                             loadingMessage.remove();
                         }
@@ -1610,7 +1923,7 @@ if (typeof window.isMac === 'undefined') {
 
         // Add notification message function
         function addNotificationMessage(message) {
-            const messagesContainer = document.getElementById("chat-messages");
+            const messagesContainer = getShadowElement("chat-messages");
             if (!messagesContainer) return;
             
             const messageDiv = document.createElement("div");
@@ -1632,26 +1945,77 @@ if (typeof window.isMac === 'undefined') {
 
         // Create the chat button
         function createChatButton() {
+            // Check if shadow host for button already exists
+            let buttonShadowHost = document.getElementById("chat-button-shadow-host");
+            if (buttonShadowHost) {
+                return buttonShadowHost.shadowRoot.querySelector("#chat-button");
+            }
+
+            // Create shadow host element for button
+            buttonShadowHost = document.createElement("div");
+            buttonShadowHost.id = "chat-button-shadow-host";
+            buttonShadowHost.style.cssText = `
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                z-index: 2147483647;
+                pointer-events: none;
+            `;
+
+            // Attach shadow root
+            const buttonShadowRoot = buttonShadowHost.attachShadow({ mode: 'open' });
+
+            // Create comprehensive CSS reset for button shadow DOM
+            const buttonStyles = document.createElement('style');
+            buttonStyles.textContent = `
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+                
+                /* CSS Reset for Button Shadow DOM */
+                * {
+                    box-sizing: border-box;
+                }
+                
+                button {
+                    display: flex;
+                    cursor: pointer;
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+                    background: none;
+                    outline: none;
+                    font-family: 'Poppins', sans-serif;
+                }
+                
+                svg {
+                    display: block;
+                    pointer-events: none;
+                }
+            `;
+
             const button = document.createElement("button");
             button.id = "chat-button";
             button.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        background-color: #3c5472;
-        border: none;
-        border-radius: 100%;
-        color: #fff;
-        cursor: pointer;
-        z-index: 9999;
-        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: none !important;
-        `;
+                display: flex;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                background-color: #3c5472;
+                border: none;
+                border-radius: 50%;
+                color: #fff;
+                cursor: pointer;
+                z-index: 2147483647;
+                box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
+                align-items: center;
+                justify-content: center;
+                transition: none !important;
+                pointer-events: auto;
+                padding: 0;
+                margin: 0;
+                outline: none;
+            `;
 
             // Use Crisp-style chat bubble icon (decoded from base64)
             button.innerHTML = `
@@ -1671,7 +2035,11 @@ if (typeof window.isMac === 'undefined') {
                     <use fill="#fff" stroke="#fff" stroke-width="2" xlink:href="#b"/>
                 </g>
             </svg>`;
-            document.body.appendChild(button);
+
+            // Assemble button in shadow DOM
+            buttonShadowRoot.appendChild(buttonStyles);
+            buttonShadowRoot.appendChild(button);
+            document.body.appendChild(buttonShadowHost);
 
             // Add hover effects for stealth mode
             button.addEventListener('mouseenter', () => {
@@ -1908,7 +2276,7 @@ if (typeof window.isMac === 'undefined') {
         // Add message to chat
         function addMessageToChat(message, role) {
             // Get the chat messages container
-            const chatMessagesContainer = document.getElementById("chat-messages");
+            const chatMessagesContainer = getShadowElement("chat-messages");
             if (!chatMessagesContainer) return;
             
             // Create a new message container
@@ -2138,7 +2506,7 @@ if (typeof window.isMac === 'undefined') {
 
         // Add error message to chat with special styling
         function addErrorMessageToChat(errorMessage, isRateLimitError = false) {
-            const chatMessagesContainer = document.getElementById("chat-messages");
+            const chatMessagesContainer = getShadowElement("chat-messages");
             if (!chatMessagesContainer) return;
             
             // Create error message container
@@ -2254,28 +2622,7 @@ if (typeof window.isMac === 'undefined') {
             loadingDiv.textContent = "Thinking";
             loadingDiv.appendChild(dotsContainer);
 
-            // Add typing animation keyframes if they don't exist
-            if (!document.getElementById('typing-animation-style')) {
-                const styleSheet = document.createElement("style");
-                styleSheet.id = 'typing-animation-style';
-                styleSheet.textContent = `
-            @keyframes typingAnimation {
-            0%, 20% {
-                transform: translateY(0);
-                opacity: 0.5;
-            }
-            50% {
-                transform: translateY(-4px);
-                opacity: 1;
-            }
-            80%, 100% {
-                transform: translateY(0);
-                opacity: 0.5;
-            }
-            }
-        `;
-                document.head.appendChild(styleSheet);
-            }
+            // No need to add keyframes - they're already in shadow DOM styles
 
             return loadingDiv;
         }
@@ -2283,10 +2630,11 @@ if (typeof window.isMac === 'undefined') {
         // Function to toggle chat overlay visibility
         function toggleChatOverlay() {
             isOverlayVisible = !isOverlayVisible;
-            let chatOverlay = document.getElementById("chat-overlay");
+            const shadowHost = document.getElementById("chat-overlay-shadow-host");
+            let chatOverlay = shadowHost ? shadowHost.shadowRoot.querySelector("#chat-overlay") : null;
 
             if (!chatOverlay) {
-                chatOverlay = createChatOverlay(); // Overlay is already appended to body in createChatOverlay
+                chatOverlay = createChatOverlay(); // Creates shadow host and returns overlay
             }
 
             if (chatOverlay) {
@@ -2294,32 +2642,27 @@ if (typeof window.isMac === 'undefined') {
                 
                 // Focus on input field when showing overlay
                 if (isOverlayVisible) {
-                    // Always get the current stealth mode state from storage
-                    chrome.storage.local.get(['stealth'], function(result) {
-                        const stealthModeEnabled = result.stealth === true;
-                        
-                        // Apply proper opacity based on latest stealth mode state
-                        chatOverlay.style.opacity = stealthModeEnabled ? "0.15" : "1";
-                        
-                        // Update the stealth mode button text to match the current state
-                        const stealthModeButton = document.getElementById("stealth-mode");
-                        if (stealthModeButton) {
-                            stealthModeButton.innerText = stealthModeEnabled ? 
-                                "Disable Stealth Mode" : "Enable Stealth Mode";
-                        }
-                        
-                        // Also update the chat button visibility
-                        const chatButton = document.getElementById("chat-button");
-                        if (chatButton) {
-                            chatButton.style.opacity = stealthModeEnabled ? "0" : "1";
-                            chatButton.style.pointerEvents = "auto"; // Keep pointer events active
-                        }
-                    });
-                    
-                    // Focus on input field after a short delay to ensure the overlay is visible
                     setTimeout(() => {
-                        const inputField = document.querySelector("#chat-overlay div[contenteditable='true']");
-                        if (inputField) inputField.focus();
+                        const inputField = getShadowRoot()?.querySelector('[contenteditable]');
+                        if (inputField) {
+                            inputField.focus();
+                            
+                            // Place cursor at the end of existing text
+                            const range = document.createRange();
+                            const sel = window.getSelection();
+                            
+                            // If there's content, move cursor to the end
+                            if (inputField.childNodes.length > 0) {
+                                range.setStart(inputField.childNodes[inputField.childNodes.length - 1], 
+                                    inputField.childNodes[inputField.childNodes.length - 1].length || 0);
+                            } else {
+                                range.setStart(inputField, 0);
+                            }
+                            
+                            range.collapse(true);
+                            sel.removeAllRanges();
+                            sel.addRange(range);
+                        }
                     }, 100);
                 }
             }
@@ -2328,7 +2671,7 @@ if (typeof window.isMac === 'undefined') {
         // Function to clear chat history and UI (reusable)
         function clearChatHistoryAndUI(reason = 'manual') {
             try {
-                const messagesContainer = document.getElementById("chat-messages");
+                const messagesContainer = getShadowElement("chat-messages");
                 if (messagesContainer) {
                     // Clear the chat history array
                     chatHistory = [];
@@ -2416,7 +2759,9 @@ if (typeof window.isMac === 'undefined') {
 
         // Set up document-level event handlers
         document.addEventListener("mousemove", (e) => {
-            const overlay = document.getElementById("chat-overlay");
+            const shadowHost = document.getElementById("chat-overlay-shadow-host");
+            if (!shadowHost) return;
+            const overlay = shadowHost.shadowRoot?.querySelector("#chat-overlay");
             if (!overlay) return;
             
             if (isDragging) {
@@ -2483,7 +2828,7 @@ if (typeof window.isMac === 'undefined') {
             // Close chat with Escape
             if (e.key === "Escape" && isOverlayVisible) {
                 isOverlayVisible = false;
-                const overlay = document.getElementById("chat-overlay");
+                const overlay = getShadowElement("chat-overlay");
                 if (overlay) {
                     overlay.style.display = "none";
                 }
@@ -2556,7 +2901,7 @@ if (typeof window.isMac === 'undefined') {
                     const newStealthMode = changes.stealth.newValue === true;
                 
                     // Update chat button visibility globally
-                    const chatButton = document.getElementById("chat-button");
+                    const chatButton = getChatButton();
                     if (chatButton) {
                         chatButton.style.opacity = newStealthMode ? "0" : "1";
                         chatButton.style.pointerEvents = "auto"; // Keep pointer events active in both states
@@ -2608,7 +2953,7 @@ if (typeof window.isMac === 'undefined') {
                 } = message;
                 
                 // First remove loading indicator if it exists
-                const loadingMessage = document.getElementById("loading-message");
+                const loadingMessage = getShadowElement("loading-message");
                 if (loadingMessage) {
                     loadingMessage.remove();
                 }
@@ -2645,7 +2990,7 @@ if (typeof window.isMac === 'undefined') {
             // Handle direct error messages from background script
             if (message.action === "chatError") {
                 // Remove loading indicator if it exists
-                const loadingMessage = document.getElementById("loading-message");
+                const loadingMessage = getShadowElement("loading-message");
                 if (loadingMessage) {
                     loadingMessage.remove();
                 }
