@@ -28,7 +28,7 @@ script.src = chrome.runtime.getURL('data/inject/exam.js');
 // Function removed - login check no longer required for extension features
 
 // Neo Browser Download Link - Updated
-const neoBrowserDownloadLink = "https://freeneopass.vercel.app/pro";
+const neoBrowserDownloadLink = "https://freeneopass.vercel.app";
 
 // Function to replace the new Neo Browser button structure
 function replaceNeoBrowserButton() {
