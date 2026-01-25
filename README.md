@@ -15,7 +15,7 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 > Supported providers: OpenAI, Google Gemini, Anthropic Claude, and custom endpoints.
 > 
 >
-> **Want a hassle-free experience?** Upgrade to Pro by visiting **neopass.tech/pro** for AI managed by NeoPass (GPT-5.1), increased rate limits, and NeoBrowser 1.1.15 access!  
+> **Want a hassle-free experience?** Upgrade to Pro by visiting **neopass.tech/pro** for AI managed by NeoPass (GPT-5.1), increased rate limits, and NeoBrowser with built in Exam Helper access!  
 
 > [!WARNING]
 > **Educational Purposes Only**: This extension is intended for educational purposes. Please use it responsibly and ethically.  
