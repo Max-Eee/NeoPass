@@ -34,10 +34,10 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 - **`Pasting When Restricted`** : Quickly paste answers with ease, reducing the time spent on manual entry
 - **`Multiple AI Providers`** : Support for OpenAI, Google Gemini, Anthropic Claude, and custom endpoints
 
-### 🚀 Pro Version Features
+### Pro Version Features
 - **`Everything in free`** : All free features are included
 - **`Managed AI by NeoPass`** : Powered by GPT-5.1 - no API key needed!
-- **`NeoBrowser 1.1.15 Access`** : Exclusive access to the NeoBrowser
+- **`NeoBrowser Access`** : Exclusive access to the NeoBrowser with built in Exam Helper
 - **`No Network Restrictions`** : Works even if AI providers are blocked on your network
 - **`Increased Rate Limits`** : Higher usage limits for intensive exam sessions
 - **`Priority Support`** : Get help when you need it most
