@@ -42,8 +42,8 @@ async function performPasteByTyping() {
         
         console.log('[PasteByTyping] Typing from', clipboardSource, '- Length:', clipText.length);
 
-        // Filter out tab characters
-        const textToType = clipText.replace(/\t/g, '');
+        // Normalize line endings and filter out tab characters
+        const textToType = clipText.replace(/\r\n/g, '\n').replace(/\r/g, '\n').replace(/\t/g, '');
         
         // Simulate typing character by character
         for (let i = 0; i < textToType.length; i++) {
@@ -135,6 +135,9 @@ async function performDragDropPaste() {
         }
         
         console.log('[DragDropPaste] Pasting from', clipboardSource, '- Length:', clipText.length);
+
+        // Normalize line endings
+        clipText = clipText.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 
         // Store initial value to check if drop worked
         const initialValue = activeElement.value || activeElement.textContent || activeElement.innerHTML || '';
@@ -336,6 +339,9 @@ document.addEventListener('keydown', async function(event) {
                 }
                 
                 if (clipText) {
+                    // Normalize line endings
+                    clipText = clipText.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+                    
                     // Store initial value to check if paste worked
                     const initialValue = activeElement.value || activeElement.textContent || activeElement.innerHTML || '';
                     const initialLength = initialValue.length;
