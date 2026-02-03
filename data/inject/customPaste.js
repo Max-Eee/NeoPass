@@ -45,7 +45,7 @@ async function performPasteByTyping() {
         // Normalize line endings and filter out tab characters
         const textToType = clipText.replace(/\r\n/g, '\n').replace(/\r/g, '\n').replace(/\t/g, '');
         
-        // Simulate typing character by character
+        // Simulate typing character by character with realistic delays
         for (let i = 0; i < textToType.length; i++) {
             const char = textToType[i];
             
@@ -78,9 +78,21 @@ async function performPasteByTyping() {
                 data: char
             }));
             
-            // Random delay between 1-3 milliseconds (simulating fast human typing)
-            const delay = Math.random() * 2 + 1; // Random between 1-3ms
-            await new Promise(resolve => setTimeout(resolve, delay));
+            // Random delay between 50-200ms for each letter (realistic typing speed)
+            const letterDelay = Math.random() * 150 + 50; // Random between 50-200ms
+            await new Promise(resolve => setTimeout(resolve, letterDelay));
+            
+            // Add extra delay after space (end of word)
+            if (char === ' ') {
+                const wordDelay = Math.random() * 500 + 300; // Random between 300-800ms
+                await new Promise(resolve => setTimeout(resolve, wordDelay));
+            }
+            
+            // Add extra delay after sentence-ending punctuation
+            if (char === '.' || char === '!' || char === '?') {
+                const sentenceDelay = Math.random() * 500 + 500; // Random between 500-1000ms
+                await new Promise(resolve => setTimeout(resolve, sentenceDelay));
+            }
         }
         
         // Dispatch change event after all typing is complete
