@@ -1410,6 +1410,218 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
     }
 }
 
+// Helper: extract the text delta from a streaming chunk based on provider
+function extractChunkText(parsed, provider) {
+    switch (provider) {
+        case 'openai':
+        case 'deepseek':
+        case 'custom':
+            return parsed.choices?.[0]?.delta?.content || '';
+
+        case 'anthropic':
+            if (parsed.type === 'content_block_delta') {
+                return parsed.delta?.text || '';
+            }
+            return '';
+
+        case 'google':
+            return parsed.candidates?.[0]?.content?.parts?.[0]?.text || '';
+
+        default:
+            return '';
+    }
+}
+
+// Streaming variant of queryCustomAPI — calls onChunk() for each token instead of returning full text
+async function queryCustomAPIStreaming(text, isMCQ, isMultipleChoice, config, onChunk, onDone, onError, abortSignal) {
+    const { aiProvider, customEndpoint, apiKey, modelName } = config;
+
+    let prompt = text;
+    if (isMCQ) {
+        if (isMultipleChoice) {
+            prompt += "\nIMPORTANT: This is a MULTIPLE CHOICE question where MULTIPLE options can be correct. Analyze the question carefully and provide ALL correct options.\n\nFormat your response EXACTLY like this:\n- If options are A, B, C and A and C are correct: 'A. [text of option A], C. [text of option C]'\n- If options are 1, 2, 3 and 1 and 3 are correct: '1. [text of option 1], 3. [text of option 3]'\n- If only one option is correct, provide just that one: 'B. [text of option B]'\n\nDO NOT include explanations, reasoning, or anything else. ONLY the correct option(s) in the exact format shown above, separated by commas if multiple.\nIf this is not an MCQ question, simply respond with 'Not an MCQ'";
+        } else {
+            prompt += "\nIMPORTANT: This is a SINGLE CHOICE question where ONLY ONE option is correct. Analyze the question carefully and provide the single correct option.\n\nFormat your response EXACTLY like this:\n- If options are A, B, C: 'A. [text of option A]' or 'C. [text of option C]'\n- If options are 1, 2, 3: '1. [text of option 1]' or '3. [text of option 3]'\n\nDO NOT include explanations, reasoning, or anything else. ONLY the single correct answer in the exact format shown above.\nIf this is not an MCQ question, simply respond with 'Not an MCQ'";
+        }
+    }
+
+    try {
+        let apiUrl, requestBody, headers;
+
+        switch (aiProvider) {
+            case 'openai':
+                apiUrl = 'https://api.openai.com/v1/chat/completions';
+                headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                };
+                requestBody = {
+                    model: modelName || 'gpt-4o-mini',
+                    messages: [{ role: 'user', content: prompt }],
+                    temperature: 0.7,
+                    stream: true
+                };
+                break;
+
+            case 'anthropic':
+                apiUrl = 'https://api.anthropic.com/v1/messages';
+                headers = {
+                    'Content-Type': 'application/json',
+                    'x-api-key': apiKey,
+                    'anthropic-version': '2023-06-01'
+                };
+                requestBody = {
+                    model: modelName || 'claude-3-5-sonnet-20241022',
+                    max_tokens: 4096,
+                    messages: [{ role: 'user', content: prompt }],
+                    stream: true
+                };
+                break;
+
+            case 'google':
+                const googleModel = modelName || 'gemini-2.5-flash';
+                apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${googleModel}:streamGenerateContent?alt=sse&key=${apiKey}`;
+                headers = {
+                    'Content-Type': 'application/json'
+                };
+                requestBody = {
+                    contents: [{ parts: [{ text: prompt }] }]
+                };
+                break;
+
+            case 'deepseek':
+                apiUrl = 'https://api.deepseek.com/v1/chat/completions';
+                headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                };
+                requestBody = {
+                    model: modelName || 'deepseek-chat',
+                    messages: [{ role: 'user', content: prompt }],
+                    temperature: 0.7,
+                    stream: true
+                };
+                break;
+
+            case 'custom':
+                if (!customEndpoint) {
+                    onError({
+                        error: 'Custom endpoint not configured',
+                        errorType: 'config',
+                        detailedInfo: 'Please configure a custom API endpoint in the extension settings.'
+                    });
+                    return;
+                }
+                apiUrl = customEndpoint;
+                headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                };
+                requestBody = {
+                    model: modelName || 'default',
+                    messages: [{ role: 'user', content: prompt }],
+                    stream: true
+                };
+                break;
+
+            default:
+                onError({
+                    error: 'Unknown AI provider',
+                    errorType: 'config',
+                    detailedInfo: 'The selected AI provider is not supported.'
+                });
+                return;
+        }
+
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(requestBody),
+            signal: abortSignal
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            onError({
+                error: `API request failed: ${response.status}`,
+                errorType: 'api',
+                detailedInfo: errorData.error?.message || errorData.message || `HTTP ${response.status}: ${response.statusText}`
+            });
+            return;
+        }
+
+        // Read the stream
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder('utf-8');
+        let fullText = '';
+        let buffer = ''; // Buffer for incomplete SSE lines
+
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            buffer += decoder.decode(value, { stream: true });
+
+            // Parse SSE lines
+            const lines = buffer.split('\n');
+            buffer = lines.pop(); // Keep the last incomplete line in the buffer
+
+            for (const line of lines) {
+                if (line.startsWith('data: ')) {
+                    const data = line.slice(6); // Remove "data: " prefix
+
+                    if (data === '[DONE]') {
+                        onDone(fullText);
+                        return;
+                    }
+
+                    try {
+                        const parsed = JSON.parse(data);
+
+                        // Check for errors mid-stream
+                        if (parsed.error) {
+                            onDone(fullText);
+                            onError(parsed.error);
+                            reader.cancel();
+                            return;
+                        }
+
+                        const chunk = extractChunkText(parsed, aiProvider);
+                        if (chunk) {
+                            fullText += chunk;
+                            onChunk(chunk, fullText); // Send both the delta and accumulated text
+                        }
+                    } catch (e) {
+                        // Skip unparseable lines (SSE comments, empty events, etc.)
+                    }
+                }
+            }
+        }
+
+        // Stream ended without [DONE] — still call onDone
+        onDone(fullText);
+
+    } catch (error) {
+        if (error.name === 'AbortError') {
+            // Stream was intentionally aborted (e.g., user closed chatbot)
+            console.log('[Streaming] Fetch aborted by user');
+            return;
+        }
+        onError({
+            error: 'Network or API error',
+            errorType: 'network',
+            detailedInfo: error.message || 'Failed to connect to the custom AI API. Please check your configuration.'
+        });
+    }
+}
+
+// Helper to decide whether to stream
+function shouldStream(action) {
+    // Only stream for chatbot messages (long responses)
+    // Don't stream for MCQ (short) or search (goes to toast)
+    return action === 'processChatMessage' || action === 'startChatStream';
+}
+
 
 const API_BASE_URL = 'https://api.neopass.tech';
 // Listen for messages from Chrome runtime for ChatBot
@@ -1490,6 +1702,75 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         })();
         return true; // Keep the message channel open
     }
+});
+
+// New: Port-based streaming for chat messages
+chrome.runtime.onConnect.addListener((port) => {
+    if (port.name !== 'chat-stream') return;
+
+    let abortController = new AbortController();
+
+    port.onDisconnect.addListener(() => {
+        abortController.abort(); // Cancels the ongoing fetch if user closes chatbot
+    });
+
+    port.onMessage.addListener(async (message) => {
+        if (message.action !== 'startChatStream') return;
+
+        const tabId = port.sender?.tab?.id;
+        if (!tabId) return;
+
+        try {
+            const customAPIConfig = await getCustomAPIConfig();
+
+            if (customAPIConfig.useCustomAPI && customAPIConfig.apiKey) {
+                // Streaming path
+                const chatPrompt = message.context
+                    ? `Context: ${message.context}\n\nUser: ${message.message}\n\nPlease provide a helpful response.`
+                    : message.message;
+
+                await queryCustomAPIStreaming(
+                    chatPrompt,
+                    false,
+                    false,
+                    customAPIConfig,
+                    // onChunk
+                    (chunk, fullText) => {
+                        try {
+                            port.postMessage({ type: 'chunk', content: chunk });
+                        } catch (e) {
+                            // Port disconnected — user closed chatbot
+                        }
+                    },
+                    // onDone
+                    (fullText) => {
+                        try {
+                            port.postMessage({ type: 'done', fullContent: fullText });
+                        } catch (e) {}
+                    },
+                    // onError
+                    (error) => {
+                        try {
+                            port.postMessage({ type: 'error', error: error });
+                        } catch (e) {}
+                    },
+                    // abortSignal
+                    abortController.signal
+                );
+            } else {
+                // Non-streaming fallback (Pro proxy or not logged in)
+                // Fall back to existing handleChatMessage logic
+                await handleChatMessage(message, { tab: { id: tabId } });
+                try {
+                    port.postMessage({ type: 'fallback' });
+                } catch (e) {}
+            }
+        } catch (error) {
+            try {
+                port.postMessage({ type: 'error', error: { error: error.message } });
+            } catch (e) {}
+        }
+    });
 });
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {

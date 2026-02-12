@@ -1,18 +1,18 @@
-if (typeof chrome === "undefined") {}
+if (typeof chrome === "undefined") { }
 
 if (typeof window.isMac === 'undefined') {
-    window.isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0 || 
-                   navigator.userAgent.toUpperCase().indexOf('MAC') >= 0;
+    window.isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0 ||
+        navigator.userAgent.toUpperCase().indexOf('MAC') >= 0;
 }
 
-(function() {
-    chrome.storage.local.get(['stealth'], function(result) {
+(function () {
+    chrome.storage.local.get(['stealth'], function (result) {
         if (window.chatOverlayInjected) {
             console.log("Chat overlay script already injected.");
             return;
         }
         window.chatOverlayInjected = true;
-        
+
         const isStealthModeEnabled = result.stealth === true;
         console.log("Initial stealth mode state:", isStealthModeEnabled);
 
@@ -36,21 +36,21 @@ if (typeof window.isMac === 'undefined') {
             return new Promise((resolve) => {
                 // Create a lightweight inline syntax highlighter to bypass CSP
                 window.SimplePrism = {
-                    highlightElement: function(codeElement) {
+                    highlightElement: function (codeElement) {
                         const code = codeElement.textContent;
                         const language = codeElement.className.replace('language-', '');
-                        
+
                         // Use a simpler approach to avoid overlapping replacements
                         let highlightedCode = this.simpleHighlight(code, language);
                         codeElement.innerHTML = highlightedCode;
                     },
-                    
-                    simpleHighlight: function(code, language) {
+
+                    simpleHighlight: function (code, language) {
                         // Escape HTML first
                         let highlighted = code.replace(/&/g, '&amp;')
-                                             .replace(/</g, '&lt;')
-                                             .replace(/>/g, '&gt;');
-                        
+                            .replace(/</g, '&lt;')
+                            .replace(/>/g, '&gt;');
+
                         // Apply basic highlighting based on language
                         if (language === 'python') {
                             highlighted = this.highlightPython(highlighted);
@@ -70,15 +70,15 @@ if (typeof window.isMac === 'undefined') {
                             // Default to javascript-like highlighting
                             highlighted = this.highlightJavaScript(highlighted);
                         }
-                        
+
                         return highlighted;
                     },
-                    
-                    highlightPython: function(code) {
+
+                    highlightPython: function (code) {
                         // Use a token-based approach to avoid overlapping
                         let tokens = [];
                         let currentIndex = 0;
-                        
+
                         // First, find all comments
                         let match;
                         const commentRegex = /#.*$/gm;
@@ -90,7 +90,7 @@ if (typeof window.isMac === 'undefined') {
                                 content: match[0]
                             });
                         }
-                        
+
                         // Find strings (avoiding those inside comments)
                         const stringRegex = /(['"])((?:\\.|(?!\1)[^\\])*?)\1/g;
                         while ((match = stringRegex.exec(code)) !== null) {
@@ -103,7 +103,7 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         // Find keywords (avoiding those inside comments and strings)
                         const keywordRegex = /\b(def|class|if|elif|else|for|while|return|import|from|try|except|finally|with|as|and|or|not|in|is)\b/g;
                         while ((match = keywordRegex.exec(code)) !== null) {
@@ -116,7 +116,7 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         // Find booleans and None
                         const booleanRegex = /\b(True|False|None)\b/g;
                         while ((match = booleanRegex.exec(code)) !== null) {
@@ -129,7 +129,7 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         // Find numbers
                         const numberRegex = /\b\d+(\.\d+)?\b/g;
                         while ((match = numberRegex.exec(code)) !== null) {
@@ -142,14 +142,14 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         // Sort tokens by position
                         tokens.sort((a, b) => a.start - b.start);
-                        
+
                         // Build highlighted code
                         let result = '';
                         let lastIndex = 0;
-                        
+
                         tokens.forEach(token => {
                             // Add unhighlighted text before this token
                             result += code.slice(lastIndex, token.start);
@@ -157,44 +157,44 @@ if (typeof window.isMac === 'undefined') {
                             result += `<span class="${token.type}">${token.content}</span>`;
                             lastIndex = token.end;
                         });
-                        
+
                         // Add remaining text
                         result += code.slice(lastIndex);
-                        
+
                         return result;
                     },
-                    
-                    buildHighlightedCode: function(code, tokens) {
+
+                    buildHighlightedCode: function (code, tokens) {
                         // Sort tokens by their start position
                         tokens.sort((a, b) => a.start - b.start);
-                        
+
                         let result = '';
                         let lastIndex = 0;
-                        
+
                         for (let token of tokens) {
                             // Add text before this token
                             result += code.slice(lastIndex, token.start);
-                            
+
                             // Add the highlighted token
                             result += `<span class="${token.type}">${token.content}</span>`;
-                            
+
                             lastIndex = token.end;
                         }
-                        
+
                         // Add remaining text
                         result += code.slice(lastIndex);
-                        
+
                         return result;
                     },
-                    
-                    isInsideToken: function(position, tokens) {
+
+                    isInsideToken: function (position, tokens) {
                         return tokens.some(token => position >= token.start && position < token.end);
                     },
-                    
-                    highlightJavaScript: function(code) {
+
+                    highlightJavaScript: function (code) {
                         let tokens = [];
                         let match;
-                        
+
                         // Find comments first
                         const singleLineCommentRegex = /\/\/.*$/gm;
                         while ((match = singleLineCommentRegex.exec(code)) !== null) {
@@ -205,7 +205,7 @@ if (typeof window.isMac === 'undefined') {
                                 content: match[0]
                             });
                         }
-                        
+
                         const multiLineCommentRegex = /\/\*[\s\S]*?\*\//g;
                         while ((match = multiLineCommentRegex.exec(code)) !== null) {
                             tokens.push({
@@ -215,7 +215,7 @@ if (typeof window.isMac === 'undefined') {
                                 content: match[0]
                             });
                         }
-                        
+
                         // Find strings
                         const stringRegex = /(['"`])((?:\\.|(?!\1)[^\\])*?)\1/g;
                         while ((match = stringRegex.exec(code)) !== null) {
@@ -228,7 +228,7 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         // Find keywords
                         const keywordRegex = /\b(function|const|let|var|if|else|for|while|return|import|export|class|extends|new|this|typeof|instanceof)\b/g;
                         while ((match = keywordRegex.exec(code)) !== null) {
@@ -241,7 +241,7 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         // Find booleans
                         const booleanRegex = /\b(true|false|null|undefined)\b/g;
                         while ((match = booleanRegex.exec(code)) !== null) {
@@ -254,7 +254,7 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         // Find numbers
                         const numberRegex = /\b\d+(\.\d+)?\b/g;
                         while ((match = numberRegex.exec(code)) !== null) {
@@ -267,14 +267,14 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         return this.buildHighlightedCode(code, tokens);
                     },
-                    
-                    highlightJava: function(code) {
+
+                    highlightJava: function (code) {
                         let tokens = [];
                         let match;
-                        
+
                         // Find comments first
                         const singleLineCommentRegex = /\/\/.*$/gm;
                         while ((match = singleLineCommentRegex.exec(code)) !== null) {
@@ -285,7 +285,7 @@ if (typeof window.isMac === 'undefined') {
                                 content: match[0]
                             });
                         }
-                        
+
                         const multiLineCommentRegex = /\/\*[\s\S]*?\*\//g;
                         while ((match = multiLineCommentRegex.exec(code)) !== null) {
                             tokens.push({
@@ -295,7 +295,7 @@ if (typeof window.isMac === 'undefined') {
                                 content: match[0]
                             });
                         }
-                        
+
                         // Find strings
                         const stringRegex = /(['"])((?:\\.|(?!\1)[^\\])*?)\1/g;
                         while ((match = stringRegex.exec(code)) !== null) {
@@ -308,7 +308,7 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         // Find keywords
                         const keywordRegex = /\b(public|private|protected|static|final|class|interface|extends|implements|if|else|for|while|return|import|package|new|this)\b/g;
                         while ((match = keywordRegex.exec(code)) !== null) {
@@ -321,7 +321,7 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         // Find booleans
                         const booleanRegex = /\b(true|false|null)\b/g;
                         while ((match = booleanRegex.exec(code)) !== null) {
@@ -334,7 +334,7 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         // Find numbers
                         const numberRegex = /\b\d+(\.\d+)?[fFdDlL]?\b/g;
                         while ((match = numberRegex.exec(code)) !== null) {
@@ -347,11 +347,11 @@ if (typeof window.isMac === 'undefined') {
                                 });
                             }
                         }
-                        
+
                         return this.buildHighlightedCode(code, tokens);
                     },
-                    
-                    highlightCSS: function(code) {
+
+                    highlightCSS: function (code) {
                         // Comments first
                         code = code.replace(/\/\*[\s\S]*?\*\//g, '<span class="comment">$&</span>');
                         // Selectors
@@ -362,16 +362,16 @@ if (typeof window.isMac === 'undefined') {
                         code = code.replace(/(#[0-9a-fA-F]+)/g, '<span class="value">$1</span>');
                         return code;
                     },
-                    
-                    highlightHTML: function(code) {
+
+                    highlightHTML: function (code) {
                         // Comments first
                         code = code.replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="comment">$1</span>');
                         // Tags
                         code = code.replace(/(&lt;\/?[^&gt;]+&gt;)/g, '<span class="tag">$1</span>');
                         return code;
                     },
-                    
-                    highlightSQL: function(code) {
+
+                    highlightSQL: function (code) {
                         // Comments first
                         code = code.replace(/--.*$/gm, '<span class="comment">$&</span>');
                         // Strings
@@ -382,8 +382,8 @@ if (typeof window.isMac === 'undefined') {
                         code = code.replace(/\b\d+(\.\d+)?\b/g, '<span class="number">$&</span>');
                         return code;
                     },
-                    
-                    highlightJSON: function(code) {
+
+                    highlightJSON: function (code) {
                         // Property keys first (before general strings)
                         code = code.replace(/"([^"]*)"(\s*:)/g, '<span class="property">"$1"</span>$2');
                         // Remaining strings
@@ -395,7 +395,7 @@ if (typeof window.isMac === 'undefined') {
                         return code;
                     }
                 };
-                
+
                 // Add CSS for syntax highlighting with clean default theme
                 // Styles will be added to shadow DOM later, not to document.head
                 window._chatSyntaxHighlightCSS = `
@@ -409,7 +409,7 @@ if (typeof window.isMac === 'undefined') {
                     .value { color: #FF6600; }
                     .tag { color: #0066CC; }
                 `;
-                
+
                 resolve();
             });
         }
@@ -429,12 +429,12 @@ if (typeof window.isMac === 'undefined') {
             if (!shadowHost || !shadowHost.shadowRoot) return null;
             return shadowHost.shadowRoot.getElementById(id);
         }
-        
+
         function getShadowRoot() {
             const shadowHost = document.getElementById('chat-overlay-shadow-host');
             return shadowHost ? shadowHost.shadowRoot : null;
         }
-        
+
         function getChatButton() {
             const buttonShadowHost = document.getElementById('chat-button-shadow-host');
             if (!buttonShadowHost || !buttonShadowHost.shadowRoot) return null;
@@ -461,7 +461,7 @@ if (typeof window.isMac === 'undefined') {
                 return 'examly';
             }
             // Check for HackerRank
-            if (document.querySelector('.QuestionDetails_container__AIu0X') || 
+            if (document.querySelector('.QuestionDetails_container__AIu0X') ||
                 document.querySelector('.monaco-editor') ||
                 document.querySelector('.grouped-mcq__question')) {
                 return 'hackerrank';
@@ -477,7 +477,7 @@ if (typeof window.isMac === 'undefined') {
 
             // Check if it's a coding question
             const codingQuestionElement = document.querySelector('div[aria-labelledby="input-format"]');
-            
+
             if (codingQuestionElement) {
                 // Coding question
                 const programmingLanguageElement = document.querySelector('span.inner-text');
@@ -538,7 +538,7 @@ if (typeof window.isMac === 'undefined') {
 
             // Check if it's a coding question (has Monaco editor)
             const monacoEditor = document.querySelector('.monaco-editor, .hr-monaco-editor');
-            
+
             if (monacoEditor) {
                 // Coding question
                 let language = "Unknown";
@@ -560,12 +560,12 @@ if (typeof window.isMac === 'undefined') {
                         const titleText = titleElement.textContent || titleElement.innerText;
                         title = titleText.replace(/Bookmark question \d+/g, '').trim();
                     }
-                    
+
                     const instructionElement = container.querySelector('.qaas-block-question-instruction, .RichTextPreview_richText__1vKu5');
                     if (instructionElement) {
                         instruction = getCleanText(instructionElement);
                     }
-                    
+
                     const detailsElements = container.querySelectorAll('details');
                     if (detailsElements.length > 0) {
                         details = Array.from(detailsElements).map(detail => {
@@ -579,7 +579,7 @@ if (typeof window.isMac === 'undefined') {
                     if (container) {
                         title = getCleanText(container.querySelector('.question-view__title')) || "No Title Found";
                         instruction = getCleanText(container.querySelector('.question-view__instruction')) || "No Instructions Found";
-                        
+
                         details = Array.from(container.querySelectorAll('details') || []).map(detail => {
                             const summary = getCleanText(detail.querySelector('summary'));
                             const content = getCleanText(detail.querySelector('.collapsable-details'));
@@ -598,7 +598,7 @@ if (typeof window.isMac === 'undefined') {
             } else {
                 // MCQ question
                 const newLayoutQuestions = document.querySelectorAll('.QuestionDetails_container__AIu0X');
-                
+
                 if (newLayoutQuestions.length > 0) {
                     // New layout
                     const container = newLayoutQuestions[0]; // Get first question
@@ -634,9 +634,9 @@ if (typeof window.isMac === 'undefined') {
 
                         optionElements.forEach((option, index) => {
                             const labelId = option.getAttribute('aria-labelledby');
-                            const labelElement = labelId ? document.getElementById(labelId) : 
-                                              option.closest('.Control_optionList__vIubt, li')?.querySelector('label');
-                            
+                            const labelElement = labelId ? document.getElementById(labelId) :
+                                option.closest('.Control_optionList__vIubt, li')?.querySelector('label');
+
                             if (labelElement) {
                                 options.push(`Option ${index + 1}: ${labelElement.textContent.trim()}`);
                             }
@@ -690,13 +690,13 @@ if (typeof window.isMac === 'undefined') {
 
         function extractCurrentQuestion() {
             const platform = detectPlatform();
-            
+
             if (platform === 'examly') {
                 return extractExamlyQuestion();
             } else if (platform === 'hackerrank') {
                 return extractHackerRankQuestion();
             }
-            
+
             return null;
         }
 
@@ -709,54 +709,54 @@ if (typeof window.isMac === 'undefined') {
                 if (questionData.language) {
                     // Examly or HackerRank coding
                     formattedQuestion += `[Coding Question - ${questionData.language}]\n\n`;
-                    
+
                     if (questionData.title) {
                         formattedQuestion += `Title: ${questionData.title}\n\n`;
                     }
-                    
+
                     if (questionData.question) {
                         formattedQuestion += `Question:\n${questionData.question}\n\n`;
                     }
-                    
+
                     if (questionData.instruction) {
                         formattedQuestion += `Instruction:\n${questionData.instruction}\n\n`;
                     }
-                    
+
                     if (questionData.inputFormat) {
                         formattedQuestion += `Input Format:\n${questionData.inputFormat}\n\n`;
                     }
-                    
+
                     if (questionData.outputFormat) {
                         formattedQuestion += `Output Format:\n${questionData.outputFormat}\n\n`;
                     }
-                    
+
                     if (questionData.testCases) {
                         formattedQuestion += `Test Cases:\n${questionData.testCases}\n\n`;
                     }
-                    
+
                     if (questionData.details) {
                         formattedQuestion += `Additional Details:${questionData.details}\n\n`;
                     }
                 }
             } else if (questionData.type === 'mcq') {
                 formattedQuestion += `[MCQ Question]\n\n`;
-                
+
                 if (questionData.title) {
                     formattedQuestion += `Title: ${questionData.title}\n\n`;
                 }
-                
+
                 if (questionData.question) {
                     formattedQuestion += `Question:\n${questionData.question}\n\n`;
                 }
-                
+
                 if (questionData.instruction) {
                     formattedQuestion += `${questionData.instruction}\n\n`;
                 }
-                
+
                 if (questionData.code) {
                     formattedQuestion += `Code:\n${questionData.code}\n\n`;
                 }
-                
+
                 if (questionData.options) {
                     formattedQuestion += `Options:\n${questionData.options}\n`;
                 }
@@ -906,14 +906,14 @@ if (typeof window.isMac === 'undefined') {
         `;
 
             // Simple paste event to ensure consistency (optional fallback)
-            inputField.addEventListener('paste', async function(e) {
+            inputField.addEventListener('paste', async function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 e.stopImmediatePropagation();
-                
+
                 try {
                     let clipText = '';
-                    
+
                     // First try native clipboard (prioritize external app copies)
                     try {
                         clipText = await navigator.clipboard.readText();
@@ -921,29 +921,29 @@ if (typeof window.isMac === 'undefined') {
                     } catch (err) {
                         console.log('[ChatBot Paste] Native clipboard read failed:', err.message);
                     }
-                    
+
                     // If empty, fall back to neoPassClipboard
                     if (!clipText && window.neoPassClipboard) {
                         clipText = window.neoPassClipboard;
                         console.log('[ChatBot Paste] Using neoPassClipboard, length:', clipText.length);
                     }
-                    
+
                     // Also try clipboardData from the paste event
                     if (!clipText && e.clipboardData) {
                         clipText = e.clipboardData.getData('text/plain');
                         console.log('[ChatBot Paste] Using event clipboardData, length:', clipText.length);
                     }
-                    
+
                     if (clipText) {
                         console.log('[ChatBot Paste] Attempting to insert text...');
                         let inserted = false;
-                        
+
                         // Try method 1: Use selection API
                         try {
                             const selection = window.getSelection();
                             if (selection && selection.rangeCount > 0) {
                                 const range = selection.getRangeAt(0);
-                                
+
                                 // Ensure the range is within our input field
                                 if (this.contains(range.commonAncestorContainer)) {
                                     range.deleteContents();
@@ -960,13 +960,13 @@ if (typeof window.isMac === 'undefined') {
                         } catch (selErr) {
                             console.log('[ChatBot Paste] Selection API failed:', selErr.message);
                         }
-                        
+
                         // Fallback method 2: Direct textContent manipulation
                         if (!inserted) {
                             console.log('[ChatBot Paste] Using fallback: direct insertion');
                             const currentText = this.textContent || '';
                             this.textContent = currentText + clipText;
-                            
+
                             // Move cursor to end
                             const range = document.createRange();
                             const selection = window.getSelection();
@@ -976,11 +976,11 @@ if (typeof window.isMac === 'undefined') {
                             selection.addRange(range);
                             inserted = true;
                         }
-                        
+
                         if (inserted) {
                             // Dispatch input event to trigger any listeners
-                            this.dispatchEvent(new InputEvent('input', { 
-                                bubbles: true, 
+                            this.dispatchEvent(new InputEvent('input', {
+                                bubbles: true,
                                 cancelable: true,
                                 inputType: 'insertText',
                                 data: clipText
@@ -988,7 +988,7 @@ if (typeof window.isMac === 'undefined') {
                             console.log('[ChatBot Paste] Paste successful');
                         }
                     }
-                    
+
                     // Clean any potential HTML that might slip through
                     setTimeout(() => {
                         if (this.children.length > 0) {
@@ -1007,27 +1007,27 @@ if (typeof window.isMac === 'undefined') {
                     }, 10);
                 }
             }, true); // Use capture phase to intercept before document-level handlers
-            
+
             // Add Ctrl+V / Cmd+V handler for paste
-            inputField.addEventListener('keydown', async function(e) {
+            inputField.addEventListener('keydown', async function (e) {
                 const ctrlKey = e.ctrlKey || e.metaKey; // Support both Ctrl (Windows/Linux) and Cmd (macOS)
-                
+
                 // Handle Enter key for sending messages
                 if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
                     sendButton.click();
                     return;
                 }
-                
+
                 // Handle Ctrl+V / Cmd+V for paste
                 if (ctrlKey && (e.key === 'V' || e.key === 'v')) {
                     e.preventDefault();
                     e.stopPropagation();
                     e.stopImmediatePropagation();
-                    
+
                     try {
                         let clipText = '';
-                        
+
                         // First try native clipboard (prioritize external app copies)
                         try {
                             clipText = await navigator.clipboard.readText();
@@ -1035,23 +1035,23 @@ if (typeof window.isMac === 'undefined') {
                         } catch (err) {
                             console.log('[ChatBot Ctrl+V] Native clipboard read failed:', err.message);
                         }
-                        
+
                         // If empty, fall back to neoPassClipboard
                         if (!clipText && window.neoPassClipboard) {
                             clipText = window.neoPassClipboard;
                             console.log('[ChatBot Ctrl+V] Using neoPassClipboard, length:', clipText.length);
                         }
-                        
+
                         if (clipText) {
                             console.log('[ChatBot Ctrl+V] Attempting to insert text...');
                             let inserted = false;
-                            
+
                             // Try method 1: Use selection API
                             try {
                                 const selection = window.getSelection();
                                 if (selection && selection.rangeCount > 0) {
                                     const range = selection.getRangeAt(0);
-                                    
+
                                     // Ensure the range is within our input field
                                     if (this.contains(range.commonAncestorContainer)) {
                                         range.deleteContents();
@@ -1068,13 +1068,13 @@ if (typeof window.isMac === 'undefined') {
                             } catch (selErr) {
                                 console.log('[ChatBot Ctrl+V] Selection API failed:', selErr.message);
                             }
-                            
+
                             // Fallback method 2: Direct textContent manipulation
                             if (!inserted) {
                                 console.log('[ChatBot Ctrl+V] Using fallback: direct insertion');
                                 const currentText = this.textContent || '';
                                 this.textContent = currentText + clipText;
-                                
+
                                 // Move cursor to end
                                 const range = document.createRange();
                                 const selection = window.getSelection();
@@ -1084,11 +1084,11 @@ if (typeof window.isMac === 'undefined') {
                                 selection.addRange(range);
                                 inserted = true;
                             }
-                            
+
                             if (inserted) {
                                 // Dispatch input event to trigger any listeners
-                                this.dispatchEvent(new InputEvent('input', { 
-                                    bubbles: true, 
+                                this.dispatchEvent(new InputEvent('input', {
+                                    bubbles: true,
                                     cancelable: true,
                                     inputType: 'insertText',
                                     data: clipText
@@ -1155,14 +1155,14 @@ if (typeof window.isMac === 'undefined') {
             // Function to generate a simple hash from question data
             function getQuestionHash(questionData) {
                 if (!questionData) return null;
-                
+
                 // Create a unique string from the question data
                 let hashString = '';
                 if (questionData.type) hashString += questionData.type;
                 if (questionData.question) hashString += questionData.question;
                 if (questionData.title) hashString += questionData.title;
                 if (questionData.instruction) hashString += questionData.instruction;
-                
+
                 // Simple hash function
                 let hash = 0;
                 for (let i = 0; i < hashString.length; i++) {
@@ -1179,22 +1179,22 @@ if (typeof window.isMac === 'undefined') {
                 if (platform) {
                     // Valid platform detected, show the checkbox
                     checkboxContainer.style.display = 'flex';
-                    
+
                     // If checkbox is enabled, check if question has changed
                     if (chatAboutQuestionEnabled && checkbox.checked) {
                         const currentQuestionData = extractCurrentQuestion();
                         const currentQuestionHash = getQuestionHash(currentQuestionData);
-                        
+
                         // If question hash changed, re-extract the question
                         if (currentQuestionHash !== lastQuestionHash && lastQuestionHash !== null) {
                             if (currentQuestionData) {
                                 extractedQuestion = formatQuestionForChat(currentQuestionData);
                                 lastQuestionHash = currentQuestionHash;
                                 console.log('Question changed and re-extracted for chat');
-                                
+
                                 // Clear chat history when question changes
                                 clearChatHistoryAndUI('question-switch');
-                                
+
                                 // Show notification that question was updated and chat cleared
                                 addNotificationMessage('Question updated - Chat cleared');
                             } else {
@@ -1228,9 +1228,9 @@ if (typeof window.isMac === 'undefined') {
             setInterval(updateCheckboxVisibility, 2000);
 
             // Handle checkbox change
-            checkbox.addEventListener('change', function() {
+            checkbox.addEventListener('change', function () {
                 chatAboutQuestionEnabled = this.checked;
-                
+
                 if (chatAboutQuestionEnabled) {
                     // Extract question when enabled
                     const questionData = extractCurrentQuestion();
@@ -1238,7 +1238,7 @@ if (typeof window.isMac === 'undefined') {
                         extractedQuestion = formatQuestionForChat(questionData);
                         lastQuestionHash = getQuestionHash(questionData);
                         console.log('Question extracted for chat:', extractedQuestion);
-                        
+
                         // Update label to show question is attached
                         checkboxLabel.style.color = 'rgb(60, 84, 114)';
                         checkboxLabel.style.fontWeight = '500';
@@ -1248,7 +1248,7 @@ if (typeof window.isMac === 'undefined') {
                         chatAboutQuestionEnabled = false;
                         extractedQuestion = null;
                         lastQuestionHash = null;
-                        
+
                         // Show notification
                         addNotificationMessage('No question detected on this page');
                     }
@@ -1551,7 +1551,7 @@ if (typeof window.isMac === 'undefined') {
                 
                 ${scrollbarStyles.innerHTML}
             `;
-            
+
             // Assemble the components in shadow DOM
             shadowRoot.appendChild(shadowStyles);
             overlay.appendChild(header);
@@ -1560,18 +1560,18 @@ if (typeof window.isMac === 'undefined') {
             overlay.appendChild(resizeHandle);
             shadowRoot.appendChild(overlay);
             document.body.appendChild(shadowHost);
-            
+
             // Store shadow root reference for later access
             shadowHost._shadowRoot = shadowRoot;
 
             // Add placeholder behavior after element is in DOM
-            inputField.addEventListener('focus', function() {
+            inputField.addEventListener('focus', function () {
                 if (this.textContent.trim() === '') {
                     this.setAttribute('data-placeholder', 'Type a message...');
                 }
             });
 
-            inputField.addEventListener('blur', function() {
+            inputField.addEventListener('blur', function () {
                 if (this.textContent.trim() === '') {
                     this.removeAttribute('data-placeholder');
                 }
@@ -1608,18 +1608,18 @@ if (typeof window.isMac === 'undefined') {
 
             // Add event listeners for stealth-mode
             // Get the initial state from storage
-            chrome.storage.local.get(['stealth'], function(result) {
+            chrome.storage.local.get(['stealth'], function (result) {
                 // Initialize stealth mode based on storage
                 let stealthModeEnabled = result.stealth === true;
-                
+
                 // First get the stealth mode button element from shadow DOM
                 const stealthModeButton = header.querySelector("#stealth-mode");
-                
+
                 // Update button text on initialization
                 if (stealthModeButton) {
-                    stealthModeButton.innerText = stealthModeEnabled ? 
+                    stealthModeButton.innerText = stealthModeEnabled ?
                         "Disable Stealth Mode" : "Enable Stealth Mode";
-                    
+
                     // Add event listener for stealth mode toggle
                     stealthModeButton.addEventListener("click", () => {
                         const chatButton = getChatButton();
@@ -1636,7 +1636,7 @@ if (typeof window.isMac === 'undefined') {
                             }
                             if (closeIcon) closeIcon.style.display = "block"; // Ensure close icon is visible
                             stealthModeButton.innerText = "Disable Stealth Mode"; // Update button text
-                            
+
                             // Show toast notification for stealth mode enabled
                             chrome.runtime.sendMessage({
                                 action: 'showStealthToast',
@@ -1668,7 +1668,7 @@ if (typeof window.isMac === 'undefined') {
                                 `; // Reset chat button icon to original Crisp-style icon
                             }
                             stealthModeButton.innerText = "Enable Stealth Mode"; // Update button text
-                            
+
                             // Show toast notification for stealth mode disabled
                             chrome.runtime.sendMessage({
                                 action: 'showStealthToast',
@@ -1676,33 +1676,33 @@ if (typeof window.isMac === 'undefined') {
                                 stealthEnabled: false
                             });
                         }
-                        
+
                         // Update storage with new stealth mode state
                         chrome.storage.local.set({ stealth: stealthModeEnabled });
                     });
                 }
-                
+
                 // Listen for storage changes to update stealth mode state across all tabs
                 chrome.storage.onChanged.addListener((changes, namespace) => {
                     if (namespace === 'local' && changes.stealth && stealthModeButton) {
                         const newStealthMode = changes.stealth.newValue === true;
                         stealthModeEnabled = newStealthMode;
-                        
+
                         // Update button text
-                        stealthModeButton.innerText = newStealthMode ? 
+                        stealthModeButton.innerText = newStealthMode ?
                             "Disable Stealth Mode" : "Enable Stealth Mode";
-                        
+
                         // Update overlay opacity
                         if (overlay) {
                             overlay.style.opacity = newStealthMode ? "0.15" : "1";
                         }
-                        
+
                         // Update chat button visibility
                         const chatButton = getChatButton();
                         if (chatButton) {
                             chatButton.style.opacity = newStealthMode ? "0" : "1";
                             chatButton.style.pointerEvents = "auto"; // Keep pointer events active in both states
-                            
+
                             // Reset chat button icon when showing - use original Crisp-style icon
                             if (!newStealthMode) {
                                 chatButton.innerHTML = `
@@ -1808,16 +1808,16 @@ if (typeof window.isMac === 'undefined') {
                     try {
                         // Clear any error state before sending new message
                         clearErrorState();
-                        
+
                         // Prepare the final message to send
                         let finalMessage = message;
-                        
+
                         // If "Chat about question" is enabled, prepend the question
                         if (chatAboutQuestionEnabled && extractedQuestion) {
                             finalMessage = `Context: Below is the question I'm working on:\n\n${extractedQuestion}\n\n---\n\nMy Question: ${message}`;
                             console.log('Sending message with question context');
                         }
-                        
+
                         chatHistory.push({
                             role: "user",
                             content: message
@@ -1830,70 +1830,144 @@ if (typeof window.isMac === 'undefined') {
                         const loadingDiv = addLoadingIndicator();
                         messagesContainer.appendChild(loadingDiv);
 
-                        // Send message and wait for response with timeout
-                        const response = await new Promise((resolve, reject) => {
-                            let timeoutId;
-                            let resolved = false;
-                            
-                            // Set up timeout (30 seconds)
-                            timeoutId = setTimeout(() => {
-                                if (!resolved) {
-                                    resolved = true;
-                                    reject(new Error('Request timed out. Please try again.'));
-                                }
-                            }, 30000);
-                            
-                            // Listen for response
-                            const messageListener = (message) => {
-                                if (message.action === "updateChatHistory" && !resolved) {
-                                    resolved = true;
-                                    clearTimeout(timeoutId);
-                                    chrome.runtime.onMessage.removeListener(messageListener);
-                                    resolve(message);
-                                }
-                            };
-                            
-                            chrome.runtime.onMessage.addListener(messageListener);
-                            
-                            // Send the message (with question context if enabled)
-                            // Create valid conversation context (filters errors and ensures proper role flow)
-                            const validContext = createValidContext(chatHistory);
-                            chrome.runtime.sendMessage({
-                                action: "processChatMessage",
-                                message: finalMessage, // Send the final message with or without question context
-                                context: validContext
-                            }).catch((error) => {
-                                if (!resolved) {
-                                    resolved = true;
-                                    clearTimeout(timeoutId);
-                                    chrome.runtime.onMessage.removeListener(messageListener);
-                                    reject(error);
+                        // Try Port-based streaming first
+                        try {
+                            const port = chrome.runtime.connect({ name: 'chat-stream' });
+
+                            let contentDiv = null;
+                            let fullContent = '';
+                            let firstChunk = true;
+                            let streamingUsed = false;
+
+                            port.onMessage.addListener((msg) => {
+                                if (msg.type === 'chunk') {
+                                    streamingUsed = true;
+                                    if (firstChunk) {
+                                        // Remove loading indicator on first chunk
+                                        const loadingMessage = getShadowElement("loading-message");
+                                        if (loadingMessage) loadingMessage.remove();
+
+                                        contentDiv = createStreamingMessageBubble();
+                                        firstChunk = false;
+                                    }
+                                    appendToStreamingBubble(contentDiv, msg.content);
+
+                                } else if (msg.type === 'done') {
+                                    fullContent = msg.fullContent;
+
+                                    // If we never got chunks (empty response), remove loading
+                                    if (firstChunk) {
+                                        const loadingMessage = getShadowElement("loading-message");
+                                        if (loadingMessage) loadingMessage.remove();
+                                    }
+
+                                    if (fullContent) {
+                                        if (streamingUsed && contentDiv) {
+                                            // Finalize: render markdown properly
+                                            finalizeStreamingBubble(contentDiv, fullContent);
+                                        } else {
+                                            // Got full content without streaming chunks
+                                            addMessageToChat(fullContent, "assistant");
+                                        }
+
+                                        // Add to chat history
+                                        chatHistory.push({ role: "assistant", content: fullContent });
+                                    }
+
+                                    port.disconnect();
+
+                                } else if (msg.type === 'error') {
+                                    const loadingMessage = getShadowElement("loading-message");
+                                    if (loadingMessage) loadingMessage.remove();
+
+                                    addErrorMessageToChat(msg.error?.error || msg.error?.detailedInfo || 'An error occurred');
+                                    port.disconnect();
+
+                                } else if (msg.type === 'fallback') {
+                                    // Non-streaming fallback was used (Pro proxy).
+                                    // Response will arrive via the existing updateChatHistory message listener.
+                                    // Do nothing here — the existing listener handles it.
                                 }
                             });
-                        });
-                        
-                        // Remove loading indicator
-                        const loadingMessage = getShadowElement("loading-message");
-                        if (loadingMessage) {
-                            loadingMessage.remove();
+
+                            port.onDisconnect.addListener(() => {
+                                // Clean up if port disconnects unexpectedly
+                                if (firstChunk) {
+                                    const loadingMessage = getShadowElement("loading-message");
+                                    if (loadingMessage) loadingMessage.remove();
+                                }
+                            });
+
+                            // Send the request through the port
+                            const validContext = createValidContext(chatHistory);
+                            port.postMessage({
+                                action: 'startChatStream',
+                                message: finalMessage,
+                                context: validContext
+                            });
+
+                        } catch (portError) {
+                            // Fallback to non-streaming if port connection fails
+                            console.warn('Port streaming failed, falling back to non-streaming:', portError);
+
+                            const response = await new Promise((resolve, reject) => {
+                                let timeoutId;
+                                let resolved = false;
+
+                                timeoutId = setTimeout(() => {
+                                    if (!resolved) {
+                                        resolved = true;
+                                        reject(new Error('Request timed out. Please try again.'));
+                                    }
+                                }, 30000);
+
+                                const messageListener = (message) => {
+                                    if (message.action === "updateChatHistory" && !resolved) {
+                                        resolved = true;
+                                        clearTimeout(timeoutId);
+                                        chrome.runtime.onMessage.removeListener(messageListener);
+                                        resolve(message);
+                                    }
+                                };
+
+                                chrome.runtime.onMessage.addListener(messageListener);
+
+                                const validContext = createValidContext(chatHistory);
+                                chrome.runtime.sendMessage({
+                                    action: "processChatMessage",
+                                    message: finalMessage,
+                                    context: validContext
+                                }).catch((error) => {
+                                    if (!resolved) {
+                                        resolved = true;
+                                        clearTimeout(timeoutId);
+                                        chrome.runtime.onMessage.removeListener(messageListener);
+                                        reject(error);
+                                    }
+                                });
+                            });
+
+                            // Remove loading indicator
+                            const loadingMessage = getShadowElement("loading-message");
+                            if (loadingMessage) {
+                                loadingMessage.remove();
+                            }
+
                         }
-                        
-                        // The response will be handled by the runtime message listener
-                        // No need to add the message here as it will be added via "updateChatHistory"
                     }
                     catch (error) {
                         console.error("Error sending message:", error);
-                        
+
                         // Remove loading indicator if it exists
                         const loadingMessage = getShadowElement("loading-message");
                         if (loadingMessage) {
                             loadingMessage.remove();
                         }
-                        
+
                         // Handle different types of errors with appropriate messages
                         let errorMessage = "I encountered an error processing your message. Please try again.";
                         let isRateLimitError = false;
-                        
+
                         if (error.message) {
                             if (error.message.includes('timeout') || error.message.includes('timed out')) {
                                 errorMessage = "The request timed out. The service might be experiencing high load. Please try again in a moment.";
@@ -1909,13 +1983,13 @@ if (typeof window.isMac === 'undefined') {
                                 errorMessage = error.message;
                             }
                         }
-                        
+
                         // Add error message to chat with special styling
                         addErrorMessageToChat(errorMessage, isRateLimitError);
                     }
                 }
             });
-            
+
             addNotificationMessage(`${window.isMac ? 'Option+C' : 'Alt+C'} to toggle`);
 
             return overlay;
@@ -1925,7 +1999,7 @@ if (typeof window.isMac === 'undefined') {
         function addNotificationMessage(message) {
             const messagesContainer = getShadowElement("chat-messages");
             if (!messagesContainer) return;
-            
+
             const messageDiv = document.createElement("div");
             messageDiv.textContent = message;
             messageDiv.style.cssText = `
@@ -2043,7 +2117,7 @@ if (typeof window.isMac === 'undefined') {
 
             // Add hover effects for stealth mode
             button.addEventListener('mouseenter', () => {
-                chrome.storage.local.get(['stealth'], function(result) {
+                chrome.storage.local.get(['stealth'], function (result) {
                     const stealthModeEnabled = result.stealth === true;
                     if (stealthModeEnabled) {
                         button.style.opacity = "0.3"; // Show with reduced opacity on hover in stealth mode
@@ -2052,7 +2126,7 @@ if (typeof window.isMac === 'undefined') {
             });
 
             button.addEventListener('mouseleave', () => {
-                chrome.storage.local.get(['stealth'], function(result) {
+                chrome.storage.local.get(['stealth'], function (result) {
                     const stealthModeEnabled = result.stealth === true;
                     if (stealthModeEnabled) {
                         button.style.opacity = "0"; // Hide again when not hovering in stealth mode
@@ -2114,28 +2188,28 @@ if (typeof window.isMac === 'undefined') {
                 // Click handling is now managed in the mouseup event
                 e.preventDefault();
             });
-            
+
             return button;
         }
 
         // Helper function to detect programming language from code content
         function detectLanguage(code) {
             const codeText = code.toLowerCase().trim();
-            
+
             // TypeScript detection (check before JavaScript)
             if (codeText.includes('interface ') || codeText.includes('type ') || codeText.includes(': string') ||
                 codeText.includes(': number') || codeText.includes(': boolean') || codeText.includes('export interface') ||
                 codeText.includes('import type') || codeText.includes('as const') || codeText.includes('enum ')) {
                 return 'typescript';
             }
-            
+
             // JSX/TSX detection
-            if (codeText.includes('<') && codeText.includes('>') && 
+            if (codeText.includes('<') && codeText.includes('>') &&
                 (codeText.includes('return (') || codeText.includes('jsx') || codeText.includes('tsx') ||
-                 codeText.includes('component') || codeText.includes('props'))) {
+                    codeText.includes('component') || codeText.includes('props'))) {
                 return codeText.includes(': ') ? 'tsx' : 'jsx';
             }
-            
+
             // JavaScript detection
             if (codeText.includes('function') || codeText.includes('const ') || codeText.includes('let ') ||
                 codeText.includes('var ') || codeText.includes('=>') || codeText.includes('console.log') ||
@@ -2143,7 +2217,7 @@ if (typeof window.isMac === 'undefined') {
                 codeText.includes('import ') || codeText.includes('export ')) {
                 return 'javascript';
             }
-            
+
             // Python detection
             if (codeText.includes('def ') || codeText.includes('import ') || codeText.includes('from ') ||
                 codeText.includes('print(') || codeText.includes('if __name__') || codeText.includes('self.') ||
@@ -2151,7 +2225,7 @@ if (typeof window.isMac === 'undefined') {
                 codeText.includes('lambda ') || codeText.includes('yield ')) {
                 return 'python';
             }
-            
+
             // Java detection
             if (codeText.includes('public class') || codeText.includes('private ') || codeText.includes('public ') ||
                 codeText.includes('import java') || codeText.includes('system.out.println') || codeText.includes('string ') ||
@@ -2159,70 +2233,70 @@ if (typeof window.isMac === 'undefined') {
                 codeText.includes('@override') || codeText.includes('new ')) {
                 return 'java';
             }
-            
+
             // C# detection
             if (codeText.includes('using system') || codeText.includes('namespace ') || codeText.includes('public static void main') ||
                 codeText.includes('console.writeline') || codeText.includes('[attribute]') || codeText.includes('var ')) {
                 return 'csharp';
             }
-            
+
             // C++ detection (check before C)
             if (codeText.includes('std::') || codeText.includes('cout <<') || codeText.includes('cin >>') ||
                 codeText.includes('#include <iostream>') || codeText.includes('using namespace std') ||
                 codeText.includes('class ') || codeText.includes('template<')) {
                 return 'cpp';
             }
-            
+
             // C detection
             if (codeText.includes('#include') || codeText.includes('printf(') || codeText.includes('scanf(') ||
                 codeText.includes('int main') || codeText.includes('malloc(') || codeText.includes('free(') ||
                 codeText.includes('sizeof(')) {
                 return 'c';
             }
-            
+
             // PHP detection
             if (codeText.includes('<?php') || codeText.includes('echo ') || codeText.includes('$') ||
                 codeText.includes('function ') || codeText.includes('class ') || codeText.includes('->')) {
                 return 'php';
             }
-            
+
             // Ruby detection
             if (codeText.includes('def ') || codeText.includes('end') || codeText.includes('puts ') ||
                 codeText.includes('require ') || codeText.includes('class ') || codeText.includes('@')) {
                 return 'ruby';
             }
-            
+
             // Go detection
             if (codeText.includes('package ') || codeText.includes('func ') || codeText.includes('import (') ||
                 codeText.includes('fmt.println') || codeText.includes('go ') || codeText.includes('defer ')) {
                 return 'go';
             }
-            
+
             // Rust detection
             if (codeText.includes('fn ') || codeText.includes('let mut') || codeText.includes('println!') ||
                 codeText.includes('use ') || codeText.includes('struct ') || codeText.includes('impl ')) {
                 return 'rust';
             }
-            
+
             // Swift detection
             if (codeText.includes('import swift') || codeText.includes('var ') || codeText.includes('let ') ||
                 codeText.includes('func ') || codeText.includes('class ') || codeText.includes('print(')) {
                 return 'swift';
             }
-            
+
             // Kotlin detection
             if (codeText.includes('fun ') || codeText.includes('val ') || codeText.includes('var ') ||
                 codeText.includes('class ') || codeText.includes('println(') || codeText.includes('import kotlin')) {
                 return 'kotlin';
             }
-            
+
             // HTML detection
             if (codeText.includes('<!doctype') || codeText.includes('<html') || codeText.includes('<head') ||
                 codeText.includes('<body') || codeText.includes('<div') || codeText.includes('<span') ||
                 codeText.includes('<script') || codeText.includes('<style')) {
                 return 'html';
             }
-            
+
             // CSS/SCSS detection
             if (codeText.includes('{') && codeText.includes('}') && (codeText.includes(':') && codeText.includes(';'))) {
                 if (codeText.includes('$') || codeText.includes('@mixin') || codeText.includes('@include')) {
@@ -2230,14 +2304,14 @@ if (typeof window.isMac === 'undefined') {
                 }
                 return 'css';
             }
-            
+
             // SQL detection
             if (codeText.includes('select ') || codeText.includes('from ') || codeText.includes('where ') ||
                 codeText.includes('insert ') || codeText.includes('update ') || codeText.includes('delete ') ||
                 codeText.includes('create table') || codeText.includes('alter table') || codeText.includes('drop table')) {
                 return 'sql';
             }
-            
+
             // JSON detection
             if ((codeText.trim().startsWith('{') && codeText.trim().endsWith('}')) ||
                 (codeText.trim().startsWith('[') && codeText.trim().endsWith(']'))) {
@@ -2248,27 +2322,27 @@ if (typeof window.isMac === 'undefined') {
                     // Not valid JSON, continue with other detections
                 }
             }
-            
+
             // YAML detection
             if (codeText.includes('---') || (codeText.includes(':') && !codeText.includes(';') && !codeText.includes('{')) ||
                 codeText.includes('- ') || codeText.includes('version:') || codeText.includes('name:')) {
                 return 'yaml';
             }
-            
+
             // XML detection
             if (codeText.includes('<?xml') || codeText.includes('<') && codeText.includes('/>') ||
                 (codeText.includes('<') && codeText.includes('>') && !codeText.includes('function'))) {
                 return 'xml';
             }
-            
+
             // Bash/Shell detection
-            if (codeText.includes('#!/bin/bash') || codeText.includes('#!/bin/sh') || 
+            if (codeText.includes('#!/bin/bash') || codeText.includes('#!/bin/sh') ||
                 codeText.includes('echo ') || codeText.includes('grep ') || codeText.includes('awk ') ||
                 codeText.includes('sed ') || codeText.includes('chmod ') || codeText.includes('sudo ') ||
                 codeText.includes('ls ') || codeText.includes('cd ') || codeText.includes('mkdir ')) {
                 return 'bash';
             }
-            
+
             // Default fallback
             return 'javascript';
         }
@@ -2278,7 +2352,7 @@ if (typeof window.isMac === 'undefined') {
             // Get the chat messages container
             const chatMessagesContainer = getShadowElement("chat-messages");
             if (!chatMessagesContainer) return;
-            
+
             // Create a new message container
             const messageContainer = document.createElement("div");
             messageContainer.style.cssText = `
@@ -2288,7 +2362,7 @@ if (typeof window.isMac === 'undefined') {
                 max-width: 90%;
                 word-wrap: break-word;
             `;
-        
+
             // Style the message differently based on the role (user or assistant)
             if (role === "user") {
                 messageContainer.style.backgroundColor = "#dcf8c6";  // Light green for user messages
@@ -2300,7 +2374,7 @@ if (typeof window.isMac === 'undefined') {
                 messageContainer.style.border = "1px solid #ddd";
                 messageContainer.style.paddingLeft = "10px";
             }
-        
+
             try {
                 // Convert markdown to HTML using showdown library
                 if (typeof showdown !== 'undefined') {
@@ -2309,11 +2383,11 @@ if (typeof window.isMac === 'undefined') {
                         markdownConverter = new showdown.Converter();
                     }
                     const htmlContent = markdownConverter.makeHtml(message);
-                    
+
                     // Create content container and parse markdown
                     const contentContainer = document.createElement("div");
                     contentContainer.innerHTML = htmlContent;
-                    
+
                     // Style code blocks and add copy functionality
                     contentContainer.querySelectorAll("pre code").forEach(codeBlock => {
                         // Detect language from class name first (from markdown ```language)
@@ -2325,15 +2399,15 @@ if (typeof window.isMac === 'undefined') {
                                 break;
                             }
                         }
-                        
+
                         // If no language specified in markdown, use auto-detection
                         if (!language || language === '') {
                             language = detectLanguage(codeBlock.textContent);
                         }
-                        
+
                         // Set the language class for Prism (ensure it's set even if detected)
                         codeBlock.className = `language-${language}`;
-                        
+
                         // Apply SimplePrism highlighting if available
                         if (typeof SimplePrism !== 'undefined') {
                             try {
@@ -2343,7 +2417,7 @@ if (typeof window.isMac === 'undefined') {
                                 // Continue without highlighting
                             }
                         }
-                        
+
                         // Style the parent <pre> element to ensure clean background
                         const preElement = codeBlock.parentNode;
                         if (preElement && preElement.tagName === 'PRE') {
@@ -2357,7 +2431,7 @@ if (typeof window.isMac === 'undefined') {
                                 position: relative !important;
                             `;
                         }
-                        
+
                         // Style the code block (let Prism handle syntax colors)
                         codeBlock.style.cssText = `
                             background: transparent !important;
@@ -2372,7 +2446,7 @@ if (typeof window.isMac === 'undefined') {
                             font-size: 13px !important;
                             line-height: 1.4 !important;
                         `;
-                
+
                         // Create a wrapper for the code block to handle hover events
                         const codeWrapper = document.createElement("div");
                         codeWrapper.style.cssText = `
@@ -2382,11 +2456,11 @@ if (typeof window.isMac === 'undefined') {
                             margin: 0;
                             padding: 0;
                         `;
-                        
+
                         // Move the code block into the wrapper
                         codeBlock.parentNode.insertBefore(codeWrapper, codeBlock);
                         codeWrapper.appendChild(codeBlock);
-                
+
                         // Create copy button with new styling
                         const copyButton = document.createElement("button");
                         copyButton.innerText = "Copy";
@@ -2406,16 +2480,16 @@ if (typeof window.isMac === 'undefined') {
                             transition: opacity 0.2s ease;
                             z-index: 10;
                         `;
-                
+
                         // Add hover effects
                         codeWrapper.addEventListener('mouseenter', () => {
                             copyButton.style.opacity = "1";
                         });
-                
+
                         codeWrapper.addEventListener('mouseleave', () => {
                             copyButton.style.opacity = "0";
                         });
-                
+
                         // Add copy functionality
                         copyButton.addEventListener("click", () => {
                             navigator.clipboard.writeText(codeBlock.innerText)
@@ -2429,11 +2503,11 @@ if (typeof window.isMac === 'undefined') {
                                     console.error("Failed to copy: ", error);
                                 });
                         });
-                
+
                         // Add the copy button to the wrapper
                         codeWrapper.appendChild(copyButton);
                     });
-                    
+
                     // Add the content to the message container
                     messageContainer.appendChild(contentContainer);
                 } else {
@@ -2445,17 +2519,200 @@ if (typeof window.isMac === 'undefined') {
                 // Fallback to plain text
                 messageContainer.textContent = message;
             }
-            
+
             // Add the message to the chat and scroll to bottom
             chatMessagesContainer.appendChild(messageContainer);
             chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+        }
+
+        // Create an empty assistant message bubble for streaming and return a reference to its content div
+        function createStreamingMessageBubble() {
+            const chatMessagesContainer = getShadowElement("chat-messages");
+            if (!chatMessagesContainer) return null;
+
+            const messageContainer = document.createElement("div");
+            messageContainer.id = "streaming-message";
+            messageContainer.style.cssText = `
+                margin-bottom: 10px;
+                padding: 10px;
+                border-radius: 8px;
+                max-width: 90%;
+                word-wrap: break-word;
+                background-color: #f1f1f1;
+                align-self: flex-start;
+                border: 1px solid #ddd;
+                padding-left: 10px;
+            `;
+
+            // Create a content div for raw text (will be replaced with rendered markdown on done)
+            const contentDiv = document.createElement("div");
+            contentDiv.id = "streaming-content";
+            contentDiv.style.cssText = `
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                font-size: 14px;
+                line-height: 1.5;
+                white-space: pre-wrap;
+            `;
+
+            messageContainer.appendChild(contentDiv);
+            chatMessagesContainer.appendChild(messageContainer);
+            chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+
+            return contentDiv;
+        }
+
+        // Append a text chunk to the streaming bubble
+        function appendToStreamingBubble(contentDiv, chunk) {
+            if (!contentDiv) return;
+            contentDiv.textContent += chunk;
+
+            // Auto-scroll
+            const chatMessagesContainer = getShadowElement("chat-messages");
+            if (chatMessagesContainer) {
+                chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+            }
+        }
+
+        // Finalize: replace raw text with fully rendered markdown
+        function finalizeStreamingBubble(contentDiv, fullContent) {
+            if (!contentDiv) return;
+
+            const messageContainer = contentDiv.parentElement;
+            if (!messageContainer) return;
+
+            // Remove the streaming id so it won't conflict with future streams
+            messageContainer.removeAttribute('id');
+
+            // Remove the raw text div
+            contentDiv.remove();
+
+            // Re-render with full markdown (reuse existing addMessageToChat rendering logic)
+            try {
+                if (typeof showdown !== 'undefined') {
+                    if (!markdownConverter) {
+                        markdownConverter = new showdown.Converter();
+                    }
+                    const htmlContent = markdownConverter.makeHtml(fullContent);
+                    const rendered = document.createElement("div");
+                    rendered.innerHTML = htmlContent;
+
+                    // Apply syntax highlighting to code blocks (same as addMessageToChat)
+                    rendered.querySelectorAll("pre code").forEach(codeBlock => {
+                        // Detect language from class name
+                        let language = '';
+                        const classNames = codeBlock.className.split(' ');
+                        for (const className of classNames) {
+                            if (className.startsWith('language-')) {
+                                language = className.replace('language-', '');
+                                break;
+                            }
+                        }
+                        if (!language || language === '') {
+                            language = detectLanguage(codeBlock.textContent);
+                        }
+                        codeBlock.className = `language-${language}`;
+
+                        if (typeof SimplePrism !== 'undefined') {
+                            try { SimplePrism.highlightElement(codeBlock); } catch (e) { }
+                        }
+
+                        // Style pre element
+                        const preElement = codeBlock.parentNode;
+                        if (preElement && preElement.tagName === 'PRE') {
+                            preElement.style.cssText = `
+                                background: #f8f9fa !important;
+                                border: 1px solid #e1e4e8 !important;
+                                border-radius: 6px !important;
+                                margin: 15px 0 !important;
+                                padding: 0 !important;
+                                overflow: visible !important;
+                                position: relative !important;
+                            `;
+                        }
+
+                        // Style code block
+                        codeBlock.style.cssText = `
+                            background: transparent !important;
+                            border: none !important;
+                            border-radius: 0 !important;
+                            padding: 12px !important;
+                            display: block !important;
+                            margin: 0 !important;
+                            overflow-x: auto !important;
+                            white-space: pre !important;
+                            font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace !important;
+                            font-size: 13px !important;
+                            line-height: 1.4 !important;
+                        `;
+
+                        // Create wrapper + copy button
+                        const codeWrapper = document.createElement("div");
+                        codeWrapper.style.cssText = `
+                            position: relative;
+                            background: transparent;
+                            border: none;
+                            margin: 0;
+                            padding: 0;
+                        `;
+                        codeBlock.parentNode.insertBefore(codeWrapper, codeBlock);
+                        codeWrapper.appendChild(codeBlock);
+
+                        const copyButton = document.createElement("button");
+                        copyButton.innerText = "Copy";
+                        copyButton.style.cssText = `
+                            position: absolute;
+                            right: 8px;
+                            top: 8px;
+                            background-color: rgb(60, 84, 114);
+                            color: #fff;
+                            border: none;
+                            border-radius: 6px;
+                            cursor: pointer;
+                            padding: 6px 12px;
+                            font-size: 12px;
+                            font-family: 'Poppins', sans-serif;
+                            opacity: 0;
+                            transition: opacity 0.2s ease;
+                            z-index: 10;
+                        `;
+                        codeWrapper.addEventListener('mouseenter', () => { copyButton.style.opacity = "1"; });
+                        codeWrapper.addEventListener('mouseleave', () => { copyButton.style.opacity = "0"; });
+                        copyButton.addEventListener("click", () => {
+                            navigator.clipboard.writeText(codeBlock.innerText)
+                                .then(() => {
+                                    copyButton.innerText = "Copied";
+                                    setTimeout(() => { copyButton.innerText = "Copy"; }, 5000);
+                                })
+                                .catch(error => { console.error("Failed to copy: ", error); });
+                        });
+                        codeWrapper.appendChild(copyButton);
+                    });
+
+                    messageContainer.appendChild(rendered);
+                } else {
+                    // Fallback: keep raw text
+                    const fallbackDiv = document.createElement("div");
+                    fallbackDiv.textContent = fullContent;
+                    messageContainer.appendChild(fallbackDiv);
+                }
+            } catch (error) {
+                const fallbackDiv = document.createElement("div");
+                fallbackDiv.textContent = fullContent;
+                messageContainer.appendChild(fallbackDiv);
+            }
+
+            // Auto-scroll after finalize
+            const chatMessagesContainer = getShadowElement("chat-messages");
+            if (chatMessagesContainer) {
+                chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+            }
         }
 
         // Function to clear error state and remove error messages from chat history
         function clearErrorState() {
             // Remove error messages from chat history (in case any slipped through)
             chatHistory = chatHistory.filter(msg => msg.role !== "error");
-            
+
             // Optionally clear error messages from UI after successful response
             // This helps provide a cleaner experience when the user resolves their issue
             // We keep them for now to maintain transparency, but you could uncomment below to remove them:
@@ -2472,11 +2729,11 @@ if (typeof window.isMac === 'undefined') {
         function createValidContext(chatHistory) {
             // First filter out error messages
             let filteredHistory = chatHistory.filter(msg => msg.role !== "error");
-            
+
             // Ensure valid conversation flow (alternating user/assistant roles)
             let validContext = [];
             let lastRole = null;
-            
+
             for (const message of filteredHistory) {
                 // Skip consecutive messages with the same role (except the first)
                 if (lastRole === message.role) {
@@ -2486,11 +2743,11 @@ if (typeof window.isMac === 'undefined') {
                         validContext.pop(); // Remove the previous message of the same role
                     }
                 }
-                
+
                 validContext.push(message);
                 lastRole = message.role;
             }
-            
+
             // Ensure the conversation doesn't end with an assistant message if we're about to add a user message
             // The API expects user -> assistant -> user flow
             if (validContext.length > 0 && validContext[validContext.length - 1].role === "assistant") {
@@ -2500,7 +2757,7 @@ if (typeof window.isMac === 'undefined') {
                 // But we should remove the trailing user message to avoid consecutive user messages
                 validContext.pop();
             }
-            
+
             return validContext;
         }
 
@@ -2508,7 +2765,7 @@ if (typeof window.isMac === 'undefined') {
         function addErrorMessageToChat(errorMessage, isRateLimitError = false) {
             const chatMessagesContainer = getShadowElement("chat-messages");
             if (!chatMessagesContainer) return;
-            
+
             // Create error message container
             const errorContainer = document.createElement("div");
             errorContainer.style.cssText = `
@@ -2524,7 +2781,7 @@ if (typeof window.isMac === 'undefined') {
                 font-family: 'Poppins', sans-serif;
                 position: relative;
             `;
-            
+
             // Add error icon and message
             const errorContent = document.createElement("div");
             errorContent.style.cssText = `
@@ -2532,10 +2789,10 @@ if (typeof window.isMac === 'undefined') {
                 align-items: flex-start;
                 gap: 10px;
             `;
-            
+
             // Error icon
             const errorIcon = document.createElement("div");
-            errorIcon.innerHTML = isRateLimitError ? 
+            errorIcon.innerHTML = isRateLimitError ?
                 `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>` :
                 `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
             errorIcon.style.cssText = `
@@ -2543,7 +2800,7 @@ if (typeof window.isMac === 'undefined') {
                 margin-top: 2px;
                 opacity: 0.8;
             `;
-            
+
             // Error text
             const errorText = document.createElement("div");
             errorText.style.cssText = `
@@ -2552,7 +2809,7 @@ if (typeof window.isMac === 'undefined') {
                 line-height: 1.4;
             `;
             errorText.textContent = errorMessage;
-            
+
             // Add retry suggestion for certain errors
             if (!isRateLimitError && !errorMessage.includes('log in')) {
                 const retryText = document.createElement("div");
@@ -2565,14 +2822,14 @@ if (typeof window.isMac === 'undefined') {
                 retryText.textContent = "You can try sending your message again.";
                 errorText.appendChild(retryText);
             }
-            
+
             errorContent.appendChild(errorIcon);
             errorContent.appendChild(errorText);
             errorContainer.appendChild(errorContent);
-            
+
             // Note: Don't add error messages to chatHistory to prevent them from being sent as context
             // This prevents error states from persisting across requests
-            
+
             // Add to chat and scroll
             chatMessagesContainer.appendChild(errorContainer);
             chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
@@ -2639,26 +2896,26 @@ if (typeof window.isMac === 'undefined') {
 
             if (chatOverlay) {
                 chatOverlay.style.display = isOverlayVisible ? "flex" : "none";
-                
+
                 // Focus on input field when showing overlay
                 if (isOverlayVisible) {
                     setTimeout(() => {
                         const inputField = getShadowRoot()?.querySelector('[contenteditable]');
                         if (inputField) {
                             inputField.focus();
-                            
+
                             // Place cursor at the end of existing text
                             const range = document.createRange();
                             const sel = window.getSelection();
-                            
+
                             // If there's content, move cursor to the end
                             if (inputField.childNodes.length > 0) {
-                                range.setStart(inputField.childNodes[inputField.childNodes.length - 1], 
+                                range.setStart(inputField.childNodes[inputField.childNodes.length - 1],
                                     inputField.childNodes[inputField.childNodes.length - 1].length || 0);
                             } else {
                                 range.setStart(inputField, 0);
                             }
-                            
+
                             range.collapse(true);
                             sel.removeAllRanges();
                             sel.addRange(range);
@@ -2675,24 +2932,24 @@ if (typeof window.isMac === 'undefined') {
                 if (messagesContainer) {
                     // Clear the chat history array
                     chatHistory = [];
-                    
+
                     // Clear the UI
                     messagesContainer.innerHTML = "";
-                    
+
                     // Clear any error state
                     clearErrorState();
-                    
+
                     // Send message to background script to reset context
                     chrome.runtime.sendMessage({
                         action: "resetContext"
                     });
-                    
+
                     // Add a notification message based on the reason
                     let notificationMessage = "Chat history cleared.";
                     if (reason === 'providerChange') {
                         notificationMessage = "Chat history cleared - switched to new AI provider.";
                     }
-                    
+
                     addNotificationMessage(notificationMessage);
                     console.log(`Chat history cleared (${reason})`);
                 }
@@ -2712,7 +2969,7 @@ if (typeof window.isMac === 'undefined') {
                 'cc-11f3x',     // New duplicate chatbot icon child
                 'cc-1v4wj'      // New duplicate chatbot icon child
             ];
-            
+
             // Function to hide elements matching any of the blocked patterns
             function hideBlockedElements() {
                 blockedClassPatterns.forEach(className => {
@@ -2727,21 +2984,21 @@ if (typeof window.isMac === 'undefined') {
                     });
                 });
             }
-            
+
             // Add observer to continuously check for and block the element
             const observer = new MutationObserver((mutations) => {
                 hideBlockedElements();
             });
-            
+
             // Start observing document body for changes
             observer.observe(document.body, {
                 childList: true,
                 subtree: true
             });
-            
+
             // Also try to block any existing elements immediately
             hideBlockedElements();
-            
+
             // Add CSS to ensure elements with these classes are always hidden
             const styleElement = document.createElement('style');
             const cssRules = blockedClassPatterns.map(className => `
@@ -2752,7 +3009,7 @@ if (typeof window.isMac === 'undefined') {
                     pointer-events: none !important;
                 }
             `).join('\n');
-            
+
             styleElement.textContent = cssRules;
             document.head.appendChild(styleElement);
         }
@@ -2763,7 +3020,7 @@ if (typeof window.isMac === 'undefined') {
             if (!shadowHost) return;
             const overlay = shadowHost.shadowRoot?.querySelector("#chat-overlay");
             if (!overlay) return;
-            
+
             if (isDragging) {
                 const newLeft = e.clientX - dragOffsetX;
                 const newTop = e.clientY - dragOffsetY;
@@ -2781,12 +3038,12 @@ if (typeof window.isMac === 'undefined') {
             if (isResizing) {
                 const resizeHandle = overlay.querySelector("div[style*='nw-resize']");
                 if (!resizeHandle) return;
-                
+
                 const MIN_WIDTH = 250;
                 const MIN_HEIGHT = 200;
                 const MAX_WIDTH = window.innerWidth - 40;
                 const MAX_HEIGHT = window.innerHeight - 40;
-                
+
                 const dx = resizeStartX - e.clientX;
                 const dy = resizeStartY - e.clientY;
 
@@ -2847,32 +3104,32 @@ if (typeof window.isMac === 'undefined') {
                 console.error('Failed to load libraries:', error);
                 // Continue even if libraries fail to load
             }
-            
+
             // Block clashing chat elements
             blockClashingChatElements();
-            
+
             // Create the chat button
             const chatButton = createChatButton();
 
             // Get current stealth mode state
-            chrome.storage.local.get(['stealth'], function(result) {
+            chrome.storage.local.get(['stealth'], function (result) {
                 const stealthModeEnabled = result.stealth === true;
-                
+
                 // Hide chat button if stealth mode is enabled
                 if (stealthModeEnabled && chatButton) {
                     chatButton.style.opacity = "0"; // Use opacity instead of display none
                     chatButton.style.pointerEvents = "auto"; // Keep pointer events active
                 }
-                
+
                 // Create the chat overlay initially but keep it hidden
                 // This ensures Alt+C (Option+C on Mac) will work right from the start
                 try {
                     const overlay = createChatOverlay();
-                    
+
                     // Set overlay opacity based on stealth mode
                     if (stealthModeEnabled && overlay) {
                         overlay.style.opacity = "0.15";
-                        
+
                         // Update stealth mode button text
                         const stealthModeButton = document.getElementById("stealth-mode");
                         if (stealthModeButton) {
@@ -2884,7 +3141,7 @@ if (typeof window.isMac === 'undefined') {
                 }
             });
         }
-        
+
         // Start the initialization
         init();
 
@@ -2896,16 +3153,16 @@ if (typeof window.isMac === 'undefined') {
                     clearErrorState();
                     console.log("Auth state changed, cleared chat error state");
                 }
-                
+
                 if (changes.stealth) {
                     const newStealthMode = changes.stealth.newValue === true;
-                
+
                     // Update chat button visibility globally
                     const chatButton = getChatButton();
                     if (chatButton) {
                         chatButton.style.opacity = newStealthMode ? "0" : "1";
                         chatButton.style.pointerEvents = "auto"; // Keep pointer events active in both states
-                        
+
                         // Reset chat button icon when showing - use the original Crisp-style icon
                         if (!newStealthMode) {
                             chatButton.innerHTML = `
@@ -2927,16 +3184,16 @@ if (typeof window.isMac === 'undefined') {
                             </svg>`;
                         }
                     }
-                    
+
                     // Update overlay opacity if it exists
                     const overlay = document.getElementById("chat-overlay");
                     if (overlay) {
                         overlay.style.opacity = newStealthMode ? "0.15" : "1";
-                        
+
                         // Update stealth mode button text if it exists
                         const stealthModeButton = document.getElementById("stealth-mode");
                         if (stealthModeButton) {
-                            stealthModeButton.innerText = newStealthMode ? 
+                            stealthModeButton.innerText = newStealthMode ?
                                 "Disable Stealth Mode" : "Enable Stealth Mode";
                         }
                     }
@@ -2951,13 +3208,13 @@ if (typeof window.isMac === 'undefined') {
                     role,
                     content
                 } = message;
-                
+
                 // First remove loading indicator if it exists
                 const loadingMessage = getShadowElement("loading-message");
                 if (loadingMessage) {
                     loadingMessage.remove();
                 }
-                
+
                 // Handle error responses from the background script
                 if (role === "error" || content.includes("error") || content.includes("failed")) {
                     // Determine if this is a rate limit error
@@ -2966,18 +3223,18 @@ if (typeof window.isMac === 'undefined') {
                 } else {
                     // Clear any existing error state on successful response
                     clearErrorState();
-                    
+
                     // Add to chat history for normal responses
                     chatHistory.push({
                         role: role,
                         content: content
                     });
-                    
+
                     // Add the new message
                     addMessageToChat(content, role);
                 }
             }
-            
+
             // Handle clear chat history action
             if (message.action === "clearChatHistory") {
                 const reason = message.reason || 'external';
@@ -2986,7 +3243,7 @@ if (typeof window.isMac === 'undefined') {
                     sendResponse({ success: true });
                 }
             }
-            
+
             // Handle direct error messages from background script
             if (message.action === "chatError") {
                 // Remove loading indicator if it exists
@@ -2994,11 +3251,11 @@ if (typeof window.isMac === 'undefined') {
                 if (loadingMessage) {
                     loadingMessage.remove();
                 }
-                
+
                 const { error, errorType, detailedInfo } = message;
                 let errorMessage = error || "An error occurred processing your message.";
                 let isRateLimitError = false;
-                
+
                 // Enhance error message based on type
                 if (errorType === 'rateLimit') {
                     isRateLimitError = true;
@@ -3012,7 +3269,7 @@ if (typeof window.isMac === 'undefined') {
                 } else if (errorType === 'server') {
                     errorMessage += " The service is temporarily unavailable.";
                 }
-                
+
                 addErrorMessageToChat(errorMessage, isRateLimitError);
             }
         });
