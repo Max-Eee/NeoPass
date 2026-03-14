@@ -30,35 +30,28 @@ script.src = chrome.runtime.getURL('data/inject/exam.js');
 // Neo Browser Download Link - Updated
 const neoBrowserDownloadLink = "https://freeneopass.vercel.app";
 
-// Function to replace the new Neo Browser button structure
+// Function to add our NeoPass button left of the existing Neo Browser button
 function replaceNeoBrowserButton() {
   const neoButton = document.querySelector('button#neobrowser');
-  
+
   if (neoButton && !neoButton.dataset.replaced) {
-    // Prevent default behavior
-    neoButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      window.open(neoBrowserDownloadLink, '_blank');
-    }, true);
-    
     // Create custom styled button/link
-    const replacementBtn = document.createElement('a');
-    replacementBtn.innerHTML = `
+    const ourBtn = document.createElement('a');
+    ourBtn.innerHTML = `
       <div class="container jcc btn-align">
         <div class="t-whitespace-nowrap ng-star-inserted">
-          <span>Download NeoPass's NeoBrowser</span>
+          <span>Download NeoPass Launcher</span>
         </div>
       </div>
     `;
-    replacementBtn.href = neoBrowserDownloadLink;
-    replacementBtn.target = "_blank";
-    replacementBtn.className = neoButton.className;
-    replacementBtn.id = "neobrowser";
-    replacementBtn.tabIndex = 0;
-    
+    ourBtn.href = neoBrowserDownloadLink;
+    ourBtn.target = "_blank";
+    ourBtn.className = neoButton.className;
+    ourBtn.id = "neopass-browser-btn";
+    ourBtn.tabIndex = 0;
+
     // Apply gradient styling
-    replacementBtn.style.cssText = `
+    ourBtn.style.cssText = `
       position: relative !important;
       display: inline-flex !important;
       padding: 8px 16px !important;
@@ -74,17 +67,17 @@ function replaceNeoBrowserButton() {
       border: 2px solid transparent !important;
       transition: all 0.3s ease !important;
     `;
-    
+
     // Create gradient border effect
     const beforeStyle = document.createElement('style');
     beforeStyle.textContent = `
-      a#neobrowser {
+      a#neopass-browser-btn {
         position: relative !important;
         background: linear-gradient(black, black) padding-box,
                     linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899) border-box !important;
         border: 2px solid transparent !important;
       }
-      a#neobrowser:hover {
+      a#neopass-browser-btn:hover {
         transform: scale(1.05) !important;
         box-shadow: 0 0 20px rgba(139, 92, 246, 0.6) !important;
       }
@@ -93,16 +86,25 @@ function replaceNeoBrowserButton() {
       beforeStyle.setAttribute('data-neobrowser-style', 'true');
       document.head.appendChild(beforeStyle);
     }
-    
-    // Replace the button
-    neoButton.replaceWith(replacementBtn);
-    replacementBtn.dataset.replaced = "true";
-    
-    console.log('✅ Neo Browser button replaced with NeoPass redirect');
+
+    // Insert our button to the left of the existing button
+    neoButton.parentNode.insertBefore(ourBtn, neoButton);
+
+    // Make the parent (app-button) a flex row so both buttons sit side by side
+    neoButton.parentNode.style.cssText += `
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 8px !important;
+    `;
+
+    neoButton.dataset.replaced = "true";
+
+    console.log('✅ NeoPass NeoBrowser button added left of existing Neo Browser button');
   }
 }
 
-// Observer to detect and replace Neo Browser button
+// Observer to detect Neo Browser button and add our button
 const buttonObserver = new MutationObserver((mutations) => {
   replaceNeoBrowserButton();
 });
