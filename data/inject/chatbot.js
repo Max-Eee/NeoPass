@@ -414,6 +414,9 @@ if (typeof window.isMac === 'undefined') {
             });
         }
 
+        // Chat icon SVG data URL (matching Crisp style)
+        const CHAT_ICON_SVG_URL = 'url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2235%22%20height%3D%2230%22%20viewBox%3D%220%200%2035%2030%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22c%22%20width%3D%22123.1%25%22%20height%3D%22127.9%25%22%20x%3D%22-11.5%25%22%3E%3CfeOffset%20dy%3D%221%22%20in%3D%22SourceAlpha%22%20result%3D%22shadowOffsetOuter1%22%2F%3E%3CfeGaussianBlur%20in%3D%22shadowOffsetOuter1%22%20result%3D%22shadowBlurOuter1%22%20stdDeviation%3D%221%22%2F%3E%3CfeColorMatrix%20in%3D%22shadowBlurOuter1%22%20values%3D%220%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.07%200%22%2F%3E%3C%2Ffilter%3E%3Cfilter%20id%3D%22e%22%20width%3D%22129.7%25%22%20height%3D%22135.9%25%22%20x%3D%22-14.8%25%22%20y%3D%22-14%25%22%3E%3CfeMorphology%20in%3D%22SourceAlpha%22%20radius%3D%221%22%20result%3D%22shadowSpreadInner1%22%2F%3E%3CfeGaussianBlur%20in%3D%22shadowSpreadInner1%22%20result%3D%22shadowBlurInner1%22%20stdDeviation%3D%222%22%2F%3E%3CfeOffset%20in%3D%22shadowBlurInner1%22%20result%3D%22shadowOffsetInner1%22%2F%3E%3CfeComposite%20in%3D%22shadowOffsetInner1%22%20in2%3D%22SourceAlpha%22%20k2%3D%22-1%22%20k3%3D%221%22%20operator%3D%22arithmetic%22%20result%3D%22shadowInnerInner1%22%2F%3E%3CfeColorMatrix%20in%3D%22shadowInnerInner1%22%20values%3D%220%200%200%200%201%200%200%200%200%201%200%200%200%200%201%200%200%200%200.750191215%200%22%2F%3E%3C%2Ffilter%3E%3ClinearGradient%20id%3D%22d%22%20x1%3D%2246.514%25%22%20x2%3D%2256.692%25%22%20y1%3D%2215.835%25%22%20y2%3D%2275.847%25%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fff%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23fff%22%20stop-opacity%3D%22.601%22%2F%3E%3C%2FlinearGradient%3E%3Cpath%20id%3D%22a%22%20d%3D%22m40.34%2016.878.005.052%201.327%2014.35a2%202%200%200%201-1.754%202.17l-7.814.934-3.293%205.326a1%201%200%200%201-1.574.165l-4.207-4.407-8.113.969a2%202%200%200%201-2.228-1.802l-1.328-14.35a2%202%200%200%201%201.755-2.17l25-2.986a2%202%200%200%201%202.223%201.749%22%2F%3E%3C%2Fdefs%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20transform%3D%22translate%28-9%20-14%29%22%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20fill%3D%22%23000%22%20filter%3D%22url%28%23c%29%22%2F%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20fill%3D%22url%28%23d%29%22%2F%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20fill%3D%22%23000%22%20filter%3D%22url%28%23e%29%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")';
+
         // State variables
         let isOverlayVisible = false;
         let chatHistory = [];
@@ -1648,24 +1651,6 @@ if (typeof window.isMac === 'undefined') {
                             if (chatButton) {
                                 chatButton.style.opacity = "1"; // Show chat button with full opacity
                                 chatButton.style.pointerEvents = "auto"; // Ensure pointer events are active
-                                chatButton.innerHTML = `
-                                <svg height="30" width="35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <defs>
-                                        <filter id="a" height="138.7%" width="131.4%" x="-15.7%" y="-15.1%">
-                                            <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
-                                            <feOffset dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
-                                            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1"/>
-                                            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
-                                            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/>
-                                        </filter>
-                                        <path id="b" d="M14.23 20.46l-9.65 1.1L3 5.12 30.07 2l1.58 16.46-9.37 1.07-3.5 5.72-4.55-4.8z"/>
-                                    </defs>
-                                    <g fill="none" fill-rule="evenodd">
-                                        <use fill="#000" filter="url(#a)" xlink:href="#b"/>
-                                        <use fill="#fff" stroke="#fff" stroke-width="2" xlink:href="#b"/>
-                                    </g>
-                                </svg>
-                                `; // Reset chat button icon to original Crisp-style icon
                             }
                             stealthModeButton.innerText = "Enable Stealth Mode"; // Update button text
                             
@@ -1703,27 +1688,7 @@ if (typeof window.isMac === 'undefined') {
                             chatButton.style.opacity = newStealthMode ? "0" : "1";
                             chatButton.style.pointerEvents = "auto"; // Keep pointer events active in both states
                             
-                            // Reset chat button icon when showing - use original Crisp-style icon
-                            if (!newStealthMode) {
-                                chatButton.innerHTML = `
-                                <svg height="30" width="35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <defs>
-                                        <filter id="a" height="138.7%" width="131.4%" x="-15.7%" y="-15.1%">
-                                            <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
-                                            <feOffset dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
-                                            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1"/>
-                                            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
-                                            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/>
-                                        </filter>
-                                        <path id="b" d="M14.23 20.46l-9.65 1.1L3 5.12 30.07 2l1.58 16.46-9.37 1.07-3.5 5.72-4.55-4.8z"/>
-                                    </defs>
-                                    <g fill="none" fill-rule="evenodd">
-                                        <use fill="#000" filter="url(#a)" xlink:href="#b"/>
-                                        <use fill="#fff" stroke="#fff" stroke-width="2" xlink:href="#b"/>
-                                    </g>
-                                </svg>
-                                `;
-                            }
+                            // Icon is set via backgroundImage on child span, no innerHTML reset needed
                         }
                     }
                 });
@@ -1976,7 +1941,7 @@ if (typeof window.isMac === 'undefined') {
                 }
                 
                 button {
-                    display: flex;
+                    display: block;
                     cursor: pointer;
                     border: none;
                     padding: 0;
@@ -1984,57 +1949,56 @@ if (typeof window.isMac === 'undefined') {
                     background: none;
                     outline: none;
                     font-family: 'Poppins', sans-serif;
+                    position: relative;
                 }
                 
-                svg {
+                .chat-icon-span {
                     display: block;
+                    position: absolute;
+                    top: 14px;
+                    right: 10px;
+                    left: 9px;
+                    bottom: 10px;
+                    width: 35px;
+                    height: 30px;
+                    background-image: ${CHAT_ICON_SVG_URL};
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                    background-size: contain;
                     pointer-events: none;
+                    user-select: none;
+                    z-index: 2;
                 }
             `;
 
             const button = document.createElement("button");
             button.id = "chat-button";
             button.style.cssText = `
-                display: flex;
+                display: block;
                 position: fixed;
                 bottom: 20px;
                 right: 20px;
-                width: 60px;
-                height: 60px;
-                background-color: #3c5472;
+                width: 54px;
+                height: 54px;
+                background-color: rgb(60, 84, 114);
                 border: none;
-                border-radius: 50%;
+                border-radius: 100%;
                 color: #fff;
                 cursor: pointer;
                 z-index: 2147483647;
-                box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
-                align-items: center;
-                justify-content: center;
-                transition: none !important;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 10px 0px;
+                transition: background-color 0.1s linear, outline 0.15s ease-in-out, transform 0.15s ease-in-out;
                 pointer-events: auto;
                 padding: 0;
                 margin: 0;
-                outline: none;
+                outline: solid 0px rgba(0, 0, 0, 0);
+                user-select: none;
             `;
 
-            // Use Crisp-style chat bubble icon (decoded from base64)
-            button.innerHTML = `
-            <svg height="30" width="35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <defs>
-                    <filter id="a" height="138.7%" width="131.4%" x="-15.7%" y="-15.1%">
-                        <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
-                        <feOffset dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
-                        <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1"/>
-                        <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
-                        <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/>
-                    </filter>
-                    <path id="b" d="M14.23 20.46l-9.65 1.1L3 5.12 30.07 2l1.58 16.46-9.37 1.07-3.5 5.72-4.55-4.8z"/>
-                </defs>
-                <g fill="none" fill-rule="evenodd">
-                    <use fill="#000" filter="url(#a)" xlink:href="#b"/>
-                    <use fill="#fff" stroke="#fff" stroke-width="2" xlink:href="#b"/>
-                </g>
-            </svg>`;
+            // Chat bubble icon as background-image on child span (matching Crisp style)
+            const iconSpan = document.createElement("span");
+            iconSpan.className = "chat-icon-span";
+            button.appendChild(iconSpan);
 
             // Assemble button in shadow DOM
             buttonShadowRoot.appendChild(buttonStyles);
@@ -2906,26 +2870,7 @@ if (typeof window.isMac === 'undefined') {
                         chatButton.style.opacity = newStealthMode ? "0" : "1";
                         chatButton.style.pointerEvents = "auto"; // Keep pointer events active in both states
                         
-                        // Reset chat button icon when showing - use the original Crisp-style icon
-                        if (!newStealthMode) {
-                            chatButton.innerHTML = `
-                            <svg height="30" width="35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <defs>
-                                    <filter id="a" height="138.7%" width="131.4%" x="-15.7%" y="-15.1%">
-                                        <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
-                                        <feOffset dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
-                                        <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1"/>
-                                        <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
-                                        <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/>
-                                    </filter>
-                                    <path id="b" d="M14.23 20.46l-9.65 1.1L3 5.12 30.07 2l1.58 16.46-9.37 1.07-3.5 5.72-4.55-4.8z"/>
-                                </defs>
-                                <g fill="none" fill-rule="evenodd">
-                                    <use fill="#000" filter="url(#a)" xlink:href="#b"/>
-                                    <use fill="#fff" stroke="#fff" stroke-width="2" xlink:href="#b"/>
-                                </g>
-                            </svg>`;
-                        }
+                        // Icon is set via backgroundImage on child span, no innerHTML reset needed
                     }
                     
                     // Update overlay opacity if it exists
