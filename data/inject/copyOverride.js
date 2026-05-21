@@ -1,4 +1,3 @@
-// Custom Ctrl+C override functionality - Prevents default copy on divs
 (function () {
 	"use strict";
 
@@ -21,8 +20,7 @@
 	// Store the last copied text in a global variable for paste operations
 	window.neoPassClipboard = "";
 
-	// Flag to track when we're performing a custom copy operation
-	let isCustomCopying = false;
+	// REMOVED: Flag to track when we're performing a custom copy operation
 
 	// Override navigator.clipboard.writeText to use our custom copy AND store in clipboard
 	const originalWriteText = navigator.clipboard.writeText;
@@ -52,27 +50,16 @@
 		return Promise.resolve();
 	};
 
-	// Override document.execCommand to use our custom copy method
+	// Keep a reference to the native document.execCommand implementation.
+	// Do not override it: callers expect native selection-based copy behavior and a synchronous boolean return value.
 	const originalExecCommand = document.execCommand;
-	document.execCommand = function (command, showUI, value) {
-		if (command === "copy") {
-			const activeElement = document.activeElement;
-			console.log("Intercepted execCommand copy, using custom copy");
-			const text = activeElement.value || activeElement.textContent;
-			if (text) {
-				return customCopy(text);
-			}
-		}
-		return originalExecCommand.call(this, command, showUI, value);
-	};
 
 	// Function to perform custom copy operation
 	async function customCopy(selectedText) {
 		if (!selectedText) return false;
 
 		try {
-			// Set flag to prevent blocking our own copy
-			isCustomCopying = true;
+			// REMOVED: Set flag to prevent blocking our own copy
 
 			// Store in our global clipboard variable
 			window.neoPassClipboard = selectedText;
@@ -103,38 +90,54 @@
 			invisibleTextarea.value = "";
 			invisibleTextarea.blur();
 
-			// Reset flag after a longer delay to allow all copy events to complete
-			setTimeout(() => {
-				isCustomCopying = false;
-			}, 300);
+			// REMOVED: Reset flag after a longer delay to allow all copy events to complete
 
 			return success;
 		} catch (err) {
 			console.error("Copy using invisible textarea failed:", err);
-			isCustomCopying = false;
 			return false;
 		}
 	}
 
 	// Function to get selected text
 	function getSelectedText() {
+		const activeElement = document.activeElement;
+		if (
+			activeElement &&
+			(activeElement.tagName === "TEXTAREA" ||
+				(activeElement.tagName === "INPUT" &&
+					typeof activeElement.selectionStart === "number" &&
+					typeof activeElement.selectionEnd === "number"))
+		) {
+			const value = activeElement.value || "";
+			const start = activeElement.selectionStart || 0;
+			const end = activeElement.selectionEnd || 0;
+			return value.slice(start, end).trim();
+		}
 		const selection = window.getSelection();
-		return selection.toString().trim();
+		return selection ? selection.toString().trim() : "";
+	}
+
+	function syncNeoPassClipboard() {
+		const selectedText = getSelectedText();
+		if (selectedText) {
+			window.neoPassSelectedText = selectedText;
+			window.neoPassClipboard = selectedText;
+		}
 	}
 
 	// Function removed - login check no longer required
 
 	// REMOVED: Block ALL copy events at the earliest phase
 
+	// Keep fallback clipboard state in sync for browser-native copy operations
+	document.addEventListener("copy", syncNeoPassClipboard(), true);
+
 	// Handle context menu copy
 	document.addEventListener(
 		"contextmenu",
 		function (event) {
-			const selectedText = getSelectedText();
-			if (selectedText) {
-				window.neoPassSelectedText = selectedText;
-				window.neoPassClipboard = selectedText; // Also store in main clipboard
-			}
+			syncNeoPassClipboard();
 		},
 		true,
 	);
