@@ -212,7 +212,11 @@ const getInstalledExtensions = () => {
 setInterval(getInstalledExtensions, 3000);
 
 // Listen for internal messages
-chrome.runtime.onMessage.addListener(handleMessage);
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (!message.instruction) return false;
+    handleMessage(message, sender, sendResponse);
+    return true;
+});
 
 // Version checking functions
 async function checkForUpdate() {
@@ -1339,7 +1343,7 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
                 requestBody = {
                     model: modelName || 'gpt-4o-mini',
                     messages: [{ role: 'user', content: prompt }],
-                    temperature: 0.7
+                    temperature: 1
                 };
                 break;
                 

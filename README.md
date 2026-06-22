@@ -18,8 +18,8 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 > **Want a hassle-free experience?** Upgrade to Pro by visiting **neopass.tech/pro** for AI managed by NeoPass (GPT-5.1), increased rate limits, and NeoBrowser with built in Exam Helper access!  
 
 > [!WARNING]
-> **Educational Purposes Only**: This extension is intended for educational purposes. Please use it responsibly and ethically.  
-> We am not responsible for any actions taken, and we do not encourage or promote cheating in any way.  
+> **Educational Purposes Only**: This extension is intended for educational purposes. Please use it responsibly and ethically.
+> We are not responsible for any actions taken, and we do not encourage or promote cheating in any way.  
 > Be cautious when using the extension to maintain academic integrity.
 
 ## ✨ Features
