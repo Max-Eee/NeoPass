@@ -2837,12 +2837,10 @@ if (typeof window.isMac === 'undefined') {
 
         // Add global keyboard event listeners
         document.addEventListener("keydown", (e) => {
-            // Use Alt (Option) on all platforms including Mac
             const modifierKey = e.altKey;
 
-            // Toggle chat with Alt/Option + C
-            // Use e.code to be layout-independent (Option modifies e.key on macOS)
-            if (modifierKey && e.code === "KeyC") {
+            // Toggle chat with Alt+C (Option+C on macOS).
+            if (modifierKey && !e.ctrlKey && !e.shiftKey && !e.metaKey && e.code === "KeyC") {
                 e.preventDefault(); // Prevent default browser behavior
                 toggleChatOverlay();
             }
@@ -2887,7 +2885,7 @@ if (typeof window.isMac === 'undefined') {
                 }
                 
                 // Create the chat overlay initially but keep it hidden
-                // This ensures Alt+C (Option+C on Mac) will work right from the start
+                // This ensures Alt+C (Option+C on macOS) works right from the start.
                 try {
                     const overlay = createChatOverlay();
                     

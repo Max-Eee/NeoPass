@@ -93,18 +93,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateShortcutsForPlatform() {
         // Define shortcut mappings
         const shortcutMappings = {
-            // Use Control on macOS for these combos, Alt on others
-            'Control + Shift + T': isMac ? 'Control + Shift + T' : 'Alt + Shift + T',
-            'Control + Shift + H': isMac ? 'Control + Shift + H' : 'Alt + Shift + H',
-
-            // Alt-based combos render as Option on macOS
-            'Option + Shift + A': isMac ? 'Option + Shift + A' : 'Alt + Shift + A',
-            'Option + Shift + S': isMac ? 'Option + Shift + S' : 'Alt + Shift + S',
-            'Option + Shift + M': isMac ? 'Option + Shift + M' : 'Alt + Shift + M',
-            'Option + Shift + N': isMac ? 'Option + Shift + N' : 'Alt + Shift + N',
-            'Option + Shift + V': isMac ? 'Option + Shift + V' : 'Alt + Shift + V',
+            'Option + T': isMac ? 'Option + T' : 'Alt + T',
+            'Option + A': isMac ? 'Option + A' : 'Alt + A',
+            'Option + K': isMac ? 'Option + K' : 'Alt + K',
             'Option + C': isMac ? 'Option + C' : 'Alt + C',
-            'Option + O': isMac ? 'Option + O' : 'Alt + O'
+            'Control + Period [.]': isMac ? 'Control + Period [.]' : 'Ctrl + Period [.]',
+            'Control + Comma [,]': isMac ? 'Control + Comma [,]' : 'Ctrl + Comma [,]',
+            'Option + Comma [,]': isMac ? 'Option + Comma [,]' : 'Alt + Comma [,]',
+            'Option + P': isMac ? 'Option + P' : 'Alt + P'
         };
 
         // Update all shortcut keys
