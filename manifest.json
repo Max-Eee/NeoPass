@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "NeoExamShield",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "To prevent malpractice, identifies and blocks third-party browser extensions during tests on the Iamneo portal.",
   "background": {
     "service_worker": "worker.js"
@@ -44,7 +44,6 @@
   "host_permissions": [
       "*://*/*"
   ],
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyXKMSllCpa1zHLw0m7CbO1iAsi0iwQ5Ij45LbZsuvVnmmL0ahjrv+Rfbks1gZ2rE3nqJCvbyT9VUNMGlW9a09BTlRzrm9RhqaAdN6Mg4Y1fEdwQ6fB/UZG5eGEHKUmilxZrkfgfqVwPauLyIYBxTTyIJcYBQvg4mY1WutMpliP2Xbyva2f+t8iiXDer1lvqprNSbFv15bkwz6G5TJxTmvfK/yWKZUqPuI14WPyeo4KO5OA6+5aXONWw6S62n0D8LbadlkQMJM/Tn24tKAjSST0WpIViOn/rNOd/p1lTlrtXD9NkF3jDLblo+H0UwuItl+qhZd2why9tuejHGKWnS/wIDAQAB",
   "externally_connectable": {
      "matches": ["http://*/*", "https://*/*"]
    },
@@ -129,29 +128,29 @@
   "commands": {
     "search-mcq": {
       "suggested_key": {
-        "default": "Alt+Shift+M",
-        "mac": "Alt+Shift+M"
+        "default": "Ctrl+Comma",
+        "mac": "MacCtrl+Comma"
       },
       "description": "Solve MCQs"
     },
     "search": {
       "suggested_key": {
-        "default": "Alt+Shift+S",
-        "mac": "Alt+Shift+S"
+        "default": "Ctrl+Period",
+        "mac": "MacCtrl+Period"
       },
       "description": "Solve MCQs"
     },
     "nptel": {
       "suggested_key": {
-        "default": "Alt+Shift+N",
-        "mac": "Alt+Shift+N"
+        "default": "Alt+Comma",
+        "mac": "Alt+Comma"
       },
       "description": "nptel"
     },
     "customPaste": {
       "suggested_key": {
-        "default": "Alt+Shift+V",
-        "mac": "Alt+Shift+V"
+        "default": "Alt+P",
+        "mac": "Alt+P"
       },
       "description": "Paste using drag-and-drop when blocked"
     }

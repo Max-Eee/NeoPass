@@ -338,7 +338,7 @@ async function performDragDropPaste() {
     console.log('[CustomPaste] Drag-drop and paste events enabled');
 })();
 
-// Handle both Ctrl+V/Cmd+V (standard paste) and Alt+Shift+V/Option+Shift+V (drag-drop paste)
+// Handle both Ctrl+V/Cmd+V (standard paste) and Alt+P (drag-drop paste).
 document.addEventListener('keydown', async function(event) {
     const altKey = event.altKey;
     const ctrlKey = event.ctrlKey || event.metaKey; // Support both Ctrl (Windows/Linux) and Cmd (macOS)
@@ -434,8 +434,8 @@ document.addEventListener('keydown', async function(event) {
             }
         }
     }
-    // Alt+Shift+V (Option+Shift+V on macOS) triggers drag-drop paste
-    else if (altKey && event.shiftKey && (event.key === 'V' || event.key === 'v')) {
+    // Alt+P (Option+P on macOS) triggers drag-drop paste.
+    else if (altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey && (event.key === 'P' || event.key === 'p')) {
         event.preventDefault();
         event.stopPropagation();
         event.stopImmediatePropagation();

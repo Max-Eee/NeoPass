@@ -108,9 +108,9 @@ if (typeof window.isMac === 'undefined') {
       return;
     }
 
-  // Ctrl + Shift + T on macOS, Alt + Shift + T on others
-  const primaryModifierT = (window.isMac ? event.ctrlKey : event.altKey);
-  if (primaryModifierT && event.shiftKey && event.code === "KeyT") {
+  // Alt+T on Windows/Linux; Option+T on macOS.
+  const primaryModifierT = event.altKey && !event.ctrlKey && !event.shiftKey && !event.metaKey;
+  if (primaryModifierT && event.code === "KeyT") {
       event.preventDefault();
       
       // If already typing (code has been fetched), just continue typing

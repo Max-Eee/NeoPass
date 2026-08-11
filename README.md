@@ -84,32 +84,32 @@ https://github.com/user-attachments/assets/89fb986c-2edb-4252-8232-dbd10beec0cf
 ## ⌨️ Shortcuts
 
 ### Windows/Linux Users:
-- <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>Q</kbd> : Solve Iam Neo MCQs/Coding Questions with 100% ACCURACY
-- <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> : Solve Iam Neo MCQs/Coding Questions with using AI [Backup]
-- <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Autotypes Iam Neo Coding Question Solution letter by letter
-- <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> : Solve HackerRank Questions [BETA]
+- <kbd>Alt</kbd> + <kbd>A</kbd> : Search Neo Answers Using AI
+- <kbd>Alt</kbd> + <kbd>T</kbd> : Autotypes Iam Neo Coding Question Solution letter by letter
+- <kbd>Alt</kbd> + <kbd>K</kbd> : Solve HackerRank Questions [BETA]
 > [!NOTE]
 > The following shortcuts **require text to be selected** before activation:  
-> - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> : Solve NPTEL MCQs from selected text
-> - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> : Search answers and code from selected text  
-> - <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> : Search MCQs from selected text
+> - <kbd>Alt</kbd> + <kbd>Comma [,]</kbd> : Solve NPTEL MCQs from selected text
+> - <kbd>Ctrl</kbd> + <kbd>Period [.]</kbd> : Search answers and code from selected text
+> - <kbd>Ctrl</kbd> + <kbd>Comma [,]</kbd> : Search MCQs from selected text
+- <kbd>Alt</kbd> + <kbd>P</kbd> : Paste using drag and drop when blocked
 - <kbd>Ctrl</kbd> + <kbd>V</kbd> : Paste content when blocked
 - <kbd>Alt</kbd> + <kbd>C</kbd> : Open/Close Chatbot
 
 <details>
 <summary><strong>Mac Users (Click to expand)</strong></summary>
 
-- <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Q</kbd> : Solve Iam Neo MCQs/Coding Questions with 100% ACCURACY
-- <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> : Solve Iam Neo MCQs/Coding Questions with using AI [Backup]
-- <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Autotypes Iam Neo Coding Question Solution letter by letter
-- <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> : Solve HackerRank Questions [BETA]
+- <kbd>Option</kbd> + <kbd>A</kbd> : Search Neo Answers Using AI
+- <kbd>Option</kbd> + <kbd>T</kbd> : Autotypes Iam Neo Coding Question Solution letter by letter
+- <kbd>Option</kbd> + <kbd>K</kbd> : Solve HackerRank Questions [BETA]
 
 > [!NOTE]
 > The following shortcuts **require text to be selected** before activation:  
-> - <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> : Solve NPTEL MCQs from selected text
-> - <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> : Search answers and code from selected text  
-> - <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> : Search MCQs from selected text
+> - <kbd>Option</kbd> + <kbd>Comma [,]</kbd> : Solve NPTEL MCQs from selected text
+> - <kbd>Control</kbd> + <kbd>Period [.]</kbd> : Search answers and code from selected text
+> - <kbd>Control</kbd> + <kbd>Comma [,]</kbd> : Search MCQs from selected text
 
+- <kbd>Option</kbd> + <kbd>P</kbd> : Paste using drag and drop when blocked
 - <kbd>Cmd</kbd> + <kbd>V</kbd> : Paste content when blocked
 - <kbd>Option</kbd> + <kbd>C</kbd> : Open/Close Chatbot
 

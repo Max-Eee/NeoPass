@@ -374,52 +374,52 @@ function solveIamneoExamly(){
         }
 }
 document.addEventListener('keydown', (event) => {
-    // Use Option (Alt) key on all platforms
     const modifierKey = event.altKey;
 
-    if (modifierKey && event.shiftKey && event.code === 'KeyA') {
+    if (modifierKey && !event.ctrlKey && !event.shiftKey && !event.metaKey && event.code === 'KeyA') {
+        event.preventDefault();
         solveIamneoExamly();
     }
 });
 
-// Alt+Shift+T (Ctrl+Shift+T on Mac): Typed code insertion — only handles initial AI fetch.
+// Alt+T (Option+T on macOS): Typed code insertion.
 // Resume/stop/continue typing is handled by exam.js locally.
 let _typedFetchQuestion = null; // track which question we already fetched for
 document.addEventListener('keydown', (event) => {
-    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-    const modifierKey = isMac ? event.ctrlKey : event.altKey;
+    const modifierKey = event.altKey;
 
-    if (modifierKey && event.shiftKey && event.code === 'KeyT') {
-        console.log('[Alt+Shift+T] Key detected in content.js');
+    if (modifierKey && !event.ctrlKey && !event.shiftKey && !event.metaKey && event.code === 'KeyT') {
+        event.preventDefault();
+        console.log('[Alt+T] Key detected in content.js');
 
         // Only fetch if this is a coding question
         const codingQuestionElement = document.querySelector('div[aria-labelledby="input-format"]');
-        console.log('[Alt+Shift+T] codingQuestionElement found:', !!codingQuestionElement);
+        console.log('[Alt+T] codingQuestionElement found:', !!codingQuestionElement);
         if (!codingQuestionElement) return;
 
         // Get current question number to avoid re-fetching
         const qEl = document.querySelector('div[class*="t-bg-primary"]');
         const qMatch = qEl && qEl.textContent.match(/Question No : (\d+)/);
         const qNum = qMatch ? qMatch[1] : null;
-        console.log('[Alt+Shift+T] question number:', qNum, 'already fetched for:', _typedFetchQuestion);
+        console.log('[Alt+T] question number:', qNum, 'already fetched for:', _typedFetchQuestion);
 
         if (qNum && _typedFetchQuestion === qNum) {
-            console.log('[Alt+Shift+T] Already fetched for this question, skipping');
+            console.log('[Alt+T] Already fetched for this question, skipping');
             return;
         }
         _typedFetchQuestion = qNum;
 
-        console.log('[Alt+Shift+T] Calling extractCodingQuestion(true)');
+        console.log('[Alt+T] Calling extractCodingQuestion(true)');
         extractCodingQuestion(true); // isTyped = true
     }
 });
 
-// Add event listener for Option+O to toggle toast opacity
+// Add event listener for Alt+O to toggle toast opacity.
 document.addEventListener('keydown', (event) => {
-    // Use Option (Alt) key on all platforms
     const modifierKey = event.altKey;
     
-    if (modifierKey && event.code === 'KeyO') {
+    if (modifierKey && !event.ctrlKey && !event.shiftKey && !event.metaKey && event.code === 'KeyO') {
+        event.preventDefault();
         chrome.runtime.sendMessage({
             action: 'toggleToastOpacity'
         });
@@ -733,7 +733,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 const optionMatch = request.response.match(/(?:options?\s*)?(\d+)\.?/i);
                 if (optionMatch) {
                     const optionNumber = parseInt(optionMatch[1])-1;
-                    // Use exact same selector as Alt+Shift+Q
+                    // Use the same selector as the primary Iamneo answer flow.
                     const answerElement = document.querySelector(`#tt-option-${optionNumber} > label > span.checkmark1`);
                     
                     if (answerElement) {
@@ -1338,12 +1338,12 @@ ${codingData.starterCode}
     }
 }
 
-// Add event listener for Ctrl+Shift+H (Mac) or Alt+Shift+H (Windows) for HackerRank MCQ extraction
+// Add event listener for Alt+K (Option+K on macOS).
 document.addEventListener('keydown', (event) => {
-    // Use Ctrl on Mac, Alt on Windows/other platforms
-    const modifierKey = window.isMac ? event.ctrlKey : event.altKey;
+    const modifierKey = event.altKey;
     
-    if (modifierKey && event.shiftKey && event.code === 'KeyH') {
+    if (modifierKey && !event.ctrlKey && !event.shiftKey && !event.metaKey && event.code === 'KeyK') {
+        event.preventDefault();
         handleHackerRankMCQ();
     }
 });
