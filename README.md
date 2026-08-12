@@ -10,7 +10,7 @@
 
 **NeoPass Pro & NeoBrowser Solver** — Upgrade to a hassle-free experience with NeoPass Pro.
 
-- **`NeoPass Neo Browser Solver`** : Get exclusive access to the NeoBrowser with a built-in Exam Helper.
+- **`NeoPass Neo Browser Solver`** : Get exclusive access to the Neo Browser Solver: An invisible overlay with the correct option and correct code.
 - **`Managed AI by NeoPass`** : NO API key configuration needed!
 - **`Screenshare Bypass`** : Bypass full-screen restrictions (Share Tab/Window, Blank Screen, or Frozen Screen).
 
