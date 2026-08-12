@@ -2,7 +2,19 @@
 
 # <i>**`Free`** NeoPass Extension</i>
 
-> **NeoPass Pro** - [Click here to see Pro features and benefits](https://neopass.tech/pro)
+<a href="https://chromewebstore.google.com/detail/neoexamshield/mcegcdlkenhbgggijnobjckjijfjmmji" target="_blank">
+  <img src="https://img.shields.io/badge/Available_in_the-Chrome_Web_Store-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Available in the Chrome Web Store" height="45" />
+</a>
+
+<br/>
+
+**NeoPass Pro & NeoBrowser Solver** — Upgrade to a hassle-free experience with NeoPass Pro.
+
+- **`NeoPass Neo Browser Solver`** : Get exclusive access to the NeoBrowser with a built-in Exam Helper.
+- **`Managed AI by NeoPass`** : NO API key configuration needed!
+- **`Screenshare Bypass`** : Bypass full-screen restrictions (Share Tab/Window, Blank Screen, or Frozen Screen).
+
+⬇️ [**Click here to get NeoPass Pro and download the NeoPass Neo Browser Solver!**](https://neopass.tech/pro)
 
 This chrome extension is for students taking tests on the **`Iamneo portal`**, **`HackerRank`**, **`Wildlife Ecology NPTEL`**, **`conservation-geography NPTEL`**, **`forest management NPTEL`** and `other exam portals in chrome browser` that restrict your abilities
 
@@ -41,7 +53,7 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
   - **Share Tab/Window** — share only the current tab or window instead of the entire screen
   - **Share Blank Screen** — share a black screen without capturing anything real
   - **Share Frozen Screen** — capture a single frame of your screen and freeze it
-- **`NeoBrowser Access`** : Exclusive access to the NeoBrowser with built in Exam Helper
+- **`NeoBrowser Solver Access`** : Exclusive access to the [NeoBrowser with built in Exam Helper](https://neopass.tech/pro)
 - **`No Network Restrictions`** : Works even if AI providers are blocked on your network
 - **`Increased Rate Limits`** : Higher usage limits for intensive exam sessions
 - **`Priority Support`** : Get help when you need it most
