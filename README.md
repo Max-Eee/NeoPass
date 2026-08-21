@@ -2,12 +2,6 @@
 
 # <i>**`Free`** NeoPass Extension</i>
 
-<a href="https://chromewebstore.google.com/detail/neoexamshield/mcegcdlkenhbgggijnobjckjijfjmmji" target="_blank">
-  <img src="https://img.shields.io/badge/Available_in_the-Chrome_Web_Store-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Available in the Chrome Web Store" height="45" />
-</a>
-
-<br/>
-
 **NeoPass Pro & NeoBrowser Solver** — Upgrade to a hassle-free experience with NeoPass Pro.
 
 - **`NeoPass Neo Browser Solver`** : Get exclusive access to the Neo Browser Solver: An invisible overlay with the correct option and correct code.
@@ -69,10 +63,7 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 
 ### Installation Guide Video
 
-
-
-https://github.com/user-attachments/assets/89fb986c-2edb-4252-8232-dbd10beec0cf
-
+https://github.com/user-attachments/assets/eefb46a6-c7d1-4b65-b12b-a0aa674b02d0
 
 ## 💻 Usage
 
