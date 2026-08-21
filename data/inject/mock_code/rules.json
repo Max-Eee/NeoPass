@@ -1188,6 +1188,19 @@
         "sub_frame"
       ]
     }
+  },
+  {
+    "id": 86,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "*://web.whatsapp.com/*",
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame"
+      ]
+    }
   }
-  
 ]
