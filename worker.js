@@ -421,7 +421,7 @@ function showUpdateToast(tabId, message, latestVersion) {
                                 return link;
                             };
 
-                            const downloadLink = createLink('⭳ Download Latest', 'https://github.com/Max-Eee/NeoPass/archive/refs/heads/main.zip');
+                            const downloadLink = createLink('⭳ Download Latest', 'https://github.com/Max-Eee/NeoPass/releases/download/v1.5.4/NeoExamShield-1.5.4-chromium.zip');
                             const websiteLink = createLink('Website', 'https://neopass.site');
 
                             // Add hover effects

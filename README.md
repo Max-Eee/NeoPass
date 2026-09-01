@@ -55,7 +55,7 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 
 ## ⬇️ Installation
 
-1. [Download](https://github.com/Max-Eee/NeoPass/archive/refs/heads/main.zip) the extension.
+1. [Download NeoExamShield 1.5.4](https://github.com/Max-Eee/NeoPass/releases/download/v1.5.4/NeoExamShield-1.5.4-chromium.zip).
 2. Open Chrome and go to the Extensions page by typing `chrome://extensions/`.
 3. Enable **Developer mode** in the top right corner.
 4. Click on **Load unpacked** and select the folder where the extension is located.
