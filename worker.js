@@ -422,7 +422,7 @@ function showUpdateToast(tabId, message, latestVersion) {
                             };
 
                             const downloadLink = createLink('⭳ Download Latest', 'https://github.com/Max-Eee/NeoPass/archive/refs/heads/main.zip');
-                            const websiteLink = createLink('Website', 'https://freeneopass.vercel.app');
+                            const websiteLink = createLink('Website', 'https://neopass.site');
 
                             // Add hover effects
                             gradientContainer.onmouseover = () => {
@@ -1474,7 +1474,7 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
 }
 
 
-const API_BASE_URL = 'https://api.neopass.tech';
+const API_BASE_URL = 'https://api.neopass.site';
 // Listen for messages from Chrome runtime for ChatBot
 // Helper function to get tokens from chrome storage
 async function getTokens() {

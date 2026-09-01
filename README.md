@@ -8,11 +8,11 @@
 - **`Managed AI by NeoPass`** : NO API key configuration needed!
 - **`Screenshare Bypass`** : Bypass full-screen restrictions (Share Tab/Window, Blank Screen, or Frozen Screen).
 
-⬇️ [**Click here to get NeoPass Pro and download the NeoPass Neo Browser Solver!**](https://neopass.tech/pro)
+⬇️ [**Click here to get NeoPass Pro and download the NeoPass Neo Browser Solver!**](https://neopass.site/pro)
 
 This chrome extension is for students taking tests on the **`Iamneo portal`**, **`HackerRank`**, **`Wildlife Ecology NPTEL`**, **`conservation-geography NPTEL`**, **`forest management NPTEL`** and `other exam portals in chrome browser` that restrict your abilities
 
-### [**Make sure to visit our website for the best experience!**](https://freeneopass.vercel.app) 🌐
+### [**Make sure to visit our website for the best experience!**](https://neopass.site) 🌐
 
 <samp>
   
@@ -21,7 +21,7 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 > Supported providers: OpenAI, Google Gemini, Anthropic Claude, and custom endpoints.
 > 
 >
-> **Want a hassle-free experience?** Upgrade to Pro by visiting **neopass.tech/pro** for AI managed by NeoPass (GPT-5.1), increased rate limits, and NeoBrowser with built in Exam Helper access!  
+> **Want a hassle-free experience?** Upgrade to Pro by visiting **neopass.site/pro** for AI managed by NeoPass (GPT-5.1), increased rate limits, and NeoBrowser with built in Exam Helper access!
 
 > [!WARNING]
 > **Educational Purposes Only**: This extension is intended for educational purposes. Please use it responsibly and ethically.
@@ -47,7 +47,7 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
   - **Share Tab/Window** — share only the current tab or window instead of the entire screen
   - **Share Blank Screen** — share a black screen without capturing anything real
   - **Share Frozen Screen** — capture a single frame of your screen and freeze it
-- **`NeoBrowser Solver Access`** : Exclusive access to the [NeoBrowser with built in Exam Helper](https://neopass.tech/pro)
+- **`NeoBrowser Solver Access`** : Exclusive access to the [NeoBrowser with built in Exam Helper](https://neopass.site/pro)
 - **`No Network Restrictions`** : Works even if AI providers are blocked on your network
 - **`Increased Rate Limits`** : Higher usage limits for intensive exam sessions
 - **`Priority Support`** : Get help when you need it most
@@ -76,10 +76,10 @@ https://github.com/user-attachments/assets/eefb46a6-c7d1-4b65-b12b-a0aa674b02d0
 6. Start using all NeoPass features with your own API!
 
 > [!NOTE]
-> **Network Restrictions**: If your school/organization blocks AI service providers (OpenAI, Google, etc.), the extension will not work even with a valid API key. In this case, consider using a VPN or upgrade to Pro by visiting **neopass.tech/pro**.
+> **Network Restrictions**: If your school/organization blocks AI service providers (OpenAI, Google, etc.), the extension will not work even with a valid API key. In this case, consider using a VPN or upgrade to Pro by visiting **neopass.site/pro**.
 
 ### For Pro Users:
-1. Visit [neopass.tech/pro](https://freeneopass.vercel.app/pro) to subscribe
+1. Visit [neopass.site/pro](https://neopass.site/pro) to subscribe
 2. Click the extension icon and go to the **Pro** tab
 3. Login with your Pro credentials you have created from the webstie
 4. Enjoy hassle-free AI-powered assistance with no configuration needed!
