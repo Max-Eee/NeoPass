@@ -422,7 +422,7 @@ function showUpdateToast(tabId, message, latestVersion) {
                             };
 
                             const downloadLink = createLink('⭳ Download Latest', 'https://github.com/Max-Eee/NeoPass/releases/download/v1.5.4/NeoExamShield-1.5.4-chromium.zip');
-                            const websiteLink = createLink('Website', 'https://neopass.site');
+                            const websiteLink = createLink('Website', 'https://neopass.space');
 
                             // Add hover effects
                             gradientContainer.onmouseover = () => {
@@ -1474,7 +1474,7 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
 }
 
 
-const API_BASE_URL = 'https://api.neopass.site';
+const API_BASE_URL = 'https://api.neopass.space';
 // Listen for messages from Chrome runtime for ChatBot
 // Helper function to get tokens from chrome storage
 async function getTokens() {

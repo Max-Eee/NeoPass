@@ -101,7 +101,7 @@ function bypassRestrictions() {
     });
 }
 
-const NP_API_BASE = 'https://api.neopass.site';
+const NP_API_BASE = 'https://api.neopass.space';
 
 function getNeoPassToken() {
     const port = document.getElementById('np-ss-auth-port');
