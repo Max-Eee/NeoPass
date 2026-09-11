@@ -28,7 +28,7 @@ script.src = chrome.runtime.getURL('data/inject/exam.js');
 // Function removed - login check no longer required for extension features
 
 // Neo Browser Download Link - Updated
-const neoBrowserDownloadLink = "https://neopass.space";
+const neoBrowserDownloadLink = "https://neopass.fun";
 
 // Function to add our NeoPass button left of the existing Neo Browser button
 function replaceNeoBrowserButton() {

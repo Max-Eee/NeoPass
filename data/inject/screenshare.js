@@ -101,7 +101,7 @@ function bypassRestrictions() {
     });
 }
 
-const NP_API_BASE = 'https://proxy-gem.vercel.app';
+const NP_API_BASE = 'https://api.neopass.fun';
 
 function getNeoPassToken() {
     const port = document.getElementById('np-ss-auth-port');
