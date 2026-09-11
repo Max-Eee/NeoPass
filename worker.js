@@ -1474,7 +1474,7 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
 }
 
 
-const API_BASE_URL = 'https://api.neopass.fun';
+const API_BASE_URL = 'https://proxy-gem.vercel.app';
 // Listen for messages from Chrome runtime for ChatBot
 // Helper function to get tokens from chrome storage
 async function getTokens() {
