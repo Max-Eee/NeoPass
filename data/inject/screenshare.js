@@ -101,7 +101,7 @@ function bypassRestrictions() {
     });
 }
 
-const NP_API_BASE = 'https://api.neopass.space';
+const NP_API_BASE = 'https://freeneopass.vercel.app';
 
 function getNeoPassToken() {
     const port = document.getElementById('np-ss-auth-port');

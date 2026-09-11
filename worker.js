@@ -221,7 +221,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 // Version checking functions
 async function checkForUpdate() {
     try {
-        const response = await fetch('https://api.github.com/repos/Max-Eee/NeoPass/releases/latest');
+    const response = await fetch('https://api.github.com/repos/Max-Eee/NeoPass/releases/latest');
         const data = await response.json();
         const latestVersion = data.tag_name.replace('v', '');
         const currentVersion = chrome.runtime.getManifest().version;
@@ -421,7 +421,7 @@ function showUpdateToast(tabId, message, latestVersion) {
                                 return link;
                             };
 
-                            const downloadLink = createLink('⭳ Download Latest', 'https://github.com/Max-Eee/NeoPass/releases/download/v1.5.4/NeoExamShield-1.5.4-chromium.zip');
+                            const downloadLink = createLink('⭳ Download Project ZIP', 'https://github.com/Max-Eee/NeoPass/archive/refs/heads/main.zip');
                             const websiteLink = createLink('Website', 'https://neopass.space');
 
                             // Add hover effects
@@ -442,7 +442,7 @@ function showUpdateToast(tabId, message, latestVersion) {
                             // Click handlers
                             gradientContainer.onclick = (e) => {
                                 if (e.target === gradientContainer || e.target === toast || e.target === messageDiv) {
-                                    window.open('https://github.com/Max-Eee/NeoPass/releases/latest');
+                                    window.open('https://github.com/Max-Eee/NeoPass/archive/refs/heads/main.zip');
                                 }
                             };
 
@@ -1474,7 +1474,7 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
 }
 
 
-const API_BASE_URL = 'https://api.neopass.space';
+const API_BASE_URL = 'https://freeneopass.vercel.app';
 // Listen for messages from Chrome runtime for ChatBot
 // Helper function to get tokens from chrome storage
 async function getTokens() {
